@@ -1,0 +1,90 @@
+\documentclass[
+	12pt,
+	a4paper,
+% 	bibtotoc, % obsolet
+	bibliography=totoc,
+% 	cleardoubleempty, % obsolet
+	cleardoublepage=empty,
+% 	idxtotoc, % obsolet
+	index=totoc,
+	ngerman,
+	openright
+	final,
+	listof=nochaptergap,
+	hidelinks,
+	%numbers=noenddot
+	]{scrbook}
+
+\include{preamble}
+
+\usepackage[all]{nowidow}
+\makeindex
+ 
+\begin{document}
+
+
+% \nocite{ploetner}
+% \nocite{windows}
+\setcounter{secnumdepth}{3}
+\setlength{\parindent}{0pt} % mach das Einrücken weg bei neuen Abschnitten
+% Titelblatt
+\include{content/title}
+\cleardoubleemptypage
+
+\frontmatter % römische Seitennummerierung
+
+\onehalfspacing 
+% Abstract
+\include{content/abstract}
+\cleardoubleemptypage
+\singlespacing
+% Inhaltsverzeichnis
+\phantomsection
+\tableofcontents
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+\cleardoubleemptypage
+
+% Abbildungsverzeichnis einbinden und ins Inhaltsverzeichnis
+% WORKAROUND: tocloft und KOMA funktionieren zusammen nicht
+% korrekt\phantomsection
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename} 
+\listoffigures
+\cleardoubleemptypage
+
+% Tabellenverzeichnis einbinden und ins Inhaltsverzeichnis
+% WORKAROUND: tocloft und KOMA funktionieren zusammen nicht
+% korrekt\phantomsection
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\cleardoubleemptypage
+
+% Abkürzungsverzeichnis
+\include{content/abbreviations}
+
+\mainmatter % arabische Seitennummerierung
+\onehalfspacing 
+\include{content/c1}
+\include{content/c2}
+\include{content/c3}
+\include{content/c4}
+\include{content/c5}
+
+% Schalgwortverzeichnis (Index)
+%\printindex
+
+% Literaturverzeichnis
+\singlespacing
+\bibliographystyle{alphadin}
+\bibliography{bibtex}
+
+
+% Eidesstattliche Erklärung
+\include{content/affirmation}
+
+%\appendix
+% Hier können Anhaenge angefuegt werden
+%\include{appendix}
+  
+\end{document}      
