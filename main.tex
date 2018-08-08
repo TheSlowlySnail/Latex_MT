@@ -18,6 +18,7 @@
 \include{preamble}
 
 \usepackage[all]{nowidow}
+
 \makeindex
  
 \begin{document}
@@ -41,7 +42,7 @@
 % Inhaltsverzeichnis
 \phantomsection
 \tableofcontents
-\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+%\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 \cleardoubleemptypage
 
 % Abbildungsverzeichnis einbinden und ins Inhaltsverzeichnis
@@ -71,14 +72,19 @@
 \include{content/c4}
 \include{content/c5}
 
+
+
 % Schalgwortverzeichnis (Index)
 %\printindex
 
 % Literaturverzeichnis
-\singlespacing
-\bibliographystyle{alphadin}
-\bibliography{bibtex}
 
+
+\singlespacing
+%\bibliographystyle{alphadin}
+%\bibliography{bibitems}
+%\addbibresource{bibitems.bib}
+\printbibliography
 
 % Eidesstattliche Erklärung
 \include{content/affirmation}
