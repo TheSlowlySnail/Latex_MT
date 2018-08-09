@@ -1,0 +1,139 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{akbarali}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=b03013287cec70a9accc9b92e491621d}{%
+           family={{Ashiq Mohamed Akbar Ali}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Hochschule Furtwangen}%
+      }
+      \list{location}{1}{%
+        {Furtwangen}%
+      }
+      \strng{namehash}{b03013287cec70a9accc9b92e491621d}
+      \strng{fullhash}{b03013287cec70a9accc9b92e491621d}
+      \strng{bibnamehash}{b03013287cec70a9accc9b92e491621d}
+      \strng{authorbibnamehash}{b03013287cec70a9accc9b92e491621d}
+      \strng{authornamehash}{b03013287cec70a9accc9b92e491621d}
+      \strng{authorfullhash}{b03013287cec70a9accc9b92e491621d}
+      \field{labelalpha}{Ash17}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Creating a website with Info-Terminal and Live CCTV Stream for the Smart Home Laboratory at the Hochschule Furtwangen University}
+      \field{type}{Masterthesis}
+      \field{year}{30.08.2017}
+      \warn{\item Entry 'akbarali' (literatur.bib): Invalid format '31.07.2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Grande.2014}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c0620b436df05dbccd90b93e2af3ac1d}{%
+           family={Grande},
+           familyi={G\bibinitperiod},
+           given={Marcus},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Wiesbaden}%
+      }
+      \list{publisher}{1}{%
+        {Springer Vieweg}%
+      }
+      \strng{namehash}{c0620b436df05dbccd90b93e2af3ac1d}
+      \strng{fullhash}{c0620b436df05dbccd90b93e2af3ac1d}
+      \strng{bibnamehash}{c0620b436df05dbccd90b93e2af3ac1d}
+      \strng{authorbibnamehash}{c0620b436df05dbccd90b93e2af3ac1d}
+      \strng{authornamehash}{c0620b436df05dbccd90b93e2af3ac1d}
+      \strng{authorfullhash}{c0620b436df05dbccd90b93e2af3ac1d}
+      \field{labelalpha}{Gra14}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In der Produkt-, System- und Softwareentwicklung spielt der professionelle Umgang mit Anforderungen eine entscheidende Rolle f{ü}r den Erfolg der gesamten Entwicklung und f{ü}r das entstehende Produkt. Dieses Buch vermittelt in kompakter Form das notwendige Grundwissen f{ü}r Anforderungsmanagement. Begleitet werden die Ausf{ü}hrungen von Praxiserfahrungen und Beispielvorlagen. Der Inhalt Warum Anforderungsmanagement - T{ä}tigkeiten und Abl{ä}ufe im AM - Anforderungen finden, dokumentieren und validieren - Verwaltung und Pflege von Anforderungen - Nachverfolgbarkeit - Kontext Reifegrad- und Vorgehensmodelle - Anforderungs-Austausch-Format RIF~- Werkzeuge - Praxiserfahrungen - Beispiele - Vorlagen Die Zielgruppen Gesch{ä}ftsf{ü}hrer Team- und Projektleiter Entwickler Dozenten und Referenten Studierende Der Autor Dipl.-Ing. Marcus Grande ist Teamleiter und Softwareentwickler im Bereich der Embedded Systeme. Dar{ü}ber hinaus ist er als Dozent und Coach t{ä}tig. Seine Schwerpunkte liegen in den Bereichen Anforderungs- und Konfigurationsmanagement, Softwaredesign und -architektur sowie Qualit{ä}tssicherung und dem Testen von Software}
+      \field{edition}{2., aktualisierte Auflage}
+      \field{isbn}{978-3-658-06434-1}
+      \field{title}{100 Minuten f{ü}r Anforderungsmanagement: Kompaktes Wissen nicht nur f{ü}r Projektleiter und Entwickler}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1007/978-3-658-06435-8
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-3-658-06435-8
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-658-06435-8
+      \endverb
+    \endentry
+    \entry{Niermann.2017}{book}{}
+      \name{editor}{2}{}{%
+        {{hash=a763af3597b4958edb05921dfdc981c4}{%
+           family={Niermann},
+           familyi={N\bibinitperiod},
+           given={Peter\bibnamedelima F.-J.},
+           giveni={P\bibinitperiod\bibinitdelim F\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=de79b25d5d7eb477f89a0308a4d82c8e}{%
+           family={Schmutte},
+           familyi={S\bibinitperiod},
+           given={Andre\bibnamedelima M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Wiesbaden}%
+      }
+      \list{publisher}{1}{%
+        {Springer Gabler}%
+      }
+      \strng{namehash}{2da65c8deb2ce7160defcb17e2bf8acd}
+      \strng{fullhash}{2da65c8deb2ce7160defcb17e2bf8acd}
+      \strng{bibnamehash}{2da65c8deb2ce7160defcb17e2bf8acd}
+      \strng{editorbibnamehash}{2da65c8deb2ce7160defcb17e2bf8acd}
+      \strng{editornamehash}{2da65c8deb2ce7160defcb17e2bf8acd}
+      \strng{editorfullhash}{2da65c8deb2ce7160defcb17e2bf8acd}
+      \field{labelalpha}{NS17}
+      \field{sortinit}{N}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Modernes Management -- Unternehmensentwicklung: Der erfolgreiche Weg an die Spitze -- F{ü}hrungskr{ä}fte und Mitarbeiter: Die DNA des Unternehmens -- Marktorientierung, Strategie und Finanzmanagement: Die langfristige Wettbewerbsf{ä}higkeit sichern -- Produkt-, Prozess- und Projektmanagement: Den Benefit f{ü}r den Kunden realisieren Zusammen mit vielen renommierten Experten vermitteln Peter Niermann und Andre Schmutte in dieser aktualisierten und vollst{ä}ndig {ü}berarbeiteten 2. Auflage konkrete Handlungsempfehlungen f{ü}r das Management. Sie beschreiben Methoden, Tools und Taktiken, die zum R{ü}stzeug erfolgreicher Unternehmensf{ü}hrung geh{ö}ren. Was zeichnet erfolgreiche Unternehmer und Manager aus? Wie entwickeln sich Unternehmen und was sind die Erfolgsfaktoren f{ü}r Wachstum? Entscheider aus Gro{ß}unternehmen und dem Mittelstand (Audi, Telekom, Siemens, Kathrein, DHL, Steelcase und andere) erl{ä}utern in Interviews und Fallstudien ihre Erfahrungen und Vorgehensweisen. Der Inhalt - Modernes Management: Ideen, Legenden, und vom Wesen des Unternehmens - Unternehmensentwicklung: Der Weg an die Spitze - F{ü}hrung, Motivation und Macht: Die Wirkung von Leadership - Marktorientierung, Strategie und Finanzmanagement: Die langfristige Wettbewerbsf{ä}higkeit sichern{<} - Produkt-, Prozess- und Projektmanagement: Den Benefit f{ü}r den Kunden realisieren Die Herausgeber Prof. Dr. Peter F.-J. Niermann ist Gr{ü}nder {\&} Managing Director der straightlabs GmbH {\&} Co. KG und Professor f{ü}r strategisches und internationales Management an der Hochschule f{ü}r angewandtes Management. Er verkn{ü}pft wissenschaftliche Forschung mit praktischer Anwendung und entwickelt virtuelle Trainingswelten f{ü}r Industrie- und Dienstleistungsunternehmen. Prof. Dr. Andre M. Schmutte, Autor, Keynote Speaker, Berater und Coach. Managing Director des beratenden iMK Institut f{ü}r Managementkompetenz M{ü}nchen und Professor f{ü}r marktorientierte Unternehmensf{ü}hrung an der Hochschule f{ü}r angewandtes Management. Experte f{ü}r Business Transformation, ber{ä}t im strategischen Management, der Unternehmensentwicklung und Prozessoptimierung und entwickelt virtuelle Trainings und Lehrvideos f{ü}r Management {\&} F{ü}hrungskr{ä}ftenachwuchs}
+      \field{edition}{2. Auflage}
+      \field{isbn}{978-3-658-10181-7}
+      \field{title}{Managemententscheidungen: Methoden, Handlungsempfehlungen, Best Practices}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1007/978-3-658-10181-7
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-3-658-10181-7
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-658-10181-7
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{windows}
+\endrefsection
+\endinput
+

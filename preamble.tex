@@ -4,7 +4,7 @@
 %\usepackage{ngerman}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{fontspec}
+%\usepackage{fontspec}
 \usepackage{textcomp}
 \usepackage{lmodern}
 
@@ -114,10 +114,10 @@
 }
 
 %Kein "Kapitel # NAME" in der Kopfzeile
-\renewcommand{\chaptermark}[1]{
-	\markboth{#1}{}
-   	\markboth{\thechapter.\ #1}{}
-}
+%\renewcommand{\chaptermark}[1]{
+%	\markboth{#1}{}
+ %  	\markboth{\thechapter.\ #1}{}
+%}
 
 % ##################################################
 % Schriften
@@ -303,9 +303,11 @@
 % ##################################################
 
 \usepackage{bibgerm}
-\usepackage[backend=biber, bibencoding=utf8]{biblatex}
-\addbibresource{bibitems.bib}
 %\usepackage{apacite}
+\usepackage[backend=biber, bibencoding=utf8, style=alphabetic,]{biblatex}
+%\bibliography{bibitems}
+\addbibresource{literatur.bib}
+
 
 % ##################################################
 % Abkuerzungsverzeichnis
