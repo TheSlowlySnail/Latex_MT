@@ -100,21 +100,21 @@ Magento bringt zahlreiche Verwaltungsoptionen. Man kann bis in das kleinste Deta
 \subsubsection{Nachteile von Magento}
 In seiner größe, liegt der Nachteil des Frameworks. Es bietet zu viele Funktionen, welche nicht für ein Inventursystem in einer Laborumgebung benötigt werden. Damit belegt es unnötig Speicherplatz und lädt Dateien, welche nicht gebraucht werden. Auch wenn die Lernkurve sehr flach ist, muss eine gewisse Einarbeitung doch erfolgen. Auch ist mit der aktuellen Version von Magento eine Aktualisierung der \ac{PHP} Version nötig. \autocite{Koch.2012}
 
-\subsection{WeeComerce}
+\subsection{WooComerce}
 Anders als bei Magento (siehe Kapitel \ref{konzeption:magento}) steht das WordPress-Plugin, welches auch als E-Commerce Software dient unter der \ac{GNU} Lizenz. 
 
-\subsubsection{Vorteile von WeeComerce}
-Bei Kostenlose WordPress-Plugin ist kostenlos und sehr einfach zu installieren. Mit einem klick ist es aus dem Plugin Bereich gewählt und kann mit einem Installationsassistenten den eigenen Bedürfnissen nach angepasst werden. Ein erfahrener WordPress-Nutzer hat eine deutlich niedrigere Lernkurve, als bei Magento \autocite{WeeComerce.2018}
+\subsubsection{Vorteile von WooComerce}
+Bei Kostenlose WordPress-Plugin ist kostenlos und sehr einfach zu installieren. Mit einem klick ist es aus dem Plugin Bereich gewählt und kann mit einem Installationsassistenten den eigenen Bedürfnissen nach angepasst werden. Ein erfahrener WordPress-Nutzer hat eine deutlich niedrigere Lernkurve, als bei Magento \autocite{WooComerce.2018}
 
-\subsubsection{Nachteile von WeeComerce}
-Die Nachteile sind ähnlich wie bei Magento. Es beinhaltet zu viele Funktionen, welche nicht gebraucht werden. Außerdem ist es sehr schwer möglich es nicht als Webshop, sondern als Verwaltungssystem zu nutzen. WeeComerce gibt hier sehr starke richtlienen vor. So muss man schon im Installationsassisten sich gedanken über Maße, Bezahlmethoden und Versand machen. Was für ein Inventarisierungssystem nicht nötig ist. Mit WeeComerce ist man stark an WordPress gebunden. Solle man das \ac{CMS} wechseln wollen, ist ein mitnehmen der Anwendung nicht möglich.
+\subsubsection{Nachteile von WooComerce}
+Die Nachteile sind ähnlich wie bei Magento. Es beinhaltet zu viele Funktionen, welche nicht gebraucht werden. Außerdem ist es sehr schwer möglich es nicht als Webshop, sondern als Verwaltungssystem zu nutzen. WooComerce gibt hier sehr starke richtlienen vor. So muss man schon im Installationsassisten sich gedanken über Maße, Bezahlmethoden und Versand machen. Was für ein Inventarisierungssystem nicht nötig ist. Mit WComerce ist man stark an WordPress gebunden. Solle man das \ac{CMS} wechseln wollen, ist ein mitnehmen der Anwendung nicht möglich.
 
 \subsection{Entscheidung zur eigenen Anwendung}
-Die Entscheidung eine eigene Anwendung zu schreiben wurde schon früh getroffen. Es sollte eine Anwendung zur Verfügung gestellt werden, welche nicht mit Funktionen überladen ist. Die Lernkurve muss für jeden Anwender möglichst flach gehalten sein. Der Aufwand Magento oder WeeComerce in das Hochschul \ac{CD} zu bringen, kann ein großer Aufwand sein. Daher lohnt es sich die Anwendung selbst zu schreiben. So bleibt sie Konfigurierbar und es werden nur \ac{PHP} Kenntnisse und keine spezielen WordPress oder Magento-Kenntnisse vorausgesetzt. Bei einem Wechsel zu einem anderen \ac{CMS} kann die Anwendung ebenfalls übernommen werden.
+Die Entscheidung eine eigene Anwendung zu schreiben wurde schon früh getroffen. Es sollte eine Anwendung zur Verfügung gestellt werden, welche nicht mit Funktionen überladen ist. Die Lernkurve muss für jeden Anwender möglichst flach gehalten sein. Der Aufwand Magento oder WooComerce in das Hochschul \ac{CD} zu bringen, kann ein großer Aufwand sein. Daher lohnt es sich die Anwendung selbst zu schreiben. So bleibt sie Konfigurierbar und es werden nur \ac{PHP} Kenntnisse und keine spezielen WordPress oder Magento-Kenntnisse vorausgesetzt. Bei einem Wechsel zu einem anderen \ac{CMS} kann die Anwendung ebenfalls übernommen werden.
 
 \section{Anforderungen}
 
-Mit dem Anforderungsmanagement werden mögliche Features definiert. In der Anforderungsanalyse werden Eigenschaften, Funktionalitäteten und die Qualität an die Software Festgehalten. \autocite{Grande.2014} Es werden funktionale und nicht-funktionale Anforderungen niedergeschrieben. Mit diesen Anforderung entsteht eine Definition und Ziele an die Anwendung.
+Mit dem Anforderungsmanagement werden mögliche Features definiert. In der Anforderungsanalyse werden Eigenschaften, Funktionalitäten und die Qualität an die Software Festgehalten. \autocite{Grande.2014} Es werden funktionale und nicht-funktionale Anforderungen niedergeschrieben. Mit diesen Anforderung entsteht eine Definition und Ziele an die Anwendung.
 
 \begin{itemize}
 	\item Das Inventarisierungssystem muss alle Items in einer Laborumgebung aufnehmen. 
@@ -140,8 +140,22 @@ Mit dem Anforderungsmanagement werden mögliche Features definiert. In der Anfor
 
 Ist eine solche Liste von Anforderungen erstellt worden, erhält man eine gute Übersicht über die zu entwickelnden Teilbereiche.
 
+\newpage
+
 
 \section{Datenbank}
+\label{konzept:database}
+
+\begin{figure}[bh]
+	\centering
+	\includegraphics[scale=0.35]{content/pictures/inventarER.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ER-Diagramm}
+	\label{fig:erdiagram}
+\end{figure}
+
+Mit der Idee der Webanwendung, wurde schon sehr früh mittels einer Mindmap jede mögliche Eigenschaften aufgeschrieben. Aus dieser Mindmap konnte sehr komfortabel ein ER-Diagramm erzeugt. Um Redundanzen zu vermeiden, muss eine Normalisierung durchgeführt werden. In der Regel sind Redundanzen mit den ersten drei Normalformen abgeschlossen. Im ersten Schritt wurde darauf geachtet, das alle Eigenschaften Atomar sind. Vorname, in der Datenbank firstname und Nachname, in der Datenbank lastname, müssen als einzelne Eigenschaften zur Verfügung stehen. Eine Eigenschaft, mit dem Namen fullname, ist nach der ersten Normalform nicht erlaubt. Um die zweite Normalform zu erfüllen, muss die erste Normalform erfüllt sein und jedes Nichtschlüsselattribut von jedem Schlüsselkandidaten voll funktional abhängig sein. So wird festgestellt welche Eigenschaften eindeutig sind. Das ist nicht immer möglich, wie auch im Fall der Items Tabelle. Jeder Barcode in der Items-Tabelle ist einzigartig, jedoch gibt es Produkte, welche bewusst keinen Barcode haben. Gelöst wurde das Problem mit dem Künstlichen Primärschlüssel ID.\autocite{DatenbankenVerstehen.2018b} Die höchste Priorität der Normalsierung ist das vermeiden von Redundanzen und kann nur mit der 3. Nomalform erreicht werden.  Hierfür wurde die Hilfstabelle Lending eingefügt. Feststellen kann man das, in dem man überprüft, ob es viele-zu-viele existieren. Denn ohne diese Tabelle käme es zu Problemen, wenn sich eine Person mehrere Items leihen möchte.\autocite{DatenbankenVerstehen.2018}
+
 
 \section{MockUps}
 

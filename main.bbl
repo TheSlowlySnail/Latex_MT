@@ -161,24 +161,24 @@
       \verb http://dx.doi.org/10.1007/978-3-658-10181-7
       \endverb
     \endentry
-    \entry{WeeComerce.2018}{misc}{}
+    \entry{WooComerce.2018}{misc}{}
       \name{author}{1}{}{%
-        {{hash=c8de5b8890250056c79c60cb2dcd5007}{%
-           family={WeeComerce},
+        {{hash=a33c956968c34806a24506ccb7351d0c}{%
+           family={WooComerce},
            familyi={W\bibinitperiod}}}%
       }
-      \strng{namehash}{c8de5b8890250056c79c60cb2dcd5007}
-      \strng{fullhash}{c8de5b8890250056c79c60cb2dcd5007}
-      \strng{bibnamehash}{c8de5b8890250056c79c60cb2dcd5007}
-      \strng{authorbibnamehash}{c8de5b8890250056c79c60cb2dcd5007}
-      \strng{authornamehash}{c8de5b8890250056c79c60cb2dcd5007}
-      \strng{authorfullhash}{c8de5b8890250056c79c60cb2dcd5007}
-      \field{labelalpha}{Wee18}
+      \strng{namehash}{a33c956968c34806a24506ccb7351d0c}
+      \strng{fullhash}{a33c956968c34806a24506ccb7351d0c}
+      \strng{bibnamehash}{a33c956968c34806a24506ccb7351d0c}
+      \strng{authorbibnamehash}{a33c956968c34806a24506ccb7351d0c}
+      \strng{authornamehash}{a33c956968c34806a24506ccb7351d0c}
+      \strng{authorfullhash}{a33c956968c34806a24506ccb7351d0c}
+      \field{labelalpha}{Woo18}
       \field{sortinit}{W}
       \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{WeeComerce}
+      \field{title}{WooComerce}
       \field{year}{2018}
       \verb{urlraw}
       \verb https://woocommerce.com/product-category/woocommerce-extensions/
@@ -186,6 +186,7 @@
       \verb{url}
       \verb https://woocommerce.com/product-category/woocommerce-extensions/
       \endverb
+      \warn{\item Entry 'WooComerce.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{WPDrawAttention.}{misc}{}
       \name{author}{1}{}{%
