@@ -87,6 +87,35 @@
       \verb http://dx.doi.org/10.1007/978-3-658-06435-8
       \endverb
     \endentry
+    \entry{Koch.2012}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e019cfb1f7cece31069241168a391478}{%
+           family={Koch},
+           familyi={K\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {M{ü}nchen}%
+      }
+      \list{publisher}{1}{%
+        {Hanser}%
+      }
+      \strng{namehash}{e019cfb1f7cece31069241168a391478}
+      \strng{fullhash}{e019cfb1f7cece31069241168a391478}
+      \strng{bibnamehash}{e019cfb1f7cece31069241168a391478}
+      \strng{authorbibnamehash}{e019cfb1f7cece31069241168a391478}
+      \strng{authornamehash}{e019cfb1f7cece31069241168a391478}
+      \strng{authorfullhash}{e019cfb1f7cece31069241168a391478}
+      \field{labelalpha}{Koc12}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-446-42307-7}
+      \field{title}{Magento - Schritt f{ü}r Schritt zum eigenen Online-Shop: [aktuell ab Version 1.7]}
+      \field{year}{2012}
+    \endentry
     \entry{Niermann.2017}{book}{}
       \name{editor}{2}{}{%
         {{hash=a763af3597b4958edb05921dfdc981c4}{%
@@ -132,7 +161,68 @@
       \verb http://dx.doi.org/10.1007/978-3-658-10181-7
       \endverb
     \endentry
+    \entry{WeeComerce.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c8de5b8890250056c79c60cb2dcd5007}{%
+           family={WeeComerce},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8de5b8890250056c79c60cb2dcd5007}
+      \strng{fullhash}{c8de5b8890250056c79c60cb2dcd5007}
+      \strng{bibnamehash}{c8de5b8890250056c79c60cb2dcd5007}
+      \strng{authorbibnamehash}{c8de5b8890250056c79c60cb2dcd5007}
+      \strng{authornamehash}{c8de5b8890250056c79c60cb2dcd5007}
+      \strng{authorfullhash}{c8de5b8890250056c79c60cb2dcd5007}
+      \field{labelalpha}{Wee18}
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{WeeComerce}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://woocommerce.com/product-category/woocommerce-extensions/
+      \endverb
+      \verb{url}
+      \verb https://woocommerce.com/product-category/woocommerce-extensions/
+      \endverb
+    \endentry
+    \entry{WPDrawAttention.}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a365d4d2b92ed1677015a540e97987e2}{%
+           family={{WP Draw Attention}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=22b213b0e72e0921d93fd415a0d0eea1}{%
+           family={nsqua.red},
+           familyi={n\bibinitperiod}}}%
+      }
+      \strng{namehash}{a365d4d2b92ed1677015a540e97987e2}
+      \strng{fullhash}{a365d4d2b92ed1677015a540e97987e2}
+      \strng{bibnamehash}{a365d4d2b92ed1677015a540e97987e2}
+      \strng{authorbibnamehash}{a365d4d2b92ed1677015a540e97987e2}
+      \strng{authornamehash}{a365d4d2b92ed1677015a540e97987e2}
+      \strng{authorfullhash}{a365d4d2b92ed1677015a540e97987e2}
+      \strng{editorbibnamehash}{22b213b0e72e0921d93fd415a0d0eea1}
+      \strng{editornamehash}{22b213b0e72e0921d93fd415a0d0eea1}
+      \strng{editorfullhash}{22b213b0e72e0921d93fd415a0d0eea1}
+      \field{labelalpha}{WP }
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{WP Draw Attention}
+      \verb{urlraw}
+      \verb https://wpdrawattention.com/
+      \endverb
+      \verb{url}
+      \verb https://wpdrawattention.com/
+      \endverb
+      \warn{\item Entry 'WPDrawAttention.' (literatur.bib): Invalid format '09.08.2018' of date field 'urldate' - ignoring}
+    \endentry
   \enddatalist
+  \missing{.2018}
   \missing{windows}
 \endrefsection
 \endinput
