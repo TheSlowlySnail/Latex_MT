@@ -62,7 +62,7 @@ Neben dem \acf{CD} gab es noch weitere Punkte, welche den Auftritt noch Informat
 
 Jeder Raum hat seine eigene Unterseite, welche die Aufgaben des Raumes und dessen Ausstattung beschreibt.
 \newpage
-Die Netzwerkarchitektur im Labor ist sehr komplex. Wenn man nicht gerade mit am Aufbau dieser Architektur gearbeitet hat, kann schnell der Überblick verloren werden. Eine Übersichtskarte (siehe Abbildung \ref{fig:network}), auf welcher man sieht wo sich Server, Router und Gateways befinden, kann helfen um herauszufinden, wo bei Problemen mal nachgesehen werden sollte. Diese findet man in der Navigation unter dem neuen Punkt Räume. Neben der Karte gibt es zu jedem Raum eine eigene Unterseite, wo auf dessen Netzwerkeigenschaften genauer eingegangen wird. Die Karte wurde mit Adobe Illustrator CC 2017 erzeugt. Dabei wurde, um die Übersichtlichkeit nicht zu gefährden, sehr auf Schlichtheit geachtet. Nur das nötigste wurde eingezeichnet. Neben der Einfachheit halten sich die Farben Grün und Weiß an das \ac{CD} der Hochschule Furtwangen.
+Die Netzwerkarchitektur im Labor ist sehr komplex. Wenn man nicht gerade mit am Aufbau dieser Architektur gearbeitet hat, kann schnell der Überblick verloren werden. Eine Übersichtskarte (siehe Abbildung \ref{fig:network}), auf welcher man sieht wo sich Server, Router und Gateways befinden, kann helfen um herauszufinden, wo bei Problemen mal nachgesehen werden kann. Diese findet man in der Navigation unter dem neuen Punkt Räume. Neben der Karte gibt es zu jedem Raum eine eigene Unterseite, wo auf dessen Netzwerkeigenschaften genauer eingegangen wird. Die Karte wurde mit Adobe Illustrator CC 2017 erzeugt. Dabei wurde, um die Übersichtlichkeit nicht zu gefährden, sehr auf Schlichtheit geachtet. Nur das nötigste wurde eingezeichnet. Neben der Einfachheit halten sich die Farben Grün und Weiß an das \ac{CD} der Hochschule Furtwangen.
 
 \begin{figure}[bh]
 	\centering
@@ -74,7 +74,7 @@ Die Netzwerkarchitektur im Labor ist sehr komplex. Wenn man nicht gerade mit am 
 
 \section{Konzeption des Inventarisierungssystem}
 \label{konzept:inventar}
-Das Inventarisierungssystem ist das Herzstück dieser Masterthesis. Mit ihm sollen alle Gegenstände verwaltet werden können und dazu noch sehr einfach und übersichtlich. Dabei spielt \acf{UX} und damit auch das \acf{UI} eine sehr große Rolle. Um einen Überblick zu bekommen was der aktuelle Markt zu bieten hat, müssen Vergleichbare Verwaltungssysteme(siehe Kapitel \ref{konzept:vergleich}) analysiert werden. Damit eine reibungslose Programmierung erfolgen kann müssen Konzepte für die Architektur der Anwendung ausgearbeitet werden.
+Das Inventarisierungssystem ist das Herzstück dieser Masterthesis. Mit ihm können alle Gegenstände verwaltet werden und dazu noch sehr einfach und übersichtlich. Dabei spielt \acf{UX} und damit auch das \acf{UI} eine sehr große Rolle. Um einen Überblick zu bekommen was der aktuelle Markt zu bieten hat, müssen Vergleichbare Verwaltungssysteme(siehe Kapitel \ref{konzept:vergleich}) analysiert werden. Damit eine reibungslose Programmierung erfolgen kann müssen Konzepte für die Architektur der Anwendung ausgearbeitet werden.
 
 
 \section{Vergleichbare Inventarisierungssysteme}
@@ -110,7 +110,7 @@ Bei Kostenlose WordPress-Plugin ist kostenlos und sehr einfach zu installieren. 
 Die Nachteile sind ähnlich wie bei Magento. Es beinhaltet zu viele Funktionen, welche nicht gebraucht werden. Außerdem ist es sehr schwer möglich es nicht als Webshop, sondern als Verwaltungssystem zu nutzen. WooComerce gibt hier sehr starke richtlienen vor. So muss man schon im Installationsassisten sich gedanken über Maße, Bezahlmethoden und Versand machen. Was für ein Inventarisierungssystem nicht nötig ist. Mit WComerce ist man stark an WordPress gebunden. Solle man das \ac{CMS} wechseln wollen, ist ein mitnehmen der Anwendung nicht möglich.
 
 \subsection{Entscheidung zur eigenen Anwendung}
-Die Entscheidung eine eigene Anwendung zu schreiben wurde schon früh getroffen. Es sollte eine Anwendung zur Verfügung gestellt werden, welche nicht mit Funktionen überladen ist. Die Lernkurve muss für jeden Anwender möglichst flach gehalten sein. Der Aufwand Magento oder WooComerce in das Hochschul \ac{CD} zu bringen, kann ein großer Aufwand sein. Daher lohnt es sich die Anwendung selbst zu schreiben. So bleibt sie Konfigurierbar und es werden nur \ac{PHP} Kenntnisse und keine spezielen WordPress oder Magento-Kenntnisse vorausgesetzt. Bei einem Wechsel zu einem anderen \ac{CMS} kann die Anwendung ebenfalls übernommen werden.
+Die Entscheidung eine eigene Anwendung zu schreiben wurde schon früh getroffen. Es muss eine Anwendung zur Verfügung gestellt werden, welche nicht mit Funktionen überladen ist. Die Lernkurve muss für jeden Anwender möglichst flach gehalten sein. Der Aufwand Magento oder WooComerce in das Hochschul \ac{CD} zu bringen, kann ein großer Aufwand sein. Daher lohnt es sich die Anwendung selbst zu schreiben. So bleibt sie Konfigurierbar und es werden nur \ac{PHP} Kenntnisse und keine spezielen WordPress oder Magento-Kenntnisse vorausgesetzt. Bei einem Wechsel zu einem anderen \ac{CMS} kann die Anwendung ebenfalls übernommen werden.
 
 \section{Anforderungen}
 
@@ -158,9 +158,37 @@ Mit der Idee der Webanwendung, wurde schon sehr früh mittels einer Mindmap jede
 
 
 \section{MockUps}
+Um die geplante Idee umzusetzen ist es nötig ein MockUp zu erstellen. Doch bevor das MockUp erstellt werden kann, muss Storytelling betrieben werden. Beim Storytelling werden. Beim Storytelling geht es um Geschichten erzählen. Dabei werden die Anforderungen in realistische kleine Geschichten erzählt. So wird es leichter sich vorzustellen, wie ein Programm funktioniert. Diese Geschichten werden sachlich aufgeschrieben. An diesen Geschichten kann früh festgestellt werden, ob sich eine Idee nicht oder nur sehr aufwändig umsetzen lässt. Hier tritt auch die \acl{UX} in den Vordergrund, da man sich beim Schreiben in den User hineinversetzen muss. \autocite{Schach.2017}
+
+
+\begin{figure}[bh]
+	\centering
+	\includegraphics[scale=0.3]{content/pictures/MockUp.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{MockUp von Items-Tabelle}
+	\label{fig:mockup}
+\end{figure}
+
+
+Ist das Storytelling abgeschlossen und die möglichen Fehler beseitigt wurden, so kann das MockUp beginnen. Beim MockUp, in der Webentwicklung, wird das Layout schemenhaft mit Bleistift und Papier erzeugt. Dabei tritt das Designe stark in den Hintergrund, es ist in erster Linie wichtig, das verstanden wird, wie die Anwendung mit Button, Formulare und weiteren Elemente funktionieren. Das MockUp macht es später für die Entwicklung leichter, wenn es um die Umsetzung der Webanwendung geht. Bei der Erstellung des MockUp's hat man die Programmierung immer im Hinterkopf. Dabei wird überlegt wie Elemente angelegt werden.
+
+\newpage
 
 \section{User Experience}
+\acf{UX} wurde häufiger in dieser Ausarbeitung verwendet und wurde noch nicht genauer erklärt. Das geschieht nun. Bei der \acl{UX}, auf deutsch \textit{Benutzererfahrung}, spricht man davon, wie der Benutzer mit Software Umgeht. Dabei greift man auf eigene Erfahrungen zurück, es gibt allerdings auch Werkzeuge um eine gute Benutzbarkeit zu messen. \autocite{Moser.2012} Dazu gehört Beispielsweise das Storyboard, welches mit hilfe des Storytelling Geschichten mit Bilder erzählt. Für dieses Projekt wurde auf kurze Wege geachtet, das der User die Maus nicht allzu sehr die Maus bewegen. Auch wird dem User durch das Designe gezeigt was klickbar ist und was nicht. Unbewusst wird er eine Gruppierung vornehmen. So sind Buttons, mit welchen etwas erzeugt wird, wie \textit{New Item}, \textit{New User} und \textit{Backup}, mit einem anderen Hintergrund und einer Umrandung versehen. 
 
-\section{Fitts Gesetze}
+\begin{figure}[bh]
+	\centering
+	\includegraphics[scale=0.3]{content/pictures/gruppierung.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{Button Gruppierung}
+	\label{fig:gruppierung}
+\end{figure}
+
+%\subsection{Fitts Gesetze}
+
+\section{Frameworks}
+Wenn man Framework in die deutsche Sprache übersetzt, so erhält man das Wort Rahmengerüst. In der Softwareentwicklung spricht man von solchen Frameworks bei Programmierstruckturen, welche den Entwickler unterstützen. Dabei handelt es sich nicht um eine fertige Software. Es handelt sich um bewährte Programmierstruckturen, welche dem Entwickler die Arbeit abnehmen. So werden bekannte Entwurfsmuster übernommen werden. Auch aufwendige Funktionen sind in Frameworks schon häufig implementiert. Der Entwickler muss sich nicht mehr aufwendig um eine Datenverbindung kümmern oder kann komplizierte Animationen mit wenigen Zeilen Code erstellen. Eine wichtige Aufgabe während der Softwareentwicklung ist das Testen. Hier werden mithilfe des Frarmeworks Tests geschrieben, mit welchen kontrolliert werden kann, ob die Software korrekt funktioniert. Frameworks kommen meistens in der Objektorientierung zum Einsatz. Ihre Einsatzgebiete können vielseitig sein. Man findet sie in der Softwareentwicklung, bei der Entwicklung von Spielen und in der Webentwicklung.
 
 \section{Wahl der Frameworks}
+Bei der Wahl der Frameworks wurde analysiert welches sicher läuft, eine große und aktive Community hat, wenig Einrichtungen erfordern und in welchen die meisten Erfahrungen schon vorhanden sind. Bei der Wahl des Frontend-Frameworks fiel die Wahl schon früh auf Angular. Es wird bis heute noch von Google weiterentwickelt und hat eine sehr große Community. Die Erfahrungen in JavaScript sind ebenfalls vorhanden und die meiste Einrichtungen sind schon vorhanden oder werden von dem Framework selbst übernommen. Bei der Wahl des Backend-Frameworks war die Wahl nicht so einfach. Es standen Tomcat, ein Java-Framework und Laravel, ein \acs{PHP}-Framework, zur Auswahl. Es wurde Laravel gewählt, da es von sich aus viele Aufgaben, wie Sicherheit, Datenbankverwaltung oder Benutzerverwaltung mit Login-System übernimmt. \acs{PHP} und MySQL waren auf dem Server installiert. Für Tomcat hätte eine separate Installation erfolgen müssen.

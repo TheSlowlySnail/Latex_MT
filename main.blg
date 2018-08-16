@@ -1,22 +1,26 @@
 [0] Config.pm:302> INFO - This is Biber 2.11
 [0] Config.pm:305> INFO - Logfile is 'main.blg'
-[51] biber-MSWIN64:313> INFO - === 
-[84] Biber.pm:371> INFO - Reading 'main.bcf'
-[178] Biber.pm:857> INFO - Found 8 citekeys in bib section 0
-[193] Biber.pm:3976> INFO - Processing section 0
-[210] Biber.pm:4136> INFO - Looking for bibtex format file 'literatur.bib' for section 0
-[214] bibtex.pm:1500> INFO - LaTeX decoding ...
-[253] bibtex.pm:1316> INFO - Found BibTeX data source 'literatur.bib'
-[260] Utils.pm:193> WARN - year field '30.08.2017' in entry 'akbarali' is not an integer - this will probably not sort properly.
-[261] Utils.pm:193> WARN - Entry 'akbarali' (literatur.bib): Invalid format '31.07.2018' of date field 'urldate' - ignoring
-[300] Utils.pm:193> WARN - Entry 'WPDrawAttention.' (literatur.bib): Invalid format '09.08.2018' of date field 'urldate' - ignoring
-[308] Utils.pm:193> WARN - Entry 'WooComerce.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
-[314] Utils.pm:193> WARN - I didn't find a database entry for 'windows' (section 0)
-[314] Utils.pm:193> WARN - I didn't find a database entry for '.2018' (section 0)
-[335] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[335] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[336] Biber.pm:3804> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'de-DE'
-[336] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
-[356] bbl.pm:617> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[359] bbl.pm:720> INFO - Output to main.bbl
-[360] Biber.pm:110> INFO - WARNINGS: 6
+[55] biber-MSWIN64:313> INFO - === 
+[83] Biber.pm:371> INFO - Reading 'main.bcf'
+[184] Biber.pm:857> INFO - Found 15 citekeys in bib section 0
+[201] Biber.pm:3976> INFO - Processing section 0
+[223] Biber.pm:4136> INFO - Looking for bibtex format file 'literatur.bib' for section 0
+[228] bibtex.pm:1500> INFO - LaTeX decoding ...
+[280] bibtex.pm:1316> INFO - Found BibTeX data source 'literatur.bib'
+[286] Utils.pm:193> WARN - year field '30.08.2017' in entry 'akbarali' is not an integer - this will probably not sort properly.
+[288] Utils.pm:193> WARN - Entry 'akbarali' (literatur.bib): Invalid format '31.07.2018' of date field 'urldate' - ignoring
+[321] Utils.pm:193> WARN - Entry 'WPDrawAttention.' (literatur.bib): Invalid format '09.08.2018' of date field 'urldate' - ignoring
+[328] Utils.pm:193> WARN - Entry 'WooComerce.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
+[336] Utils.pm:193> WARN - Entry 'DatenbankenVerstehen.2018b' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
+[342] Utils.pm:193> WARN - Entry 'DatenbankenVerstehen.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
+[360] Utils.pm:193> WARN - Entry 'vmwareinc.2018' (literatur.bib): Invalid format '15.08.2018' of date field 'urldate' - ignoring
+[364] Utils.pm:193> WARN - Entry 'ThomasKrennAG.2018' (literatur.bib): Invalid format '15.08.2018' of date field 'urldate' - ignoring
+[368] Utils.pm:193> WARN - I didn't find a database entry for 'windows' (section 0)
+[368] Utils.pm:193> WARN - I didn't find a database entry for '.2018' (section 0)
+[398] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[398] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[398] Biber.pm:3804> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'de-DE'
+[398] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[418] bbl.pm:617> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[426] bbl.pm:720> INFO - Output to main.bbl
+[426] Biber.pm:110> INFO - WARNINGS: 10

@@ -8,9 +8,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Abbildungsverzeichnis}{v}{section*.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Tabellenverzeichnis}{vii}{section*.5}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abkürzungsverzeichnis}{ix}{chapter*.6}
+\contentsline {chapter}{Abkürzungsverzeichnis}{vii}{chapter*.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -56,62 +54,64 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.6}MockUps}{13}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}User Experience}{13}{section.3.7}
+\contentsline {section}{\numberline {3.7}User Experience}{14}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}Fitts Gesetze}{13}{section.3.8}
+\contentsline {section}{\numberline {3.8}Frameworks}{14}{section.3.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.9}Wahl der Frameworks}{13}{section.3.9}
+\contentsline {section}{\numberline {3.9}Wahl der Frameworks}{14}{section.3.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Umsetzung}{15}{chapter.4}
+\contentsline {chapter}{\numberline {4}Umsetzung}{17}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Aufbau einer Testumgebung}{15}{section.4.1}
+\contentsline {section}{\numberline {4.1}Aufbau einer Testumgebung}{17}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Integration in das Netzwerk}{15}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.1}Integration in das Netzwerk}{18}{subsection.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}MySQL}{15}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.2}MySQL}{18}{subsection.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.3}Nginx}{15}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.3}Nginx}{18}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}XAMPP}{15}{section.4.2}
+\contentsline {section}{\numberline {4.2}XAMPP}{18}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Frontend}{15}{section.4.3}
+\contentsline {section}{\numberline {4.3}Frontend}{19}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.1}Commandlineinterface}{15}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.1}Commandlineinterface}{19}{subsection.4.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.2}TypeScript}{15}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.2}TypeScript}{19}{subsection.4.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.3}Module}{15}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.3}Module}{19}{subsection.4.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.4}Components}{16}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.4}Components}{19}{subsection.4.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.5}Services}{16}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.5}Services}{19}{subsection.4.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Backend}{16}{section.4.4}
+\contentsline {section}{\numberline {4.4}Backend}{19}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}Composer}{16}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.1}Composer}{19}{subsection.4.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}Controller}{16}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.2}Controller}{19}{subsection.4.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.3}REST}{16}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.3}REST}{19}{subsection.4.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.4}Webserver}{16}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.4}Webserver}{19}{subsection.4.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Security}{16}{section.4.5}
+\contentsline {section}{\numberline {4.5}Security}{19}{section.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.1}CORS}{16}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.1}CORS}{19}{subsection.4.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.2}Token}{16}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.2}Token}{19}{subsection.4.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.3}Salt}{16}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.3}Salt}{19}{subsection.4.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}Deploy}{16}{section.4.6}
+\contentsline {section}{\numberline {4.6}Deploy}{19}{section.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Diskussion der Ergebnisse}{17}{chapter.5}
+\contentsline {chapter}{\numberline {5}Anwendung}{21}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Fazit}{17}{section.5.1}
+\contentsline {chapter}{\numberline {6}Diskussion der Ergebnisse}{23}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Ausblick}{17}{section.5.2}
+\contentsline {section}{\numberline {6.1}Fazit}{23}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Literatur}{19}{chapter*.20}
+\contentsline {section}{\numberline {6.2}Ausblick}{23}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Eidesstattliche Erklärung}{21}{chapter*.21}
+\contentsline {chapter}{\nonumberline Literatur}{25}{chapter*.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Eidesstattliche Erklärung}{27}{chapter*.25}

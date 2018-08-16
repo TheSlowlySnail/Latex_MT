@@ -1985,6 +1985,13 @@
     <bcf:citekey order="10">Koch.2012</bcf:citekey>
     <bcf:citekey order="11">WooComerce.2018</bcf:citekey>
     <bcf:citekey order="12">Grande.2014</bcf:citekey>
+    <bcf:citekey order="13">DatenbankenVerstehen.2018b</bcf:citekey>
+    <bcf:citekey order="14">DatenbankenVerstehen.2018</bcf:citekey>
+    <bcf:citekey order="15">Schach.2017</bcf:citekey>
+    <bcf:citekey order="16">Moser.2012</bcf:citekey>
+    <bcf:citekey order="17">vmwareinc.2018</bcf:citekey>
+    <bcf:citekey order="18">ThomasKrennAG.2018</bcf:citekey>
+    <bcf:citekey order="19">automatix.</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

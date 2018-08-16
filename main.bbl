@@ -47,6 +47,87 @@
       \field{year}{30.08.2017}
       \warn{\item Entry 'akbarali' (literatur.bib): Invalid format '31.07.2018' of date field 'urldate' - ignoring}
     \endentry
+    \entry{automatix.}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ebbb98a8ceadd2b0e45b8852ca163e92}{%
+           family={automatix},
+           familyi={a\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebbb98a8ceadd2b0e45b8852ca163e92}
+      \strng{fullhash}{ebbb98a8ceadd2b0e45b8852ca163e92}
+      \strng{bibnamehash}{ebbb98a8ceadd2b0e45b8852ca163e92}
+      \strng{authorbibnamehash}{ebbb98a8ceadd2b0e45b8852ca163e92}
+      \strng{authornamehash}{ebbb98a8ceadd2b0e45b8852ca163e92}
+      \strng{authorfullhash}{ebbb98a8ceadd2b0e45b8852ca163e92}
+      \field{labelalpha}{aut}
+      \field{sortinit}{a}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Guest system does not see the updated disk size in VirtualBox}
+      \verb{urlraw}
+      \verb https://askubuntu.com/questions/772279/guest-system-does-not-see-the-updated-disk-size-in-virtualbox
+      \endverb
+      \verb{url}
+      \verb https://askubuntu.com/questions/772279/guest-system-does-not-see-the-updated-disk-size-in-virtualbox
+      \endverb
+    \endentry
+    \entry{DatenbankenVerstehen.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=170d1e66e5e86d746434ccf4913a923f}{%
+           family={{Datenbanken Verstehen}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{fullhash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{bibnamehash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{authorbibnamehash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{authornamehash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{authorfullhash}{170d1e66e5e86d746434ccf4913a923f}
+      \field{labelalpha}{Dat18}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Dritte Normalform}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb http://www.datenbanken-verstehen.de/datenmodellierung/normalisierung/dritte-normalform/
+      \endverb
+      \verb{url}
+      \verb http://www.datenbanken-verstehen.de/datenmodellierung/normalisierung/dritte-normalform/
+      \endverb
+      \warn{\item Entry 'DatenbankenVerstehen.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{DatenbankenVerstehen.2018b}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=170d1e66e5e86d746434ccf4913a923f}{%
+           family={{Datenbanken Verstehen}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{fullhash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{bibnamehash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{authorbibnamehash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{authornamehash}{170d1e66e5e86d746434ccf4913a923f}
+      \strng{authorfullhash}{170d1e66e5e86d746434ccf4913a923f}
+      \field{labelalpha}{Dat18}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Zweite Normalform}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb http://www.datenbanken-verstehen.de/datenmodellierung/normalisierung/zweite-normalform/
+      \endverb
+      \verb{url}
+      \verb http://www.datenbanken-verstehen.de/datenmodellierung/normalisierung/zweite-normalform/
+      \endverb
+      \warn{\item Entry 'DatenbankenVerstehen.2018b' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{Grande.2014}{book}{}
       \name{author}{1}{}{%
         {{hash=c0620b436df05dbccd90b93e2af3ac1d}{%
@@ -116,6 +197,36 @@
       \field{title}{Magento - Schritt f{ü}r Schritt zum eigenen Online-Shop: [aktuell ab Version 1.7]}
       \field{year}{2012}
     \endentry
+    \entry{Moser.2012}{book}{}
+      \name{author}{1}{}{%
+        {{hash=92e00127f6d03194ff07d3b93d015176}{%
+           family={Moser},
+           familyi={M\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{92e00127f6d03194ff07d3b93d015176}
+      \strng{fullhash}{92e00127f6d03194ff07d3b93d015176}
+      \strng{bibnamehash}{92e00127f6d03194ff07d3b93d015176}
+      \strng{authorbibnamehash}{92e00127f6d03194ff07d3b93d015176}
+      \strng{authornamehash}{92e00127f6d03194ff07d3b93d015176}
+      \strng{authorfullhash}{92e00127f6d03194ff07d3b93d015176}
+      \field{labelalpha}{Mos12}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-642-13363-3}
+      \field{series}{X.media.press}
+      \field{title}{User Experience Design: Mit Erlebniszentrierter Softwareentwicklung zu Produkten, die Begeistern}
+      \field{year}{2012}
+    \endentry
     \entry{Niermann.2017}{book}{}
       \name{editor}{2}{}{%
         {{hash=a763af3597b4958edb05921dfdc981c4}{%
@@ -160,6 +271,89 @@
       \verb{url}
       \verb http://dx.doi.org/10.1007/978-3-658-10181-7
       \endverb
+    \endentry
+    \entry{Schach.2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=65620be7b79c7eb27253d873a3899cf7}{%
+           family={Schach},
+           familyi={S\bibinitperiod},
+           given={Annika},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Wiesbaden}%
+      }
+      \list{publisher}{1}{%
+        {Springer Fachmedien Wiesbaden}%
+      }
+      \strng{namehash}{65620be7b79c7eb27253d873a3899cf7}
+      \strng{fullhash}{65620be7b79c7eb27253d873a3899cf7}
+      \strng{bibnamehash}{65620be7b79c7eb27253d873a3899cf7}
+      \strng{authorbibnamehash}{65620be7b79c7eb27253d873a3899cf7}
+      \strng{authornamehash}{65620be7b79c7eb27253d873a3899cf7}
+      \strng{authorfullhash}{65620be7b79c7eb27253d873a3899cf7}
+      \field{labelalpha}{Sch17}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-658-15232-1}
+      \field{title}{Storytelling: Geschichten in Text, Bild und Film}
+      \field{year}{2017}
+    \endentry
+    \entry{ThomasKrennAG.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c0fb11ca61bf4633608b795183e23528}{%
+           family={{Thomas Krenn AG}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0fb11ca61bf4633608b795183e23528}
+      \strng{fullhash}{c0fb11ca61bf4633608b795183e23528}
+      \strng{bibnamehash}{c0fb11ca61bf4633608b795183e23528}
+      \strng{authorbibnamehash}{c0fb11ca61bf4633608b795183e23528}
+      \strng{authornamehash}{c0fb11ca61bf4633608b795183e23528}
+      \strng{authorfullhash}{c0fb11ca61bf4633608b795183e23528}
+      \field{labelalpha}{Tho18}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Vergr{ö}{ß}ern der virtuellen Festplatte unter VMware}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://www.thomas-krenn.com/de/wiki/Vergrößern_der_virtuellen_Festplatte_unter_VMware
+      \endverb
+      \verb{url}
+      \verb https://www.thomas-krenn.com/de/wiki/Vergr%C3%B6%C3%9Fern_der_virtuellen_Festplatte_unter_VMware
+      \endverb
+      \warn{\item Entry 'ThomasKrennAG.2018' (literatur.bib): Invalid format '15.08.2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{vmwareinc.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fbd82d82ee6cdc9c1cae120aad12a918}{%
+           family={{vmware inc}},
+           familyi={v\bibinitperiod}}}%
+      }
+      \strng{namehash}{fbd82d82ee6cdc9c1cae120aad12a918}
+      \strng{fullhash}{fbd82d82ee6cdc9c1cae120aad12a918}
+      \strng{bibnamehash}{fbd82d82ee6cdc9c1cae120aad12a918}
+      \strng{authorbibnamehash}{fbd82d82ee6cdc9c1cae120aad12a918}
+      \strng{authornamehash}{fbd82d82ee6cdc9c1cae120aad12a918}
+      \strng{authorfullhash}{fbd82d82ee6cdc9c1cae120aad12a918}
+      \field{labelalpha}{vmw18}
+      \field{sortinit}{v}
+      \field{sortinithash}{75dd7385c90b2252c3ae853a80ca853b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{VM Ware Player}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://www.vmware.com/de/products/workstation-player.html
+      \endverb
+      \verb{url}
+      \verb https://www.vmware.com/de/products/workstation-player.html
+      \endverb
+      \warn{\item Entry 'vmwareinc.2018' (literatur.bib): Invalid format '15.08.2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{WooComerce.2018}{misc}{}
       \name{author}{1}{}{%
