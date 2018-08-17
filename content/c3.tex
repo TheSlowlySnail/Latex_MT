@@ -52,7 +52,7 @@ Mit den aktuellen Farben entspricht der Webauftritt des Labors nicht dem \ac{CD}
 \subsection{Erweiterung des Webauftritts}
 Neben dem \acf{CD} gab es noch weitere Punkte, welche den Auftritt noch Informativer und attraktiver gestalten konnten. So stehen im Labor die einzelnen Räume: Küche, Bad, Multimediaraum, IoT-Raum und der Arbeitsbereich stark im Vordergrund. Diese wurden bisher nur sehr dürftig auf der Homepage erwähnt. Daher wurde für die Räume eigene Unterseiten angelegt. Um auf \acf{UX} zu achten, wurde mittels des WordPress-Plugin Draw Attention  eine Interaktive Karte erzeugt. Bei einem Klick auf einen Raum, erhält der User mehr Informationen. \autocite{WPDrawAttention.}
 
-\begin{figure}[bh]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.35]{content/pictures/room.jpg}
 	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
@@ -64,7 +64,7 @@ Jeder Raum hat seine eigene Unterseite, welche die Aufgaben des Raumes und desse
 \newpage
 Die Netzwerkarchitektur im Labor ist sehr komplex. Wenn man nicht gerade mit am Aufbau dieser Architektur gearbeitet hat, kann schnell der Überblick verloren werden. Eine Übersichtskarte (siehe Abbildung \ref{fig:network}), auf welcher man sieht wo sich Server, Router und Gateways befinden, kann helfen um herauszufinden, wo bei Problemen mal nachgesehen werden kann. Diese findet man in der Navigation unter dem neuen Punkt Räume. Neben der Karte gibt es zu jedem Raum eine eigene Unterseite, wo auf dessen Netzwerkeigenschaften genauer eingegangen wird. Die Karte wurde mit Adobe Illustrator CC 2017 erzeugt. Dabei wurde, um die Übersichtlichkeit nicht zu gefährden, sehr auf Schlichtheit geachtet. Nur das nötigste wurde eingezeichnet. Neben der Einfachheit halten sich die Farben Grün und Weiß an das \ac{CD} der Hochschule Furtwangen.
 
-\begin{figure}[bh]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.35]{content/pictures/network.png}
 	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
@@ -86,7 +86,7 @@ Sucht man nach Inventarisierungssysteme stößt man immer wieder auf Software f�
 \label{konzeption:magento}
 Magento\footnote{https://magento.com} ist eine Openen-Source-E-Commerce Plattform und steht unter der Open Software License\footnote{https://opensource.org/licenses/osl-3.0.php}. Umgesetzt wurde es mit dem \acp{PHP} Framework Zend und lässt sich durch zahlreiche Plug-Ins erweitern.\autocite{.2018}
 
-\begin{figure}[bh]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.35]{content/pictures/magento.png}
 	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
@@ -191,4 +191,5 @@ Ist das Storytelling abgeschlossen und die möglichen Fehler beseitigt wurden, s
 Wenn man Framework in die deutsche Sprache übersetzt, so erhält man das Wort Rahmengerüst. In der Softwareentwicklung spricht man von solchen Frameworks bei Programmierstruckturen, welche den Entwickler unterstützen. Dabei handelt es sich nicht um eine fertige Software. Es handelt sich um bewährte Programmierstruckturen, welche dem Entwickler die Arbeit abnehmen. So werden bekannte Entwurfsmuster übernommen werden. Auch aufwendige Funktionen sind in Frameworks schon häufig implementiert. Der Entwickler muss sich nicht mehr aufwendig um eine Datenverbindung kümmern oder kann komplizierte Animationen mit wenigen Zeilen Code erstellen. Eine wichtige Aufgabe während der Softwareentwicklung ist das Testen. Hier werden mithilfe des Frarmeworks Tests geschrieben, mit welchen kontrolliert werden kann, ob die Software korrekt funktioniert. Frameworks kommen meistens in der Objektorientierung zum Einsatz. Ihre Einsatzgebiete können vielseitig sein. Man findet sie in der Softwareentwicklung, bei der Entwicklung von Spielen und in der Webentwicklung.
 
 \section{Wahl der Frameworks}
+\label{chapter:frameworkchoice}
 Bei der Wahl der Frameworks wurde analysiert welches sicher läuft, eine große und aktive Community hat, wenig Einrichtungen erfordern und in welchen die meisten Erfahrungen schon vorhanden sind. Bei der Wahl des Frontend-Frameworks fiel die Wahl schon früh auf Angular. Es wird bis heute noch von Google weiterentwickelt und hat eine sehr große Community. Die Erfahrungen in JavaScript sind ebenfalls vorhanden und die meiste Einrichtungen sind schon vorhanden oder werden von dem Framework selbst übernommen. Bei der Wahl des Backend-Frameworks war die Wahl nicht so einfach. Es standen Tomcat, ein Java-Framework und Laravel, ein \acs{PHP}-Framework, zur Auswahl. Es wurde Laravel gewählt, da es von sich aus viele Aufgaben, wie Sicherheit, Datenbankverwaltung oder Benutzerverwaltung mit Login-System übernimmt. \acs{PHP} und MySQL waren auf dem Server installiert. Für Tomcat hätte eine separate Installation erfolgen müssen.

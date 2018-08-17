@@ -17,30 +17,100 @@ Der Server im Smarthome Lab erledigt rund um die Uhr aufgaben. Dabei überwacht 
  In Abbildung \ref{fig:vmware} sieht man den VM-Ware Player. Dieser ist ein kostenloses Tool um Virtuelle Maschinen abzuspielen. Der VM-Ware Player simuliert dabei Hardware, welche im Live-betrieb verändert werden kann. \autocite{vmwareinc.2018} In diesem Fall wird der Server aus dem Smarthome Lab nur Simuliert. Dabei kann ihm mehr speicher hinzugefügt werden, oder auch Seicher entfernt werden. So kam es zu dem Problem, das auf der \ac{VM} nicht ausreichen Festplattenspeicher zur Verfügung stand. In diesem Fall musste die komplette \ac{VM} vergrößert werden. Dies ist mit VM-Ware Player nicht machbar. Unter Windows wird bei der Installation von VM-Ware Player auch der Vdiskmanager installiert. Ein Werkzeug, welches sich über die Kommandozeile steuern lässt. So lässt sich mit dem Befehl \textit{vmware-vdiskmanager -x 100Gb vm.vmdk}, im Verzeichnis der \ac{VM}, die Größe verändern. \autocite{ThomasKrennAG.2018} Damit war ein Vergrößern der \ac{VM} zwar möglich, der zusätzliche Speicher stand zwar physisch, durch eine größere \ac{VM} Datei zur Verfügung, konnte jedoch nicht verwendet werden. In der \ac{VM} wurde ein sogenannter Snapshot verwendet. Bei einem Snapshot, handelt es sich um eine Kopie der \ac{VM} zu einem bestimmten Zeitpunkt. Dieser musste ebenfalls vergrößert werden. Da die Quellen hierzu rar waren, erforderte die Lösung eine lange Suche. Die Lösung ist, mit dem Vdiskmanager den Snapshot auf die gleiche Größe zu bringen. Der Speicher wird nun angezeigt, kann jedoch noch nicht Verwendet werden, da er keiner Partition zugewiesen worden ist. Dies ist über das Betriebssystem, Ubuntu Server 16.04, welches auf der \ac{VM} läuft nicht einfach zu bewerkstelligen. Eine Lösung ist es Ubuntu 18.04 zu verwenden. Dabei wir ein Abbild der DVD, welche für die Installation von Ubuntu benötig wird, in das Virtuelle DVD Laufwerk gelegt. Ubuntu kann ohne Installation verwendet werden. Es liefert das Programm GPartet, mit welchem sich der neue, noch nicht zugewiesene Speicher, der Serverpartition zuweisen lässt. Mit einem Neustart der \ac{VM} und dem Entfernen des Images aus dem virtuellen Laufwerk, hat die \ac{VM} nun ausreichend Festplattenkapazität.\autocite{automatix.}
 
 \subsection{Integration in das Netzwerk}
-Da es sich bei der \ac{VM} um ein direktes Abbild des Servers im Smarthome Lab ist, hat es auch die identischen Eigenschaften. So auch die. 
+Da es sich bei der \ac{VM} um ein direktes Abbild des Servers im Smarthome Lab ist, hat es auch die identischen Eigenschaften. So auch die \ac{MAC}. Mit der \ac{MAC}-Adresse soll der Netzwerkkarte eine eindeutige Identifikationsnummer zugewiesen werden. Dies geschieht schon bei der Herstellung und der Router kann damit Geräte identifizieren, welche im Netzwerk eingebunden sind. Damit ist dem Router bewusst welches Gerät, welche Pakete und welche \ac{IP} erhält. \autocite{Zisler.2016} Solche \acp{IP} sollen weltweit eindeutig sein, sind es aber nicht, wenn es nicht gewünscht ist. Bei einem Abbild erwartet der User ein identisches System. Möchte er dieses System allerdings im gleichen Netzwerk einsetzen, so wird der Router die Pakte an Router und an die \ac{VM} senden, da der Router nicht unterscheiden kann, wer der Korrekte Empfänger ist. Wird das nicht korrigiert, kann es leicht passieren das unerwünschte Änderungen am Server und nicht an der \ac{VM} unternommen werden. Denn die \ac{VM}, wie auch der Server werden über \ac{SSH} angesteuert. Dabei wird ein Programm verwendet, in diesem Fall Putty, welches eine sichere Verbindung über das Netzwerk zum Server oder zur \ac{VM} aufbaut. Ist man nun im Netzwerk des \ac{SHL} ist nicht klar ob die \ac{VM} oder der Server angesprochen wird. Denn schließlich haben beide die selbe \ac{IP} zugewiesen bekommen. Eine Lösung für dieses Problem wird direkt in vmware-Player zur Verfügung gestellt. In Abbildung \ref{fig:vmwaremac} sieht man das man die \acl{MAC} einfach in einem Textfeld anpassen kann. Mit einer neuen \acl{MAC} unterscheidet das Netzwerk nun beide \textit{Netzwerkkarten}. Damit erhält die \acl{VM} nun eine neue \ac{IP} und ist damit eindeutig adressierbar.
+
+\begin{figure}[bh]
+	\centering
+	
+	\includegraphics[scale=0.6]{content/pictures/macadresse.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ Netzwerkeigenschaften im  VM-Ware-Player}
+	\label{fig:vmwaremac}
+\end{figure}
+
 
 \subsection{MySQL}
-Passwort nicht zur verfügung. Neuinstallation notwendig.
+Auf dem Server stand bereits eine MySQL Datenbank zur Verfügung.  Es handelt sich hierbei um eine relationale Datenbank. \autocite{Oracle.} MySQL steht unter der \ac{GPL} 2.0 und ist OpenSource. WordPress setzt eine MySQL oder eine MariaDB voraus.\autocite{akbarali} Die Daten der Tabellen, welche Wordpress genutzt hatte, waren alle weiter erreichbar und konnten verwaltet werden. Die Daten für die Datenbank selbst haben gefehlt. Wenn diese Daten fehlen, so ist es möglich die Datenbank, mit Adminrechte, ohne Passwort zu starten. Nach einem solchen Start, kann das Passwort beliebig verändert werden. In diesem Fall wurde auch das von der Datenbank untersagt. Eine Datenbank war für die kommende Arbeit notwendig und somit auch der Zugriff. Da dies nicht möglich war, musste die Datenbank neu installiert werden. Für diesen Zweck wurden alle Tabellen und Datensätze in eine Datei gesichert. Über ein Plugin, welches in WordPress installiert wurde, konnte eine solche Datei erzeugen. Mit der Neuinstallation der MySQL-Datenbank wurde ein bekanntes Passwort vergeben. Die Daten wurden importiert und es mussten nur noch wenige Daten angepasst werden, da es sich um die identischen Daten handelte. 
 
 \subsection{Nginx}
+Vorinstalliert war auch der WebServer Nginx. Standardmäßig handelt es sich hier um einen Webserver, wellcher HTTP anfragen entgegennimmt und und GET Anfragen verarbeitet. Um einen WordPress Blog welcher \ac{PHP}, JavaScript und \ac{HTML} benötigt, ist das völlig ausreichen.\autocite{akbarali} Für weitere Verarbeitungen wie POST, PUT und DELETE müssen diverse Konfigurationen an Nginx vorgenommen werden.\autocite{MFB.2013}
 
 \section{XAMPP}
-Nur für PHP und MySQL lokal 
+Um lokal die Webanwendung entwickeln zu können, ist es nötig auf der lokalen Maschine MySQL und \ac{PHP} installiert zu haben. Eine Lösung, welche für dieses Problem angeboten wird, ist XAMPP. Es handelt sich um eine frei Paketsammlung zu welcher auch \ac{PHP} und MySQL gehören und wurde von den Apache Friends entwickelt.\autocite{ApacheFriends.} Es steht unter der \ac{GPL}. Durch seine \ac{UI} ist das starten von \ac{PHP} oder MySQL mit einem klick erledigt. Sollte eine Datenbankabfrage mal nicht möglich sein, könnte eine Fehlerquelle sein, das der MySQL-Server nicht läuft. 
 
+\newpage
 \section{Austausch von Daten}
+Für einen sicheren Datentransfäre von der Entwicklungsmaschine zur \acl{VM} wird \ac{SCP} verwendet. Um dies nicht über ein \ac{CLI} machen zu müssen, gibt es software mit einer grafischen Oberfläche. Mit solch einer Software wird eine sichere Verbindung aufgebaut. Ein Datentransfäre funktioniert so ähnlich wie bei einem \ac{FTP} Tool. Man zieht die zu übertragenen Dateien mit der Maus in das Zielverzeichnis. Ein solcher Vertreter ist, unter dem Betriebssystem Windows, WinSCP, welches in Abbildung \ref{fig:winscp} zu sehen ist.
 
+\begin{figure}[bh]
+	\centering
+	\includegraphics[scale=0.3]{content/pictures/winscp.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ WinSCP}
+	\label{fig:winscp}
+\end{figure}
 
 
 
 \section{Frontend}
+\label{chapter:frontend}
+Bei einem Frontend spricht man von dem was der Anwender sieht. Es handelt sich um Buttons, Links, Farben, Layouts \ac{uvm.}. Wie in Kapitel \ref{chapter:frameworkchoice} erwähnt, wurde Angular für die Umsetzung des Frontends verwendet. Zum Entwicklungszeitpunkt befand sich Angular in der Version 5, was sich im Laufe der Umsetzung geändert hat. Dies nahm jedoch keinen Einfluss auf die Entwicklung und die Webanwendung wurde mit Angular 5 fertig entwickelt. Es erfüllt die Aufgaben einer Komponenten basierten Darstellung von verschiedenen Bausteinen.  Durch seine Feste Struktur von Services, Components (\ac{z. Dt.} Komponenten) und Views (\ac{z. Dt.} Ansichten) \autocite{Clow.2018}, ist es übersichtlich und Kenntnisse mit Angular reichen, um sich einzuarbeiten. Es wird von Google entwickelt, aber profitiert von einer sehr aktiven Community (\ac{z. Dt.} Gemeinschaft). Diese Entwickelt Module, welche den Funktionsumfang von Angular erweitern. Dies ermöglicht die \ac{MIT}-Lizens, welche den Code frei einsehbar macht und erlaubt diesen zu verändern.\autocite{BonnyKern.2017}
 
-\subsection{Commandlineinterface}
+\subsection{Installation von Angular}
+Bevor man Angular installieren kann, muss erst einmal Node.js auf dem Entwicklersystem installiert werden. Es ist für die gängigen Betriebssysteme wie Windows, MacOS und Linux verfügbar. Es wird kostenfrei auf \url{https://nodejs.org/de/} Angeboten. Bei Node.js handelt es sich um eine Laufzeitumgebung. \autocite{Node.js.2018} Dies ist vergleichbar mit Java, welches für die Entwicklung von Programmen benötigt wird, welche in Java geschrieben sind. Im Fall von Node.js wird JavaScript \ac{bzw.} EcmaScript verwendet. Mit der Installation von Node.js wird auch der \ac{NPM} installiert. Bei \ac{NPM} handelt es sich um ein Tool mit welchem Programme, Frameworks \ac{uvm.} installiert werden können. Die Angebotenen Dienste und Programme werden auf \url{https://www.npmjs.com} angeboten. Auch Angular wird hier angeboten und damit auch unzählige Erweiterungen für Angular. Möchte man Angular nun installieren geschieht das über das \acl{CLI}. Hier bei kann mittels Parameter entschieden werden ob etwas für das ganze Betriebssystem global oder nur lokal für ein einzelnes Projekt installiert werden soll. Im falle von Angular geschieht das global. Der Befehl zum installieren findet man ebenfalls auf \url{https://www.npmjs.com}. Werden keine weiteren Parameter angegeben, wird immer die neuste Version heruntergeladen.
+
+\begin{lstlisting}[language=sh, frame=single]
+$  npm install angular -g
+\end{lstlisting} 
+
+\subsection{Commandlineinterface von Angular}
+Angular selbst liefert seit der Version 2 ein \acl{CLI} mit. Mit diesem \ac{CLI} ist es möglich Angular Projekte zu verwalten. Mit einer Zeile kann ein komplettes Projektsetup erzeugt werden. Mit Hilfe von Parameter kann angegeben werden, wie Anwendung gestylet wird. Dabei kann man beispielsweise wählen ob man die Anwendung mit \ac{CSS} oder mit \ac{SASS} gestalten möchte. Bei \ac{SASS} handelt es fast um die gleiche Syntax wie \ac{CSS}. Es unterscheidet sich in dem Punkt, das es möglich ist Blöcke zu verschachteln und es gibt die Möglichkeit Variablen zu verwenden. Da noch kein Browser nativ \ac{SASS} unterstützt, wird der \ac{SASS}-Code in \ac{CSS}-Code übersetzt. Angular wird über die Konsole verwendet indem ng angeführt wird. Im folgenden wird ein Beispielprojekt angelegt, welches zum Gestalten \ac{SASS} verwendet.
+
+
+\begin{lstlisting}[language=sh, frame=single]
+$  ng new Beipsielprojekt --style=sass
+\end{lstlisting} 
+
+
+\begin{figure}[H]
+	\centering
+	
+	\includegraphics[scale=0.9]{content/pictures/projektordner.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ Projektordner: Angularprojekt}
+	\label{fig:projektfolder}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{content/pictures/srcfolder.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ Sourceordner in Angular Projekt}
+	\label{fig:scrfolder}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{content/pictures/appfolder.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ App Ordner in Src-Ordner des Angularprojektes}
+	\label{fig:appfolder}
+\end{figure}
+
+
+Wie man in Abbildung \ref{fig:projektfolder} sehen kann wird nicht nur ein Projektsetup angelegt, sondern auch ein Ordner, in dem alle \ac{NPM} Abhängigkeiten verwaltet werden und es wird auch eine Versionverwaltung mit der Hilfe von Git übernommen, sofern Git auf dem System installiert ist. Es muss nur ein Repository angelegt und mit dem Projekt verbunden werden.
+
+
+
 
 \subsection{TypeScript}
-Objektorientiert
+Angular selbst ist TypeScript-basiert. Das bedeutet das Angular nicht direkt JavaScript verwendet, wie es noch in Angular.js gemacht worden ist, sondern es verwendet eine Art objektorientiertes JavaScript. Bei \ac{Ecma} handelt es sich um eine Private Organisation, welche Programmiersprachen standardisiert. So handelt es sich bei JavaScript, wie es heute geläufig ist und von den meisten Browser unterstützt wird, eigentlich um EcmaScript 5. Seit wenigen Jahren existiert EcmaScript 6. Dies ist ein JavaScript welches Klassen, Interfaces, Arrow-Functions \ac{uvm.} anbietet. Diese Features werden von vielen Entwickler gerne gesehen und lösen Probleme, mit welchen man schon länger zu tun hat und sie nur auf komplizierten Wegen lösen konnte. Allerdings unterstützen die meisten Browser noch nicht oder nur in Teilen den EcmaScript 6 Standard. An dieser stelle kommt TypeScript zum Einsatz. Eine Installation von TypeScript läuft, wie bei Angular, über \ac{NPM}. Man kann nun alle Features von EcmaScript 6 verwenden und in eine TypeScript-Datei schreiben. TypeScript übersetzt diesen Code in eine EcmaScript 5 Datei, mit welcher jeder gängige Browser umgehen kann.
+
+
 
 \subsection{Module}
 HTTP
+
 
 \subsection{Components}
 
@@ -58,7 +128,7 @@ HTTP
 
 \subsection{REST}
 
-\subsection{Webserver}
+
 
 
 \section{Security}

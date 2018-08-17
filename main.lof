@@ -2,7 +2,7 @@
 \babel@toc {ngerman}{}
 \babel@toc {ngerman}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Ablauf eines Scrums. \cite {Niermann.2017}\relax }}{3}{figure.caption.6}
+\contentsline {figure}{\numberline {1}{\ignorespaces Ablauf eines Scrums. \cite {Niermann.2017}\relax }}{4}{figure.caption.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2}{\ignorespaces Die Startseite des Webauftritts\relax }}{5}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
@@ -19,3 +19,13 @@
 \contentsline {figure}{\numberline {8}{\ignorespaces Button Gruppierung\relax }}{14}{figure.caption.20}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {9}{\ignorespaces VM-Ware mit geladenem Abbild\relax }}{17}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10}{\ignorespaces Netzwerkeigenschaften im VM-Ware-Player\relax }}{19}{figure.caption.27}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11}{\ignorespaces WinSCP\relax }}{21}{figure.caption.33}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {12}{\ignorespaces Projektordner: Angularprojekt\relax }}{23}{figure.caption.41}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {13}{\ignorespaces Sourceordner in Angular Projekt\relax }}{23}{figure.caption.42}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {14}{\ignorespaces App Ordner in Src-Ordner des Angularprojektes\relax }}{23}{figure.caption.43}

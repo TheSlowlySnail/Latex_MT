@@ -19,6 +19,31 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
+    \entry{ApacheFriends.}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=35ad45e4f738b7be94d421be71789930}{%
+           family={{Apache Friends}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{35ad45e4f738b7be94d421be71789930}
+      \strng{fullhash}{35ad45e4f738b7be94d421be71789930}
+      \strng{bibnamehash}{35ad45e4f738b7be94d421be71789930}
+      \strng{authorbibnamehash}{35ad45e4f738b7be94d421be71789930}
+      \strng{authornamehash}{35ad45e4f738b7be94d421be71789930}
+      \strng{authorfullhash}{35ad45e4f738b7be94d421be71789930}
+      \field{labelalpha}{Apa}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{XAMPP}
+      \verb{urlraw}
+      \verb https://www.apachefriends.org/de/index.html
+      \endverb
+      \verb{url}
+      \verb https://www.apachefriends.org/de/index.html
+      \endverb
+    \endentry
     \entry{akbarali}{thesis}{}
       \name{author}{1}{}{%
         {{hash=b03013287cec70a9accc9b92e491621d}{%
@@ -47,32 +72,73 @@
       \field{year}{30.08.2017}
       \warn{\item Entry 'akbarali' (literatur.bib): Invalid format '31.07.2018' of date field 'urldate' - ignoring}
     \endentry
-    \entry{automatix.}{misc}{}
+    \entry{BonnyKern.2017}{misc}{}
       \name{author}{1}{}{%
-        {{hash=ebbb98a8ceadd2b0e45b8852ca163e92}{%
-           family={automatix},
-           familyi={a\bibinitperiod}}}%
+        {{hash=cef7969fbe42e81b5eca259b8298bcec}{%
+           family={{Bonny Kern}},
+           familyi={B\bibinitperiod}}}%
       }
-      \strng{namehash}{ebbb98a8ceadd2b0e45b8852ca163e92}
-      \strng{fullhash}{ebbb98a8ceadd2b0e45b8852ca163e92}
-      \strng{bibnamehash}{ebbb98a8ceadd2b0e45b8852ca163e92}
-      \strng{authorbibnamehash}{ebbb98a8ceadd2b0e45b8852ca163e92}
-      \strng{authornamehash}{ebbb98a8ceadd2b0e45b8852ca163e92}
-      \strng{authorfullhash}{ebbb98a8ceadd2b0e45b8852ca163e92}
-      \field{labelalpha}{aut}
-      \field{sortinit}{a}
-      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \strng{namehash}{cef7969fbe42e81b5eca259b8298bcec}
+      \strng{fullhash}{cef7969fbe42e81b5eca259b8298bcec}
+      \strng{bibnamehash}{cef7969fbe42e81b5eca259b8298bcec}
+      \strng{authorbibnamehash}{cef7969fbe42e81b5eca259b8298bcec}
+      \strng{authornamehash}{cef7969fbe42e81b5eca259b8298bcec}
+      \strng{authorfullhash}{cef7969fbe42e81b5eca259b8298bcec}
+      \field{labelalpha}{Bon17}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Guest system does not see the updated disk size in VirtualBox}
+      \field{title}{Open Source Lizenzen - Die MIT-Lizenz}
+      \field{year}{2017}
       \verb{urlraw}
-      \verb https://askubuntu.com/questions/772279/guest-system-does-not-see-the-updated-disk-size-in-virtualbox
+      \verb https://wss-redpoint.com/open-source-lizenzen-die-mit-lizenz
       \endverb
       \verb{url}
-      \verb https://askubuntu.com/questions/772279/guest-system-does-not-see-the-updated-disk-size-in-virtualbox
+      \verb https://wss-redpoint.com/open-source-lizenzen-die-mit-lizenz
+      \endverb
+      \warn{\item Entry 'BonnyKern.2017' (literatur.bib): Invalid format '17.08.2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Clow.2018}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3b62fc4a700b82594ded7aea8664732d}{%
+           family={Clow},
+           familyi={C\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berkeley, CA}%
+      }
+      \list{publisher}{1}{%
+        {Apress}%
+      }
+      \strng{namehash}{3b62fc4a700b82594ded7aea8664732d}
+      \strng{fullhash}{3b62fc4a700b82594ded7aea8664732d}
+      \strng{bibnamehash}{3b62fc4a700b82594ded7aea8664732d}
+      \strng{authorbibnamehash}{3b62fc4a700b82594ded7aea8664732d}
+      \strng{authornamehash}{3b62fc4a700b82594ded7aea8664732d}
+      \strng{authorfullhash}{3b62fc4a700b82594ded7aea8664732d}
+      \field{labelalpha}{Clo18}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{1. Web Applications and AJAX.-~2. AngularJS vs Angular (Old vs New).-~3. JavaScript.-~4. TypeScript.-~5. Visual Studio Code.-~6. Node.-~7. Start Coding with the CLI.-~8. Introducing Components.-~9. Introducing Modules.-~10. Introducing Webpack.-~11. Introducing Directives.-~12. More Components.-~13. Dependency Injection.-~14. Angular and UI Widgets.-~15. Routes and Navigation.-~16. Observers, Reactive Programming, and RxJS.-17. RxJS with Angular -- 18. HTTP and the HttpClient Module -- 19. Forms -- 20. Pipes -- 21.Zones and Change Detection -- 22. Testing -- 23. More Advanced Topics -- 24. Resources Learn to build single page web apps using Angular 4 and TypeScript by working through 70+ mini-projects. With hundreds of code examples you gain a thorough understanding of the Angular 4 ecosystem and how to work within it. You begin by understanding the benefits of Angular 4 vs older versions, and how this benefits your applications. You then move onto mini-projects that teach you JavaScript, TypeScript, how to use editors, Node, CLI, components, modules, directives, Webpack, dependency injection, widgets, routes and navigation, observers, reactive programming, and RxJS. ~ Complete with a consistently-updated online code repository, this book is a great way to get started with Angular 4}
+      \field{isbn}{978-1-4842-3278-1}
+      \field{title}{Angular 5 Projects: Learn to Build Single Page Web Applications Using 70+ Projects}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1007/978-1-4842-3279-8
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-1-4842-3279-8
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-1-4842-3279-8
       \endverb
     \endentry
-    \entry{DatenbankenVerstehen.2018}{misc}{}
+    \entry{DatenbankenVerstehen.2018b}{misc}{}
       \name{author}{1}{}{%
         {{hash=170d1e66e5e86d746434ccf4913a923f}{%
            family={{Datenbanken Verstehen}},
@@ -98,9 +164,9 @@
       \verb{url}
       \verb http://www.datenbanken-verstehen.de/datenmodellierung/normalisierung/dritte-normalform/
       \endverb
-      \warn{\item Entry 'DatenbankenVerstehen.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
+      \warn{\item Entry 'DatenbankenVerstehen.2018b' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
     \endentry
-    \entry{DatenbankenVerstehen.2018b}{misc}{}
+    \entry{DatenbankenVerstehen.2018}{misc}{}
       \name{author}{1}{}{%
         {{hash=170d1e66e5e86d746434ccf4913a923f}{%
            family={{Datenbanken Verstehen}},
@@ -126,7 +192,7 @@
       \verb{url}
       \verb http://www.datenbanken-verstehen.de/datenmodellierung/normalisierung/zweite-normalform/
       \endverb
-      \warn{\item Entry 'DatenbankenVerstehen.2018b' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
+      \warn{\item Entry 'DatenbankenVerstehen.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Grande.2014}{book}{}
       \name{author}{1}{}{%
@@ -197,6 +263,33 @@
       \field{title}{Magento - Schritt f{ü}r Schritt zum eigenen Online-Shop: [aktuell ab Version 1.7]}
       \field{year}{2012}
     \endentry
+    \entry{MFB.2013}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=30eba3069deecce5cc02144c95a8ef67}{%
+           family={MFB},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{30eba3069deecce5cc02144c95a8ef67}
+      \strng{fullhash}{30eba3069deecce5cc02144c95a8ef67}
+      \strng{bibnamehash}{30eba3069deecce5cc02144c95a8ef67}
+      \strng{authorbibnamehash}{30eba3069deecce5cc02144c95a8ef67}
+      \strng{authornamehash}{30eba3069deecce5cc02144c95a8ef67}
+      \strng{authorfullhash}{30eba3069deecce5cc02144c95a8ef67}
+      \field{labelalpha}{MFB13}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How do I allow a PUT file request on Nginx server?}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb https://stackoverflow.com/questions/16912270/how-do-i-allow-a-put-file-request-on-nginx-server
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/16912270/how-do-i-allow-a-put-file-request-on-nginx-server
+      \endverb
+      \warn{\item Entry 'MFB.2013' (literatur.bib): Invalid format '16.08.2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{Moser.2012}{book}{}
       \name{author}{1}{}{%
         {{hash=92e00127f6d03194ff07d3b93d015176}{%
@@ -226,6 +319,32 @@
       \field{series}{X.media.press}
       \field{title}{User Experience Design: Mit Erlebniszentrierter Softwareentwicklung zu Produkten, die Begeistern}
       \field{year}{2012}
+    \endentry
+    \entry{Node.js.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=3b2819dd4c24eda2faf2052eef449551}{%
+           family={Node.js},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b2819dd4c24eda2faf2052eef449551}
+      \strng{fullhash}{3b2819dd4c24eda2faf2052eef449551}
+      \strng{bibnamehash}{3b2819dd4c24eda2faf2052eef449551}
+      \strng{authorbibnamehash}{3b2819dd4c24eda2faf2052eef449551}
+      \strng{authornamehash}{3b2819dd4c24eda2faf2052eef449551}
+      \strng{authorfullhash}{3b2819dd4c24eda2faf2052eef449551}
+      \field{labelalpha}{Nod18}
+      \field{sortinit}{N}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Ü}ber Node}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://nodejs.org/de/about/
+      \endverb
+      \verb{url}
+      \verb https://nodejs.org/de/about/
+      \endverb
     \endentry
     \entry{Niermann.2017}{book}{}
       \name{editor}{2}{}{%
@@ -271,6 +390,32 @@
       \verb{url}
       \verb http://dx.doi.org/10.1007/978-3-658-10181-7
       \endverb
+    \endentry
+    \entry{Oracle.}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=30162ed78b6c10f731411f2fc440c24f}{%
+           family={Oracle},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{fullhash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{bibnamehash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{authorbibnamehash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{authornamehash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{authorfullhash}{30162ed78b6c10f731411f2fc440c24f}
+      \field{labelalpha}{Ora}
+      \field{sortinit}{O}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{MySQL}
+      \verb{urlraw}
+      \verb https://www.mysql.com/de/
+      \endverb
+      \verb{url}
+      \verb https://www.mysql.com/de/
+      \endverb
+      \warn{\item Entry 'Oracle.' (literatur.bib): Invalid format '16.08.2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Schach.2017}{book}{}
       \name{author}{1}{}{%
@@ -416,8 +561,40 @@
       \endverb
       \warn{\item Entry 'WPDrawAttention.' (literatur.bib): Invalid format '09.08.2018' of date field 'urldate' - ignoring}
     \endentry
+    \entry{Zisler.2016}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ebaa2525f3b3aa3b4c9ec0374e031f67}{%
+           family={Zisler},
+           familyi={Z\bibinitperiod},
+           given={Harald},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Bonn}%
+      }
+      \list{publisher}{1}{%
+        {Rheinwerk Computing}%
+      }
+      \strng{namehash}{ebaa2525f3b3aa3b4c9ec0374e031f67}
+      \strng{fullhash}{ebaa2525f3b3aa3b4c9ec0374e031f67}
+      \strng{bibnamehash}{ebaa2525f3b3aa3b4c9ec0374e031f67}
+      \strng{authorbibnamehash}{ebaa2525f3b3aa3b4c9ec0374e031f67}
+      \strng{authornamehash}{ebaa2525f3b3aa3b4c9ec0374e031f67}
+      \strng{authorfullhash}{ebaa2525f3b3aa3b4c9ec0374e031f67}
+      \field{labelalpha}{Zis16}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4., aktualisierte und erweiterte Auflage}
+      \field{isbn}{978-3-8362-4322-3}
+      \field{series}{Rheinwerk Computing}
+      \field{title}{Computer-Netzwerke: Grundlagen, Funktionsweise, Anwendung}
+      \field{year}{2016}
+    \endentry
   \enddatalist
   \missing{.2018}
+  \missing{automatix.}
   \missing{windows}
 \endrefsection
 \endinput

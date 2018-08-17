@@ -1,26 +1,30 @@
 [0] Config.pm:302> INFO - This is Biber 2.11
 [0] Config.pm:305> INFO - Logfile is 'main.blg'
-[55] biber-MSWIN64:313> INFO - === 
-[83] Biber.pm:371> INFO - Reading 'main.bcf'
-[184] Biber.pm:857> INFO - Found 15 citekeys in bib section 0
-[201] Biber.pm:3976> INFO - Processing section 0
-[223] Biber.pm:4136> INFO - Looking for bibtex format file 'literatur.bib' for section 0
-[228] bibtex.pm:1500> INFO - LaTeX decoding ...
-[280] bibtex.pm:1316> INFO - Found BibTeX data source 'literatur.bib'
-[286] Utils.pm:193> WARN - year field '30.08.2017' in entry 'akbarali' is not an integer - this will probably not sort properly.
-[288] Utils.pm:193> WARN - Entry 'akbarali' (literatur.bib): Invalid format '31.07.2018' of date field 'urldate' - ignoring
-[321] Utils.pm:193> WARN - Entry 'WPDrawAttention.' (literatur.bib): Invalid format '09.08.2018' of date field 'urldate' - ignoring
-[328] Utils.pm:193> WARN - Entry 'WooComerce.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
-[336] Utils.pm:193> WARN - Entry 'DatenbankenVerstehen.2018b' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
-[342] Utils.pm:193> WARN - Entry 'DatenbankenVerstehen.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
-[360] Utils.pm:193> WARN - Entry 'vmwareinc.2018' (literatur.bib): Invalid format '15.08.2018' of date field 'urldate' - ignoring
-[364] Utils.pm:193> WARN - Entry 'ThomasKrennAG.2018' (literatur.bib): Invalid format '15.08.2018' of date field 'urldate' - ignoring
-[368] Utils.pm:193> WARN - I didn't find a database entry for 'windows' (section 0)
-[368] Utils.pm:193> WARN - I didn't find a database entry for '.2018' (section 0)
-[398] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[398] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[398] Biber.pm:3804> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'de-DE'
-[398] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
-[418] bbl.pm:617> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[426] bbl.pm:720> INFO - Output to main.bbl
-[426] Biber.pm:110> INFO - WARNINGS: 10
+[34] biber-MSWIN64:313> INFO - === 
+[68] Biber.pm:371> INFO - Reading 'main.bcf'
+[159] Biber.pm:857> INFO - Found 22 citekeys in bib section 0
+[174] Biber.pm:3976> INFO - Processing section 0
+[192] Biber.pm:4136> INFO - Looking for bibtex format file 'literatur.bib' for section 0
+[197] bibtex.pm:1500> INFO - LaTeX decoding ...
+[246] bibtex.pm:1316> INFO - Found BibTeX data source 'literatur.bib'
+[254] Utils.pm:193> WARN - year field '30.08.2017' in entry 'akbarali' is not an integer - this will probably not sort properly.
+[255] Utils.pm:193> WARN - Entry 'akbarali' (literatur.bib): Invalid format '31.07.2018' of date field 'urldate' - ignoring
+[279] Utils.pm:193> WARN - Entry 'WPDrawAttention.' (literatur.bib): Invalid format '09.08.2018' of date field 'urldate' - ignoring
+[285] Utils.pm:193> WARN - Entry 'WooComerce.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
+[294] Utils.pm:193> WARN - Entry 'DatenbankenVerstehen.2018b' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
+[297] Utils.pm:193> WARN - Entry 'DatenbankenVerstehen.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring
+[306] Utils.pm:193> WARN - Entry 'vmwareinc.2018' (literatur.bib): Invalid format '15.08.2018' of date field 'urldate' - ignoring
+[309] Utils.pm:193> WARN - Entry 'ThomasKrennAG.2018' (literatur.bib): Invalid format '15.08.2018' of date field 'urldate' - ignoring
+[316] Utils.pm:193> WARN - Entry 'Oracle.' (literatur.bib): Invalid format '16.08.2018' of date field 'urldate' - ignoring
+[320] Utils.pm:193> WARN - Entry 'MFB.2013' (literatur.bib): Invalid format '16.08.2018' of date field 'urldate' - ignoring
+[329] Utils.pm:193> WARN - Entry 'BonnyKern.2017' (literatur.bib): Invalid format '17.08.2018' of date field 'urldate' - ignoring
+[333] Utils.pm:193> WARN - I didn't find a database entry for 'windows' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for '.2018' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'automatix.' (section 0)
+[363] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[363] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[364] Biber.pm:3804> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'de-DE'
+[364] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[394] bbl.pm:617> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[401] bbl.pm:720> INFO - Output to main.bbl
+[402] Biber.pm:110> INFO - WARNINGS: 14
