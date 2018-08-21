@@ -197,18 +197,135 @@ Das Inventarsierungssystem kommt mit einem Fronent alleine nicht aus. Jedes grö
 Mit \ac{PHP} existiert eine sehr mächtige Programmiersprache mit unzähligen Funktionen. Seit einigen Jahren ist \ac{PHP} objektorientierter. Dadurch fanden viele Entwickler schneller einen Zugang zu diesem mächtigen Werkzeug. Durch den riesen Umfang den \ac{PHP} nativ anbietet, leidet auch die Übersichtlichkeit. \ac{HTML} und \ac{PHP} kann sehr unübersichtlich vermischt werden, Datenbankabfragen sind häufig lange und kompliziert und das Entwickeln von einem LogIn-System kann viel Zeit in anspruch nehmen. Genau hier setzt das \ac{PHP} Framework Laravel ein. Mit seiner Renderengine Blade wird der vermischte Code übersichtlicher, die Datenbankabfragen werden kürzer und einfacher und ein LogIn-System ist schnell erstellt. Zusätzlich nutzt Laravel das bekannte \ac{MVC} Muster.\autocite{Laravel.2018}
 
 \subsection{Installation von Laravel}
-Wie für JavaScript, gibt es auch für \ac{PHP} einen Packagemanager. Dieser lädt Abhängigkeiten welche für Laravel nötig sind. Wie auch bei Angular, können hier Abhängikeiten nachinstalliert werden. Durch die große Community sind auch viele Erweiterungen frei zur Verfügung. Im ersten Schritt muss allerdings Composer installiert werden. Die Software steht kostenfrei auf \url{http://www.composer.com} zur Verfügung. Diese wird für Windows, Linux und MacOS angeboten. \autocite{Composer.2018} Unter Windows läuft die Installation über einen Assistenten. Ist eine \ac{PHP} Version welche neuer als 7.1.2 ist und die Extensions: OpenSSL, \ac{PDO}, Mbstring Tokenizer, \ac{XML}, Ctype und \ac{JSON} installiert, kann ein Laravel Projekt mit der Versionsnummer 5.6 sofort mit Composer angelegt werden und muss nicht wie Angular erst installiert werden.
+Wie für JavaScript, gibt es auch für \ac{PHP} einen Packagemanager. Dieser lädt Abhängigkeiten welche für Laravel nötig sind. Wie auch bei Angular, können hier Abhängikeiten nachinstalliert werden. Durch die große Community sind auch viele Erweiterungen frei zur Verfügung. Im ersten Schritt muss allerdings Composer installiert werden. Die Software steht kostenfrei auf \url{http://www.composer.com} zur Verfügung. Diese wird für Windows, Linux und MacOS angeboten. \autocite{Composer.2018} Unter Windows läuft die Installation über einen Assistenten. Ist eine \ac{PHP} Version welche neuer als 7.1.2 ist und die Extensions: OpenSSL, \ac{PDO}, Mbstring Tokenizer, \ac{XML}, Ctype und \ac{JSON} installiert, kann ein Laravel Projekt mit der Versionsnummer 5.6  mit Composer angelegt werden. Zuerst muss Laravel, wie Angular erst installiert werden. Das geschieht mit folgender Zeile.
+
+\begin{lstlisting}[language=sh, frame=single]
+$  composer global require "laravel/installer"
+\end{lstlisting}
+
+Ein Anlegen eines Projektes kann nun von Laravel übernommen werden oder von Composer, was die folgenden zwei Beispiele demonstrieren.
+
+\begin{lstlisting}[language=sh, frame=single]
+$  laravel new beispiel
+\end{lstlisting}
+
+\begin{lstlisting}[language=sh, frame=single]
+$  composer create-project --prefer-dist laravel/laravel beispiel
+\end{lstlisting}
+
+Dabei werden alle nötigen Pakete heruntergeladen und installiert.
+\begin{lstlisting}[language=sh, frame=single]
+Loading composer repositories with package information
+Installing dependencies (including require-dev) from lock file
+Package operations: 70 installs, 0 updates, 0 removals
+- Installing doctrine/inflector (v1.3.0): Loading from cache
+- Installing doctrine/lexer (v1.0.1): Loading from cache
+- Installing dragonmantank/cron-expression (v2.2.0): Loading from cache
+- Installing erusev/parsedown (1.7.1): Loading from cache
+- Installing vlucas/phpdotenv (v2.5.1): Downloading (100%)
+- Installing symfony/css-selector (v4.1.3): Downloading (100%)
+- Installing tijsverkoyen/css-to-inline-styles (2.2.1): Loading from cache
+- Installing symfony/polyfill-php72 (v1.9.0): Downloading (100%)
+- Installing symfony/polyfill-mbstring (v1.9.0): Downloading (100%)
+- Installing symfony/var-dumper (v4.1.3): Downloading (100%)
+- Installing symfony/routing (v4.1.3): Downloading (100%)
+- Installing symfony/process (v4.1.3): Downloading (100%)
+- Installing symfony/polyfill-ctype (v1.9.0): Downloading (100%)
+- Installing symfony/http-foundation (v4.1.3): Downloading (100%)
+- Installing symfony/event-dispatcher (v4.1.3): Downloading (100%)
+- Installing psr/log (1.0.2): Loading from cache
+- Installing symfony/debug (v4.1.3): Downloading (100%)
+- Installing symfony/http-kernel (v4.1.3): Downloading (100%)
+- Installing symfony/finder (v4.1.3): Downloading (100%)
+- Installing symfony/console (v4.1.3): Downloading (100%)
+- Installing egulias/email-validator (2.1.5): Downloading (100%)
+- Installing swiftmailer/swiftmailer (v6.1.2): Downloading (100%)
+\end{lstlisting}
+
+Hierbei handelt es sich um eine Auswahl der installierten Komponenten. Es handelt sich bei der Standardinstallation um 70 Komponenten. Dazu gehören Polyfills, welche Lösungen für ältere Browser, welche nicht neuen Code unterstüzen, bieten, aber auch das Routing und Mailfunktionen werden übernommen.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{content/pictures/laravelfolder.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{Root Ordner einer Laravelanwendung}
+	\label{fig:laravelfolder}
+\end{figure}
+
+In Abbildung \ref{fig:laravelfolder} sieht man das Wurzelverzeichnis, welches mit dem Befehl \textit{laravel new beispiel} angelegt wurde. Man kann diesem Projektsetup ein sehr ausführliche Struktur entnehmen. Fremdbibliotheken werden streng getrennt und auch Dateien welche wirklich nach \textit{außen} geleitet werden, liegen in einem separatem Verzeichnis. Der Datei \textit{package.json} kann man entnehmen, das auch für eine Laravelanwendung, Erweiterungen über \ac{NPM} installiert werden können. Laravel bietet eine Schnittstelle für Frontends, wobei Laravel in dieser Arbeit nur ein Backend dient. Sehr wichtig für den Entwickler ist die Datei \textit{.env}. Der Punkt am Anfang des Dateinamen ist für ein Betriebssystem wie Windows irrelevant. Wichtig ist er in Betriebssystemen wie MacOS oder Linux. Hier werden solche Dateien \textit{versteckt}. Diese sollen nicht versehentlich verändert werden, da sie sehr sensible Daten enthalten. Der Dateiname steht für environment, \ac{z. Dt.} Umgebung. Die komplette Laravelumgebung nimmt sich diese Datei als Grundlage. Es werden Konfigurationen für Pfade, Datenbanken und Mailserver eingetragen. Diese stehen im Klartext dar. \autocite{Laravel.2018} Wenn diese nun auf einem Gitserver landen, könnte das folgen von Angriffen und ausspähen von Daten haben. Aber wie auch in Angular, wird in der \textit{.gitignore} Datei verhindert, wie in Kapitel \ref{cha:versionsverwaltung} erläutert wurde.
+
 
 \subsection{Artisan}
+Mit der Installation von Laravel, wird Artisan mitgeliefert. Es handelt sich über ein eigenständiges Konsolenwerkzeug wie es auch in Angular vorhanden ist. Damit lassen sich Controller und Models erzeugen. Auch das Erzeugen von Views ist möglich, aber in der Arbeit nicht nötig. Mit Artisan kann auch ein lokaler Server gestartet werden. Auch übernimmt Artisan das Migrieren von Datenbanken, welche in Laravel erzeugt worden sind. Artisan gibt die Möglichkeit Mails zu versenden und Schedular (\ac{z. Dt.} Planer) zu starten. Dabei kann ein bestimmter Ablauf geplant werden. So kann eine Aufgabe immer zu einer bestimmten Zeit, zu einem bestimmten Datum oder in einem bestimmten Intervall ausgeführt werden. Sollte der Entwickler Test geschrieben haben, können diese nicht nur mit Artisan angestoßen sondern auch analysiert und überwacht werden.  Auch wenn eine lange Liste an nützlicher Befehle vorhanden sind, so ist es möglich, dass diese nicht ausreichen. Hierfür gibt es eine Schnittstelle, mit welcher man Artisan neue Befehle beibringen kann.\autocite{Laravel.2018} Artisan wird dabei mit \ac{PHP} gestartet. Im folgen sieht man den Befehl um einen Controller zu erstellen.
+\begin{lstlisting}[language=sh, frame=single]
+$ php artisan make:controller BeispielController
+\end{lstlisting}
+
+Anders als Angular, übernimmt Laravel keine Unterstützung bei der Namenskonvention. An die muss der Entwickler sich selbst halten.
 
 \subsection{Controller}
+Des öfteren wurde schon das \ac{MVC} Muster in dieser Arbeit erwähnt. Ich möchte nun näher auf das C eingehen. Im klassischen \ac{MVC} Muster kommuniziert der Controller nur mit dem Model und verarbeitet dessen Daten. \autocite{Goll.2014} Im Grunde ist es bei dieser Anwendung genau das Selbe. Zusätzlich liefert der Controller seine verarbeiteten Informationen an die \ac{REST}-Schnittstelle. Im folgenden sieht man einen leeren Controller, wie er von Artisan erstellt wurde. Folgt man dem Pfad \textit{PROJEKT/App/Http/Contoller}, so findet man alle Controller.
+
+\begin{lstlisting}[language=php, frame=single]
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class BeispielController extends Controller
+{
+	//
+}
+\end{lstlisting}
 
 \subsection{REST}
+\acl{REST} gilt als eines der bedeutendsten Leitfäden bei der Entwicklung von Verteilten Anwendungen. \autocite{Nguyen.2017} Das Inventarverwaltungssystem ist keine Verteile Anwendung. Jedoch setzt \ac{REST} den Schritt das es in Zukunft möglich ist. Mit \ac{REST} wird auf einem Server ein Service zur Verfügung gestellt, welcher über eine \ac{URL} aufgerufen wird. So wird ein Befehl ausgeführt und berechnet. Die Resourcen auf dem Endgerät sind wenig bis gar nicht belastet. Somit können auf Leistungsschwachen Endgeräten komplizierte Berechnungen durchgeführt werden und es werden nur die Ressourcen des Servers belastet. Die Ergebnisse können auf die Verschiedensten Art und Weisen nach außen getragen werden. Die bekanntesten Vertreter sind \ac{XML}, einfacher Text und \ac{JSON}. Im Fall des Inventarisierungssystem wurde JSON gewählt. Angular kann nativ mit JSON umgehen und es schnell verarbeiten. So spart man sich ein zusätzliches Modul.
+Für \ac{REST} werden mehrere Funktionen bereitgestellt Daten an den Server zu senden und Daten vom Server zu empfangen. Die am gebräuchlichsten Funktionen sind:
+
+\begin{itemize}
+	\item GET: zum reinem Empfangen von Daten.
+	
+	\item POST: zum Senden von Daten. Es können aber auch Ergebnisse zurück gesendet werden. 
+	
+	\item PUT:  zum Aktualisieren von Daten. Es können aber auch Ergebnisse zurück gesendet werden.
+	
+	\item DELETE:  zum Löschen von Daten. Es können aber auch Ergebnisse bzw. Rückmeldungen zurück gesendet werden.
+\end{itemize}
 
 
+Erstellt man nun folgende Methode in einem Controller,
+
+\begin{lstlisting}[language=php, frame=single]
+public function helloWorld(){
+
+	return response()->json(['message' => 'Hello World'],200);
+
+}
+\end{lstlisting}
+
+kann in der Datei \textit{api.php} eine \ac{URL} angegeben werden über welche die Methode aufgerufen wird. Der Code zeigt wie eine \ac{JSON} erstellt wird, welche als Wertepaar nur message und Hello World hat. Der Code wird nur ausgeführt wenn der Statuscode 200 ist.
+ \begin{lstlisting}[language=php, frame=single]
+Route::get('/hello', [
+	'uses' => 'BeispielController@helloWorld'
+]);
+\end{lstlisting}
+
+Diesem Stück Code, lässt sich entnehmen das die Funktion über die \ac{URL} mit der Endung \textit{/hello} aufgerufen wird. Vor dem @ in uses wird der Controller bekannt gegeben und hinter dem @ wird gesagt welche Methode zum Einsatz kommen soll.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics{content/pictures/restresult.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ Ergebnis von einer REST-URL}
+	\label{fig:restresult}
+\end{figure}
+
+In Abbildung \ref{fig:restresult} ist zu sehen, das man über die \ac{URL} \textit{http://127.0.0.1:8000/api/hello} eine \ac{JSON} erhält mit welcher man nativ weiterarbeiten kann.
 
 
-\section{Security}
+\section{Sicherheit}
+Auch wenn es sich hierbei um nicht sensible Daten hält, ist eine Sicherheit der Daten nicht unwichtig. Dabei unterstützt der Browser, aber vor allem das Backend erfüllt die Aufgaben der Datensicherheit. Aber auch der Betreiber der Anwendung ist durch die Datenschutz-Grundverordnung dazu verpflichtet. \autocite{intersoftconsulting.2018} 
 
 \subsection{CORS}
 

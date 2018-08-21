@@ -138,7 +138,34 @@
       \verb http://dx.doi.org/10.1007/978-1-4842-3279-8
       \endverb
     \endentry
-    \entry{DatenbankenVerstehen.2018b}{misc}{}
+    \entry{Composer.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bcba235aa0401fd10464df6afbfaab77}{%
+           family={Composer},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{bcba235aa0401fd10464df6afbfaab77}
+      \strng{fullhash}{bcba235aa0401fd10464df6afbfaab77}
+      \strng{bibnamehash}{bcba235aa0401fd10464df6afbfaab77}
+      \strng{authorbibnamehash}{bcba235aa0401fd10464df6afbfaab77}
+      \strng{authornamehash}{bcba235aa0401fd10464df6afbfaab77}
+      \strng{authorfullhash}{bcba235aa0401fd10464df6afbfaab77}
+      \field{labelalpha}{Com18}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Composer Download}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://getcomposer.org/download/
+      \endverb
+      \verb{url}
+      \verb https://getcomposer.org/download/
+      \endverb
+      \warn{\item Entry 'Composer.2018' (literatur.bib): Invalid format '20.08.2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{DatenbankenVerstehen.2018}{misc}{}
       \name{author}{1}{}{%
         {{hash=170d1e66e5e86d746434ccf4913a923f}{%
            family={{Datenbanken Verstehen}},
@@ -164,9 +191,9 @@
       \verb{url}
       \verb http://www.datenbanken-verstehen.de/datenmodellierung/normalisierung/dritte-normalform/
       \endverb
-      \warn{\item Entry 'DatenbankenVerstehen.2018b' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
+      \warn{\item Entry 'DatenbankenVerstehen.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
     \endentry
-    \entry{DatenbankenVerstehen.2018}{misc}{}
+    \entry{DatenbankenVerstehen.2018b}{misc}{}
       \name{author}{1}{}{%
         {{hash=170d1e66e5e86d746434ccf4913a923f}{%
            family={{Datenbanken Verstehen}},
@@ -192,7 +219,35 @@
       \verb{url}
       \verb http://www.datenbanken-verstehen.de/datenmodellierung/normalisierung/zweite-normalform/
       \endverb
-      \warn{\item Entry 'DatenbankenVerstehen.2018' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
+      \warn{\item Entry 'DatenbankenVerstehen.2018b' (literatur.bib): Invalid format '10.08.2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Goll.2014}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ecf7443c667a529328edec9d962ffb4b}{%
+           family={Goll},
+           familyi={G\bibinitperiod},
+           given={Joachim},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{ecf7443c667a529328edec9d962ffb4b}
+      \strng{fullhash}{ecf7443c667a529328edec9d962ffb4b}
+      \strng{bibnamehash}{ecf7443c667a529328edec9d962ffb4b}
+      \strng{authorbibnamehash}{ecf7443c667a529328edec9d962ffb4b}
+      \strng{authornamehash}{ecf7443c667a529328edec9d962ffb4b}
+      \strng{authorfullhash}{ecf7443c667a529328edec9d962ffb4b}
+      \field{labelalpha}{Gol14}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Architekturen von Softwaresystemen sollen einfach erweiterbar und weitestgehend standardisiert sein, damit die Entwickler sich leicht uber Architekturen austauschen konnen. Fur den objektorientierten Entwurf haben sich zahlreiche wertvolle Architektur- und Entwurfsmuster herausgebildet. Diese Muster basieren auf objektorientier­­ten Prinzipien wie dem Prinzip der Dependency Inversion. Daher werden zuerst die wichtig­sten objektorientierten Prinzipien erklart. Anschlie{ß}end wird gezeigt, wie diese objektorientierten Prinzipien in den verschie­denen Architektur- und Entwurfs­mustern umgesetzt wer.}
+      \field{edition}{2nd ed.}
+      \field{isbn}{978-3-8348-2432-5}
+      \field{title}{Architektur- und Entwurfsmuster der Softwaretechnik: Mit lauff{ä}higen Beispielen in Java}
+      \field{year}{2014}
     \endentry
     \entry{Grande.2014}{book}{}
       \name{author}{1}{}{%
@@ -232,6 +287,32 @@
       \endverb
       \verb{url}
       \verb http://dx.doi.org/10.1007/978-3-658-06435-8
+      \endverb
+    \endentry
+    \entry{intersoftconsulting.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=92ab8f825ac4b5a82e8e8391e2dab643}{%
+           family={{intersoft consulting}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{92ab8f825ac4b5a82e8e8391e2dab643}
+      \strng{fullhash}{92ab8f825ac4b5a82e8e8391e2dab643}
+      \strng{bibnamehash}{92ab8f825ac4b5a82e8e8391e2dab643}
+      \strng{authorbibnamehash}{92ab8f825ac4b5a82e8e8391e2dab643}
+      \strng{authornamehash}{92ab8f825ac4b5a82e8e8391e2dab643}
+      \strng{authorfullhash}{92ab8f825ac4b5a82e8e8391e2dab643}
+      \field{labelalpha}{int18}
+      \field{sortinit}{i}
+      \field{sortinithash}{320bc8fe8101b9376f9f21cd507de0e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Datenschutz-Grundverordnung}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://dsgvo-gesetz.de
+      \endverb
+      \verb{url}
+      \verb https://dsgvo-gesetz.de
       \endverb
     \endentry
     \entry{Koch.2012}{book}{}
@@ -288,6 +369,7 @@
       \verb{url}
       \verb https://laravel.com
       \endverb
+      \warn{\item Entry 'Laravel.2018' (literatur.bib): Invalid format '20.08.2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{MFB.2013}{misc}{}
       \name{author}{1}{}{%
@@ -345,6 +427,42 @@
       \field{series}{X.media.press}
       \field{title}{User Experience Design: Mit Erlebniszentrierter Softwareentwicklung zu Produkten, die Begeistern}
       \field{year}{2012}
+    \endentry
+    \entry{Nguyen.2017}{article}{}
+      \name{author}{2}{}{%
+        {{hash=572f7439e8cd78f83f7a2cd1ba3b513d}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={Hoai\bibnamedelima Viet},
+           giveni={H\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=5f0bbb01de4a2f9e90f537f189042581}{%
+           family={{Lo Iacono}},
+           familyi={L\bibinitperiod},
+           given={Luigi},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{87efb2719f87ca32f8aa89662a4f9b6a}
+      \strng{fullhash}{87efb2719f87ca32f8aa89662a4f9b6a}
+      \strng{bibnamehash}{87efb2719f87ca32f8aa89662a4f9b6a}
+      \strng{authorbibnamehash}{87efb2719f87ca32f8aa89662a4f9b6a}
+      \strng{authornamehash}{87efb2719f87ca32f8aa89662a4f9b6a}
+      \strng{authorfullhash}{87efb2719f87ca32f8aa89662a4f9b6a}
+      \field{labelalpha}{NL17}
+      \field{sortinit}{N}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1614-0702}
+      \field{journaltitle}{Datenschutz und Datensicherheit - DuD}
+      \field{number}{2}
+      \field{title}{Sicherheit f{ü}r REST-basierte Systeme}
+      \field{volume}{41}
+      \field{year}{2017}
+      \field{pages}{99\bibrangedash 103}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1007/s11623-017-0736-9
+      \endverb
     \endentry
     \entry{Node.js.2018}{misc}{}
       \name{author}{1}{}{%
