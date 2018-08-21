@@ -64,11 +64,11 @@ $  npm install angular -g
 \end{lstlisting} 
 
 \subsection{Commandlineinterface von Angular}
-Angular selbst liefert seit der Version 2 ein \acl{CLI} mit. Mit diesem \ac{CLI} ist es möglich Angular Projekte zu verwalten. Mit einer Zeile kann ein komplettes Projektsetup erzeugt werden. Mit Hilfe von Parameter kann angegeben werden, wie Anwendung gestylet wird. Dabei kann man beispielsweise wählen ob man die Anwendung mit \ac{CSS} oder mit \ac{SASS} gestalten möchte. Bei \ac{SASS} handelt es fast um die gleiche Syntax wie \ac{CSS}. Es unterscheidet sich in dem Punkt, das es möglich ist Blöcke zu verschachteln und es gibt die Möglichkeit Variablen zu verwenden. Da noch kein Browser nativ \ac{SASS} unterstützt, wird der \ac{SASS}-Code in \ac{CSS}-Code übersetzt. Angular wird über die Konsole verwendet indem ng angeführt wird. Im folgenden wird ein Beispielprojekt angelegt, welches zum Gestalten \ac{SASS} verwendet.
+Angular selbst liefert seit der Version 2 ein \acl{CLI} mit. Mit diesem \ac{CLI} ist es möglich Angular Projekte zu verwalten. Mit einer Zeile kann ein komplettes Projektsetup erzeugt werden. Mit Hilfe von Parameter kann angegeben werden, wie Anwendung gestylet wird. Dabei kann man beispielsweise wählen ob man die Anwendung mit \ac{CSS} oder mit \ac{SASS} gestalten möchte. Bei \ac{SASS} handelt es fast um die gleiche Syntax wie \ac{CSS}. Es unterscheidet sich in dem Punkt, das es möglich ist Blöcke zu verschachteln und es gibt die Möglichkeit Variablen zu verwenden. Da noch kein Browser nativ \ac{SASS} unterstützt, wird der \ac{SASS}-Code in \ac{CSS}-Code übersetzt. Angular wird über die Konsole verwendet indem ng angeführt wird. Im folgenden wird ein Beispielprojekt angelegt, welches zum Gestalten \ac{SASS} verwendet. Und um nicht mit anderen \ac{HTML}-Tags oder Direktiven zu kollidieren, wird jeder Anwendung für ihre eigenen Tags, was im Kapitel \ref{cha:components} erläutert wird, ein Prefix angelegt. Im Beispiel ist es bsp.
 
 
 \begin{lstlisting}[language=sh, frame=single]
-$  ng new Beipsielprojekt --style=sass
+$  ng new Beipsielprojekt --style=sass --prefix=bsp
 \end{lstlisting} 
 
 
@@ -104,25 +104,102 @@ Wie man in Abbildung \ref{fig:projektfolder} sehen kann wird nicht nur ein Proje
 
 
 \subsection{TypeScript}
-Angular selbst ist TypeScript-basiert. Das bedeutet das Angular nicht direkt JavaScript verwendet, wie es noch in Angular.js gemacht worden ist, sondern es verwendet eine Art objektorientiertes JavaScript. Bei \ac{Ecma} handelt es sich um eine Private Organisation, welche Programmiersprachen standardisiert. So handelt es sich bei JavaScript, wie es heute geläufig ist und von den meisten Browser unterstützt wird, eigentlich um EcmaScript 5. Seit wenigen Jahren existiert EcmaScript 6. Dies ist ein JavaScript welches Klassen, Interfaces, Arrow-Functions \ac{uvm.} anbietet. Diese Features werden von vielen Entwickler gerne gesehen und lösen Probleme, mit welchen man schon länger zu tun hat und sie nur auf komplizierten Wegen lösen konnte. Allerdings unterstützen die meisten Browser noch nicht oder nur in Teilen den EcmaScript 6 Standard. An dieser stelle kommt TypeScript zum Einsatz. Eine Installation von TypeScript läuft, wie bei Angular, über \ac{NPM}. Man kann nun alle Features von EcmaScript 6 verwenden und in eine TypeScript-Datei schreiben. TypeScript übersetzt diesen Code in eine EcmaScript 5 Datei, mit welcher jeder gängige Browser umgehen kann.
+Angular selbst ist TypeScript-basiert. Das bedeutet das Angular nicht direkt JavaScript verwendet, wie es noch in Angular.js gemacht worden ist, sondern es verwendet eine Art objektorientiertes JavaScript. Bei \ac{Ecma} handelt es sich um eine Private Organisation, welche Programmiersprachen standardisiert. So handelt es sich bei JavaScript, wie es heute geläufig ist und von den meisten Browser unterstützt wird, eigentlich um EcmaScript 5. Seit wenigen Jahren existiert EcmaScript 6. Dies ist sozusagen ein JavaScript welches Klassen, Interfaces, Arrow-Functions \ac{uvm.} anbietet. Diese Features werden von vielen Entwickler gerne gesehen und lösen Probleme, mit welchen man schon länger zu tun hat und sie nur auf komplizierten Wegen lösen konnte. Allerdings unterstützen die meisten Browser noch nicht oder nur in Teilen den EcmaScript 6 Standard. An dieser stelle kommt TypeScript zum Einsatz. Eine Installation von TypeScript läuft, wie bei Angular, über \ac{NPM}. Man kann nun alle Features von EcmaScript 6 verwenden und in eine TypeScript-Datei schreiben. TypeScript übersetzt diesen Code in eine EcmaScript 5 Datei, mit welcher jeder gängige Browser umgehen kann.
+
+Eines der größten Probleme, welche mit EcmaScript 6 gelöst wurde, ist das Problem mit this. Wenn ein Entwickler von einer anderen Objektorientierten Sprache zu JavaScript wechselt, kann er schnell verwirrt sein. In den meisten Programmiersprachen, entspricht das Schlüsselwort \textit{this}, dem Objekt der Klasse, welche man gerade schreibt. So muss das nicht in JavaScript sein und kann daher schnell zu langen Fehlersuchen führen, wenn dieses Problem nicht bewusst ist. In der Programmiersprache JavaScript ist this in der Regel, das was vor einem Punkt einer Variablen steht. Meistens handelt es sich um das Objekt. Nun ist es aber so, das man sehr häufig mit dem Window-Objekt von JavaScript arbeitet, ohne dies zu wissen. Denn die variable \textit{window} kann einer function, welche nicht neu entwickelt wurde, voran gestellt werden, muss es aber sehr häufig nicht. Ein bekanntest Beispiel ist die Funktion \textit{setTimeout()}. \textit{window.setTimeout()} ist equivalent zu \textit{setTimeout()}. Der setTimeout-Funktion muss eine Funktion als Parameter mitgegeben werden. Wird hier this verwndet, so handelt es sich um das window-Objekt. Daher kann es passieren, das der Entwickler überzeugt ist eine Variable definiert zu haben, die Konsole ihn aber auf das Gegenteil hinweist. Dies ist ein Problem das schon sehr lange existiert und auf die verschiedensten Wege gelöst wurde. Da alte Programme, welche in JavaScript programmiert wurden, weiter Funktionieren müssen, darf mit einer neuen JavaScript Version die Funktionalität von this nicht geändert werden. Deshalb wurde eine neue Möglichkeit eingeführt, mit welcher Funktionen definiert werden können. Dabei handelt es sich um die Arrow-Function. Der Name wurde gewählt weil sie statt dem Schlüsselwort function einen Pfeil verwendet. Wenn man über diese Syntax eine Funktion entwickelt und \textit{this} verwendet, so handelt es sich um das this aus der Klasse und nicht um das window-Objekt. Im folgenden, sieht man ein Beispiel für eine solche Funktion.
+
+\begin{lstlisting}[language=sh, frame=single]
+() => {
+	console.log(this.firstname)
+}
+\end{lstlisting} 
 
 
 
 \subsection{Module}
-HTTP
+Mit der Verwendung von Angular, ist ein Kontakt mit Modulen nicht zu Vermeiden. Bei einem Modul wird eine komplette Angularanwendung umfasst. Dazu gehören Components, Services und Direktiven. Welche in den folgenden Kapitel erläutert werden. Module können allerdings auch nur als Funktionserweiterungen entwickelt werden.\autocite{Clow.2018} Das Framework macht es leicht, fremde Module einzubinden. Wichtige Module werden schon von dem Framework selbst angeboten. So übernehmen diese die Netzwerkkommunikation, Formularbehandlung oder auch das Darstellen von Daten. 
+
 
 
 \subsection{Components}
+\label{cha:components}
+Component \ac{z. Dt.} Komponenten, sind wie der Name schon verrät Teilbereiche einer Angular-Anwendung. Bei Components handelt sich sich, im eigentlichen Sinne, um Module. Da Components aber von sehr großer Bedeutung sind verdienen Sie ihr eigenen Abschnitt und werden in den meisten Fachbücher als eigenes Kapitel behandelt. Sie werden für die Darstellung von bestimmten Teilen Verwendet. So kann eine Component sich nur um die Ausgabe einer Tabelle zuständig sein. Dabei steht diese Component für sich alleine und ist nicht von anderen Components abhängig und beeinflusst auch nicht andere Components, wenn dieses Verhalten nicht erwünscht ist. Eine Component kann in einer fremden Component verwendet werden. Ein Verschachteln von Components ist möglich. Und auch hier stehen Sie für sich. Selbst ein gestalten in \ac{CSS} ist für jede Component separat möglich. Die Ausgabe wird in \ac{HTML} geschrieben und mit TypeScript-Code erweitert.\autocite{Clow.2018}
+
+Das \ac{CLI} von Angular unterstützt bei der Erstellung von Components den Entwickler sehr. So ist es völlig ausreichen, wenn der Benutzer beim erstellen nur die Component benennt. Angular wird für sie völlig automatisiert einen eigenen Ordner, mit \ac{CSS} bzw. \ac{SASS} Datei, einer \ac{HTML} Datei für die Darstellung, einer Testdatei und eine TypScript Datei an. Dabei werden die Dateien mit Beispielcode gefüllt und sind sofort verwendbar. Angular hällt sich an Namenskonventionen. So erhält jede Component das Wort Component in der Camel-Case Syntax, in welcher verschiedene Wörter in einer Variablen durch Großbuchstaben getrennt werden, als Suffix. Ist dies nicht erwünscht, lässt sich das durch Optionale angaben in der Konsole verhindern.
+
+\begin{lstlisting}[language=sh, frame=single]
+$  ng genarate component Beispiel
+\end{lstlisting} 
+
+\begin{lstlisting}[language=sh, frame=single]
+$  ng g c Beispiel
+\end{lstlisting}
+
+In beiden Konsolenbefehle wird das Selbe ausgeführt. Die Zweite Zeile ist eine Kurzschreibweise. Das Ergebnis wird unter anderem eine Klasse mit dem Name BeispielComponent sein. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{content/pictures/componentfolder.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ Dateien einer Component}
+	\label{fig:component}
+\end{figure}
 
 \subsection{Services}
+Services lassen sich mit Controller aus dem \ac{MVC} Entwurfsmuster vergleichen. Ihre Aufgaben sind es Funktionen für Components oder anderen Services zur Verfügung zu stellen. In ihnen wird berechnet, analysiert oder auch verwaltet. Funktionen werden häufig genutzte Aufgaben Zentralisiert und müssen dadurch nur an einer einzigen Stelle angepasst werden, wenn es nötig wird. Die Ausgabe und die Darstellung wird in den Components Programmiert. \autocite{Clow.2018}
 
+\begin{lstlisting}[language=sh, frame=single]
+$  ng genarate service Beispiel
+\end{lstlisting} 
+
+\begin{lstlisting}[language=sh, frame=single]
+$  ng g s Beispiel
+\end{lstlisting}
+
+Auch bei den Services wird beim Erstellen alles nötige generiert und die Camel-Case-Syntax kommt zum Einsatz. In diesem Fall würde der Service BeispielService heißen.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{content/pictures/services.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ Dateien eines Services}
+	\label{fig:service}
+\end{figure}
+
+\subsection{Direktiven}
+Direktiven können eine Ansicht verändern oder mehr Informationen weitergeben. Es wurden keine Direktiven in dieser Arbeit selbst entwickelt, jedoch sind sie ein wichtiger Teil, da viele Fremddirektiven zum Einsatz kamen. Direktiven werden in zwei Gruppen geteilt. Zum einen haben wir die Attibutsdirektiven. Dazu gehören auch die selbst Geschrieben Components. Sie heißen Attributsdirektiven, weil Sie wie ein Attribut einem \ac{HTML}-Tag mitgegeben werden. Ein Beispiel hierfür ist das ngClass. Es kann durch den Programmcode die Klasse eines Tags verändern. Eine sehr häufig genutzte Direktive ist die Strukturdirektive. Sie Verändert die Struktur des \ac{HTML}-Codes. Strukturdirektiven erkennt man an dem vorangestellten *. So ist es möglich mit *ngFor ganze Arrays direkt im \ac{HTML}-Code auszugeben oder mit *ngIf \ac{HTML}-Code zu entfernen und nicht nur auszublenden. \autocite{Clow.2018}
+
+\begin{lstlisting}[language=sh, frame=single]
+$  ng genarate directive Beispiel
+\end{lstlisting} 
+
+\begin{lstlisting}[language=sh, frame=single]
+$  ng g d Beispiel
+\end{lstlisting}
+
+Direktiven werden ebenfalls auf den fast gleichen Weg erstellt. Und der Name wäre in diesem Fall DirectivBeispiel. So können alle zusammengehörenden Bereiche den gleichen Namen haben und doch eine andere Aufgabe übernhemen.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{content/pictures/directive.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{ Dateien einer Direktiven}
+	\label{fig:directive}
+\end{figure}
 
 
 
 
 \section{Backend}
+Das Inventarsierungssystem kommt mit einem Fronent alleine nicht aus. Jedes größere Projekt teilt sich auch in ein Backend auf. Berechnungen, der Login und auch Netzwerkanfragen sind Dinge, die im Hintergrund der Anwendung geschehen. Der User soll von diesen dingen nichts mitbekommen. Für ihn müssen sie, wie selbstverständlich Funktionieren. In Kapitel \ref{chapter:frameworkchoice} wurde die Große vielfalt der Frameworks erwähnt. Es wurde auch kurz erläutert warum welches Framework gewählt wurde. In diesem Kapitel soll detaillierter in das Framework Laravel und seine Backendaufgaben geblickt werden.
 
-\subsection{Composer}
+\subsection{Laravel}
+Mit \ac{PHP} existiert eine sehr mächtige Programmiersprache mit unzähligen Funktionen. Seit einigen Jahren ist \ac{PHP} objektorientierter. Dadurch fanden viele Entwickler schneller einen Zugang zu diesem mächtigen Werkzeug. Durch den riesen Umfang den \ac{PHP} nativ anbietet, leidet auch die Übersichtlichkeit. \ac{HTML} und \ac{PHP} kann sehr unübersichtlich vermischt werden, Datenbankabfragen sind häufig lange und kompliziert und das Entwickeln von einem LogIn-System kann viel Zeit in anspruch nehmen. Genau hier setzt das \ac{PHP} Framework Laravel ein. Mit seiner Renderengine Blade wird der vermischte Code übersichtlicher, die Datenbankabfragen werden kürzer und einfacher und ein LogIn-System ist schnell erstellt. Zusätzlich nutzt Laravel das bekannte \ac{MVC} Muster.\autocite{Laravel.2018}
+
+\subsection{Installation von Laravel}
+Wie für JavaScript, gibt es auch für \ac{PHP} einen Packagemanager. Dieser lädt Abhängigkeiten welche für Laravel nötig sind. Wie auch bei Angular, können hier Abhängikeiten nachinstalliert werden. Durch die große Community sind auch viele Erweiterungen frei zur Verfügung. Im ersten Schritt muss allerdings Composer installiert werden. Die Software steht kostenfrei auf \url{http://www.composer.com} zur Verfügung. Diese wird für Windows, Linux und MacOS angeboten. \autocite{Composer.2018} Unter Windows läuft die Installation über einen Assistenten. Ist eine \ac{PHP} Version welche neuer als 7.1.2 ist und die Extensions: OpenSSL, \ac{PDO}, Mbstring Tokenizer, \ac{XML}, Ctype und \ac{JSON} installiert, kann ein Laravel Projekt mit der Versionsnummer 5.6 sofort mit Composer angelegt werden und muss nicht wie Angular erst installiert werden.
+
+\subsection{Artisan}
 
 \subsection{Controller}
 
@@ -141,3 +218,6 @@ HTTP
 
 
 \section{Deploy}
+
+\subsection{Deploy in Angular}
+\subsection{Deploy in Laravel}

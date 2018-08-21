@@ -263,6 +263,32 @@
       \field{title}{Magento - Schritt f{ü}r Schritt zum eigenen Online-Shop: [aktuell ab Version 1.7]}
       \field{year}{2012}
     \endentry
+    \entry{Laravel.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a5c95b86291ea299fcbe64458ed12702}{%
+           family={Laravel},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{a5c95b86291ea299fcbe64458ed12702}
+      \strng{fullhash}{a5c95b86291ea299fcbe64458ed12702}
+      \strng{bibnamehash}{a5c95b86291ea299fcbe64458ed12702}
+      \strng{authorbibnamehash}{a5c95b86291ea299fcbe64458ed12702}
+      \strng{authornamehash}{a5c95b86291ea299fcbe64458ed12702}
+      \strng{authorfullhash}{a5c95b86291ea299fcbe64458ed12702}
+      \field{labelalpha}{Lar18}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Laravel documatation}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://laravel.com
+      \endverb
+      \verb{url}
+      \verb https://laravel.com
+      \endverb
+    \endentry
     \entry{MFB.2013}{misc}{}
       \name{author}{1}{}{%
         {{hash=30eba3069deecce5cc02144c95a8ef67}{%
@@ -595,6 +621,7 @@
   \enddatalist
   \missing{.2018}
   \missing{automatix.}
+  \missing{git}
   \missing{windows}
 \endrefsection
 \endinput
