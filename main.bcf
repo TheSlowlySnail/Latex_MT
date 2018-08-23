@@ -2006,13 +2006,19 @@
     <bcf:citekey order="31">Clow.2018</bcf:citekey>
     <bcf:citekey order="32">Clow.2018</bcf:citekey>
     <bcf:citekey order="33">Clow.2018</bcf:citekey>
-    <bcf:citekey order="34">Laravel.2018</bcf:citekey>
-    <bcf:citekey order="35">Composer.2018</bcf:citekey>
-    <bcf:citekey order="36">Laravel.2018</bcf:citekey>
+    <bcf:citekey order="34">Clow.2018</bcf:citekey>
+    <bcf:citekey order="35">Laravel.2018</bcf:citekey>
+    <bcf:citekey order="36">Composer.2018</bcf:citekey>
     <bcf:citekey order="37">Laravel.2018</bcf:citekey>
-    <bcf:citekey order="38">Goll.2014</bcf:citekey>
-    <bcf:citekey order="39">Nguyen.2017</bcf:citekey>
-    <bcf:citekey order="40">intersoftconsulting.2018</bcf:citekey>
+    <bcf:citekey order="38">Laravel.2018</bcf:citekey>
+    <bcf:citekey order="39">Goll.2014</bcf:citekey>
+    <bcf:citekey order="40">Nguyen.2017</bcf:citekey>
+    <bcf:citekey order="41">intersoftconsulting.2018</bcf:citekey>
+    <bcf:citekey order="42">Cors.2018</bcf:citekey>
+    <bcf:citekey order="43">Mozilla.2018</bcf:citekey>
+    <bcf:citekey order="44">StiftungWarentest.2015</bcf:citekey>
+    <bcf:citekey order="45">intersoftconsultingservicesAG.2013</bcf:citekey>
+    <bcf:citekey order="46">Stauffer.2017</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

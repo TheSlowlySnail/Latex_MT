@@ -2,40 +2,46 @@
 \babel@toc {ngerman}{}
 \babel@toc {ngerman}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Ablauf eines Scrums. \cite {Niermann.2017}\relax }}{4}{figure.caption.6}
+\contentsline {figure}{\numberline {1}{\ignorespaces Ablauf eines Scrums. \cite {Niermann.2017}\relax }}{4}{figure.caption.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2}{\ignorespaces Die Startseite des Webauftritts\relax }}{5}{figure.caption.10}
+\contentsline {figure}{\numberline {2}{\ignorespaces Die Startseite des Webauftritts\relax }}{5}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3}{\ignorespaces Raumkarte\relax }}{7}{figure.caption.12}
+\contentsline {figure}{\numberline {3}{\ignorespaces Raumkarte\relax }}{7}{figure.caption.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4}{\ignorespaces Netzwerkkarte\relax }}{8}{figure.caption.13}
+\contentsline {figure}{\numberline {4}{\ignorespaces Netzwerkkarte\relax }}{8}{figure.caption.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5}{\ignorespaces Magento Itemverwaltung\relax }}{9}{figure.caption.16}
+\contentsline {figure}{\numberline {5}{\ignorespaces Magento Itemverwaltung\relax }}{9}{figure.caption.17}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6}{\ignorespaces ER-Diagramm\relax }}{12}{figure.caption.18}
+\contentsline {figure}{\numberline {6}{\ignorespaces ER-Diagramm\relax }}{12}{figure.caption.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7}{\ignorespaces MockUp von Items-Tabelle\relax }}{13}{figure.caption.19}
+\contentsline {figure}{\numberline {7}{\ignorespaces MockUp von Items-Tabelle\relax }}{13}{figure.caption.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {8}{\ignorespaces Button Gruppierung\relax }}{14}{figure.caption.20}
+\contentsline {figure}{\numberline {8}{\ignorespaces Button Gruppierung\relax }}{14}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {9}{\ignorespaces VM-Ware mit geladenem Abbild\relax }}{17}{figure.caption.22}
+\contentsline {figure}{\numberline {9}{\ignorespaces VM-Ware mit geladenem Abbild\relax }}{17}{figure.caption.23}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {10}{\ignorespaces Netzwerkeigenschaften im VM-Ware-Player\relax }}{19}{figure.caption.27}
+\contentsline {figure}{\numberline {10}{\ignorespaces Netzwerkeigenschaften im VM-Ware-Player\relax }}{19}{figure.caption.28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {11}{\ignorespaces WinSCP\relax }}{21}{figure.caption.33}
+\contentsline {figure}{\numberline {11}{\ignorespaces WinSCP\relax }}{21}{figure.caption.34}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {12}{\ignorespaces Projektordner: Angularprojekt\relax }}{23}{figure.caption.41}
+\contentsline {figure}{\numberline {12}{\ignorespaces Projektordner: Angularprojekt\relax }}{23}{figure.caption.42}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {13}{\ignorespaces Sourceordner in Angular Projekt\relax }}{23}{figure.caption.42}
+\contentsline {figure}{\numberline {13}{\ignorespaces Sourceordner in Angular Projekt\relax }}{23}{figure.caption.43}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {14}{\ignorespaces App Ordner in Src-Ordner des Angularprojektes\relax }}{23}{figure.caption.43}
+\contentsline {figure}{\numberline {14}{\ignorespaces App Ordner in Src-Ordner des Angularprojektes\relax }}{23}{figure.caption.44}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {15}{\ignorespaces Dateien einer Component\relax }}{26}{figure.caption.45}
+\contentsline {figure}{\numberline {15}{\ignorespaces Dateien einer Component\relax }}{26}{figure.caption.46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {16}{\ignorespaces Dateien eines Services\relax }}{27}{figure.caption.47}
+\contentsline {figure}{\numberline {16}{\ignorespaces Dateien eines Services\relax }}{27}{figure.caption.48}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {17}{\ignorespaces Dateien einer Direktiven\relax }}{28}{figure.caption.48}
+\contentsline {figure}{\numberline {17}{\ignorespaces Dateien einer Direktiven\relax }}{28}{figure.caption.49}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {18}{\ignorespaces Root Ordner einer Laravelanwendung\relax }}{30}{figure.caption.52}
+\contentsline {figure}{\numberline {18}{\ignorespaces Root Ordner einer Laravelanwendung\relax }}{31}{figure.caption.54}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {19}{\ignorespaces Ergebnis von einer REST-URL\relax }}{33}{figure.caption.55}
+\contentsline {figure}{\numberline {19}{\ignorespaces Ergebnis von einer REST-URL\relax }}{34}{figure.caption.56}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {20}{\ignorespaces Alle User nutzen das Passwort "test"\relax }}{35}{figure.caption.59}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {21}{\ignorespaces Anlegen von Items\relax }}{40}{figure.caption.60}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {22}{\ignorespaces Importieren und Exportieren von Items\relax }}{45}{figure.caption.61}

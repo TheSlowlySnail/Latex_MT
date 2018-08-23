@@ -1,0 +1,338 @@
+% ##################################################
+% Unterstuetzung fuer die deutsche Sprache
+% ##################################################
+%\usepackage{ngerman}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{lmodern}
+
+% ##################################################
+% Aufzählung mit Prefix \begin{enumerate}[label={Nr. \arabic*}, leftmargin=*, labelindent=1em]
+% ##################################################
+\usepackage{calc}
+\usepackage{enumitem}
+\setlist[description]{
+  font={\normalfont\itshape\sffamily},
+  before={\normalfont\sffamily}
+}
+
+
+% ##################################################
+% Dokumentvariablen
+% ##################################################
+
+% Persoenliche Daten
+\newcommand{\docNachname}{Hübner}
+\newcommand{\docVorname}{Simon}
+\newcommand{\docStrasse}{Berliner Straße 19}
+\newcommand{\docOrt}{Furtwangen}
+\newcommand{\docPlz}{78120}
+\newcommand{\docEmail}{simon.huebner@hs-furtwangen.de}
+\newcommand{\docMatrikelnummer}{251906}
+
+% Dokumentdaten
+%\newcommand{\docTitle}{Einsatz von Software Deployment Werkzeugen für OSGi-basierte Gateways am Beispiel von OpenMUC}
+%\newcommand{\docTitle}{Evaluation von Open-Source Werkzeugen zur Softwareverteilung für das OSGi-basierte Gateway OpenMUC}
+\newcommand{\docTitle}{Evaluation von Open-Source-Werkzeugen zur Softwareverteilung für OSGi-basierte IoT-Gateways am Beispiel von OpenMUC}
+\newcommand{\docUntertitle}{} % Kein Untertitel SW Deploy, IoT, ..., Bingo!
+% \newcommand{\docUntertitle}{UNTERTITEL}
+% Arten der Arbeit: Bachelorthesis, Masterthesis, Seminararbeit, Diplomarbeit
+\newcommand{\docArtDerArbeit}{Masterarbeit}
+%Studiengaenge: Allgemeine Informatik Bachelor, Computer Networking Bachelor,
+% Software-Produktmanagement Bachelor, Advanced Computer Scinece Master
+\newcommand{\docStudiengang}{Mobile Systeme (MOS)}
+\newcommand{\docAbgabedatum}{\today}
+\newcommand{\docErsterReferent}{Prof. Dr. Lothar Piepmeyer}
+\newcommand{\docZweiterReferent}{Prof. Dr. Elmar Cochlovius} % Wenn es nur einen Betreuer gibt
+% \newcommand{\docZweiterReferent}{-}
+
+% ##################################################
+% Allgemeine Pakete
+% ##################################################
+
+% Abbildungen einbinden
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{framed}
+
+% Farben
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+% Maskierung von URLs und Dateipfaden
+\usepackage[hyphens,spaces,obeyspaces]{url}
+
+% setzt Tabellen auch dorthin, wo sie erstellt wereden!
+\usepackage[section]{placeins}
+% Deutsche Anfuehrungszeichen
+\usepackage[babel, german=quotes]{csquotes}
+
+% Pakte zur Index-Erstellung (Schlagwortverzeichnis)
+% \usepackage{index}
+% \makeindex
+
+% Ipsum Lorem
+% Paket wird nur für das Beispiel gebraucht und kann gelöscht werden
+\usepackage{lipsum}
+
+% ##################################################
+% Seitenformatierung
+% ##################################################
+\usepackage[
+	portrait,
+	bindingoffset=1.5cm,
+	inner=2.5cm,
+	outer=2.5cm,
+	top=3cm,
+	bottom=2cm,
+	%showframe,
+	%includeheadfoot
+	]{geometry}
+
+% ##################################################
+% Kopf- und Fusszeile
+% ##################################################
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyhead[EL,OR]{\sffamily\thepage}
+%\fancyhead[ER,OL]{\sffamily\leftmark}
+\fancyhead[EL,OR]{\sffamily\bfseries\thepage}
+\fancyhead[ER,OL]{\sffamily\bfseries\leftmark}
+
+\fancypagestyle{headings}{}
+
+\fancypagestyle{plain}{}
+
+\fancypagestyle{empty}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+%Kein "Kapitel # NAME" in der Kopfzeile
+\renewcommand{\chaptermark}[1]{
+	\markboth{#1}{}
+   	\markboth{\thechapter.\ #1}{}
+}
+
+% ##################################################
+% Schriften
+% ##################################################
+
+% Stdandardschrift festlegen
+\renewcommand{\familydefault}{\sfdefault}
+
+% Standard Zeilenabstand: 1,5 zeilig
+\usepackage{setspace}
+%\onehalfspacing 
+
+% Schriftgroessen festlegen
+\addtokomafont{chapter}{\sffamily\large\bfseries} 
+\addtokomafont{section}{\sffamily\normalsize\bfseries} 
+\addtokomafont{subsection}{\sffamily\normalsize\mdseries} 
+\addtokomafont{caption}{\sffamily\normalsize\mdseries} 
+% \addtokomafont{paragraph}{\sffamily\normalsize\mdseries}
+
+% ##################################################
+% Inhaltsverzeichnis / Allgemeine Verzeichniseinstellungen
+% ##################################################
+
+\usepackage{tocloft}
+
+% Punkte auch bei Kapiteln
+\renewcommand{\cftchapdotsep}{3}
+\renewcommand{\cftdotsep}{3}
+
+% Schriftart und -groesse im Inhaltsverzeichnis anpassen
+\renewcommand{\cftchapfont}{\sffamily\normalsize}
+\renewcommand{\cftsecfont}{\sffamily\normalsize}
+\renewcommand{\cftsubsecfont}{\sffamily\normalsize}
+\renewcommand{\cftchappagefont}{\sffamily\normalsize}
+\renewcommand{\cftsecpagefont}{\sffamily\normalsize}
+\renewcommand{\cftsubsecpagefont}{\sffamily\normalsize}
+
+%Zeilenabstand in den Verzeichnissen einstellen
+\setlength{\cftparskip}{.5\baselineskip}
+\setlength{\cftbeforechapskip}{.1\baselineskip}
+
+% ##################################################
+% Abbildungsverzeichnis und Abbildungen
+% ##################################################
+
+\usepackage{caption}
+
+\usepackage{wrapfig}
+\usepackage{framed}
+
+% Nummerierung von Abbildungen
+\renewcommand{\thefigure}{\arabic{figure}}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+
+% Abbildungsverzeichnis anpassen
+\renewcommand{\cftfigpresnum}{Abbildung }
+\renewcommand{\cftfigaftersnum}{:}
+
+% Breite des Nummerierungsbereiches [Abbildung 1:]
+\newlength{\figureLength}
+\settowidth{\figureLength}{\bfseries\cftfigpresnum\cftfigaftersnum}
+%\setlength{\cftfignumwidth}{\figureLength}
+\setlength{\cftfignumwidth}{2.6cm}
+\setlength{\cftfigindent}{0cm}
+
+% Schriftart anpassen
+\renewcommand\cftfigfont{\sffamily}
+\renewcommand\cftfigpagefont{\sffamily}
+
+\usepackage{subcaption}
+
+% ##################################################
+% Tabellenverzeichnis und Tabellen
+% ##################################################
+
+% Nummerierung von Tabellen
+\renewcommand{\thetable}{\arabic{table}}
+\counterwithout{table}{chapter}
+\usepackage{tabu}
+\usepackage{booktabs}
+
+% Fußnoten in Tabellen
+\usepackage{threeparttable} 
+\usepackage{multirow}
+
+\usepackage[table]{xcolor}
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular}{\footnotesize}
+\AtBeginEnvironment{longtable}{\footnotesize}
+
+% Dadurch können mit x{size} rechtsbündige und mit z{size} zentrierte Zellen
+% mit fester Größe size erstellt werden.
+\newcolumntype{y}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{x}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{z}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+
+% Tabellenverzeichnis anpassen
+\renewcommand{\cfttabpresnum}{Tabelle }
+\renewcommand{\cfttabaftersnum}{:}
+
+% Breite des Nummerierungsbereiches [Abbildung 1:]
+\newlength{\tableLength}
+\settowidth{\tableLength}{\bfseries\cfttabpresnum\cfttabaftersnum}
+%\setlength{\cfttabnumwidth}{\tableLength}
+\setlength{\cfttabnumwidth}{2.0cm}
+\setlength{\cfttabindent}{0cm}
+
+%Schriftart anpassen
+\renewcommand\cfttabfont{\sffamily}
+\renewcommand\cfttabpagefont{\sffamily}
+
+% Unterdrueckung von vertikalen Linien
+\usepackage{booktabs}
+
+% ##################################################
+% Listings (Quellcode)
+% ##################################################
+
+\usepackage{listings}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstset{
+  basicstyle=\ttfamily,
+  %basicstyle=\normalsize,
+  columns=fullflexible,
+  showstringspaces=false,
+  breaklines=true,
+  breakautoindent=true,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=5pt,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},   
+  stringstyle=\color{gray},
+  linewidth=14.6cm,
+  xleftmargin=0.45cm,
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+
+% \lstset{
+% 	language=java,
+% 	backgroundcolor=\color{white},
+% 	breaklines=true,
+% 	prebreak={\carriagereturn},
+%  	breakautoindent=true,
+%  	numbers=left,
+%  	numberstyle=\tiny,
+%  	stepnumber=2,
+%  	numbersep=5pt,
+%  	keywordstyle=\color{blue},
+%    	commentstyle=\color{green},   
+%    	stringstyle=\color{gray}
+% }
+  	
+% ##################################################
+% Theoreme
+% ##################################################
+  	
+% Umgebung fuer Beispiele
+\newtheorem{beispiel}{Beispiel}
+
+% Umgebung fuer These
+\newtheorem{these}{These}
+
+% Umgebung fuer Definitionen
+\newtheorem{definition}{Definition}
+  	
+% ##################################################
+% Literaturverzeichnis
+% ##################################################
+
+\usepackage{bibgerm}
+%\usepackage[backend=biber, bibencoding=utf8]{biblatex}
+%\usepackage{apacite}
+
+% ##################################################
+% Abkuerzungsverzeichnis
+% ##################################################
+
+%\usepackage[printonlyused]{acronym}
+\usepackage{acronym}
+%\renewcommand*{\acsfont}[1]{\normalfont\bfseries #1}
+
+% ##################################################
+% PDF / Dokumenteninternelinks
+% ##################################################
+
+\usepackage[
+    unicode=true,
+    pdfencoding=unicode,
+    colorlinks=false,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=black,
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    bookmarksnumbered,
+    plainpages=false,
+    pdfpagelabels=true,
+    hyperfootnotes,
+    pdftitle ={\docTitle},
+    pdfauthor={\docVorname~\docNachname},
+    pdfcreator={\docVorname~\docNachname}]{hyperref}

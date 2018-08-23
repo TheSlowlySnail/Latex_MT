@@ -1,0 +1,125 @@
+\chapter{Diskussion der Ergebnisse}
+\label{cha:discussion}
+
+Dieses Kapitel dient der Erörterung der Ergebnisse der vorliegenden Arbeit.
+Dazu werden die erzielten Ergebnisse in Bezug auf die eingangs formulierten Forschungsfragen diskutiert. % und es wird ein persönliches Fazit gezogen.
+Den Abschluss bildet ein Ausblick auf weiterführende Forschungsfragen.
+
+\section{Fazit}
+
+Die Problemstellung zu Beginn, bestand im Fehlen eines Softwareverteilungsprozesses für das OpenMUC-Framework.
+Das Fehlen dieses Prozesses zur Installation und Aktualisierung von Bundles erschwert nicht nur die Administration und Wartbarkeit einer OpenMUC-Installation,
+sondern stellt im Falle der Aktualisierung auch ein Sicherheitsrisiko dar.
+Außerdem wird der Einsatz von Softwarekomponenten Dritter beeinträchtigt,
+was wiederum die Anwendbarkeit von OpenMUC in anderen Anwendungsszenarien und \ac{IoT}-Domänen einschränkt.
+Aus diesem Grund wurden zu Beginn sechs Forschungsfragen aufgestellt, deren Beantwortung zur Lösung der Problemstellung notwendig ist.\\
+
+\textit{Forschungsfrage 1} dient der Erhebung von Open-Source-Werkzeugen zur Softwareverteilung für \ac{OSGi}-basierte Anwendungen.
+Dazu wurden im Rahmen einer Recherche die Werkzeuge Apache Felix OBR, Apache ACE, Apache Karaf und Eclipse hawkBit ermittelt und eingehend untersucht.
+Aufgrund der Beschränkung auf Open-Source-Werkzeuge, lässt sich nicht ausschließen, dass im kommerziellen Sektor weitere geeignete Werkzeuge existieren.
+Auch im Open-Source-Bereich sind, aufgrund der Ausrichtung ihrer Entwicklung, nicht alle verfügbaren Werkzeuge untersucht worden.
+\textit{Forschungsfrage 2} zielt auf eine eingehende Untersuchung der ermittelten Werkzeuge ab.
+Die in \autoref{werkzeuge} erläuterten Informationen sind das Ergebnis dieser Frage und bilden die Grundlage der späteren Bewertung der Werkzeuge.
+Die Darstellung der Aspekte der vier Werkzeuge beschränkt sich lediglich auf einen Teil ihres jeweiligen Funktionsumfanges.
+Es handelt sich hierbei nicht um eine vollständige Evaluation.
+Der Fokus der Untersuchung liegt auf den Eigenschaften, die zur Umsetzung des Softwareverteilungsprozesses relevant sind.\\
+
+Zur Evaluation der Werkzeuge werden begründbare Kriterien benötigt.
+Die Beantwortung von \textit{Forschungsfrage 3} liefert Kriterien zur Bewertung der Eignung von Werkzeugen zur Softwareverteilung.
+In \autoref{sec:openmuc_scenarios} sind fünf Kriterien, die aus den Anforderungen der Einsatzszenarien abgeleitet wurden, aufgezeigt.
+Sicherheit ist ein Kriterium mit zentraler Bedeutung für alle Bereiche der Informationstechnologie.
+Besonders im Bereich \ac{IoT} nimmt das Thema Sicherheit einen hohen Stellenwert ein.
+Die hohe Anzahl an Kommunikationsteilnehmern und die Diversität im Bereich der Protokolle
+der bereitgestellten Dienste und der Anwendungen im Internet der Dinge, bieten viele Angriffsvektoren.
+Hossain et al. \cite{iot_security_issues} kommen in ihrer Analyse von Sicherheitsschwachstellen, Herausforderungen und offenen Problemen im \ac{IoT}-Bereich zu demselben Schluss.
+Die Kriterien zentrales Managment, Erstellung von Distributionen, Ausfallsicherheit und Verfügbarkeit von Schnittstellen ergeben sich aus der Analyse der 
+Anwendungsfälle von OpenMUC. Die drei Werkzeuge Apache ACE, Apache Karaf und Eclipse hawkBit erfüllen, mit einer Ausnahme, diese Kriterien.
+Einzig Apache Karaf verfügt nicht über die Möglichkeit eines zentralen Managements.
+Diese Tatsache zeigt, dass diese Eigenschaften von wesentlicher Bedeutung für Werkzeuge zur Verwaltung und Verteilung von Softwarekomponenten sind.
+Die Kriterien existierende Community, erkennbare Weiterentwicklung, langlebiges Projekt, flexible Wartbarkeit
+und die Anzahl der Entwickler sind der Arbeit von Cruz et al. \cite{evaluation_criteria} entnommen.
+Es handelt sich hierbei um eine Auswahl von Kriterien und umfasst nicht alle in der Arbeit beschriebenen Merkmale.
+In der Arbeit von Cruz et al. werden verschiedene Kriterien anhand von Szenarien, die unterschiedliche Einsatzzwecke der Software beschreiben, empfohlen.
+Für die vorliegenden Einsatzzweck eines Werkzeuges zur Softwareverteilung exisitert kein passendes Szenario.
+Aus diesem Grund sind Kriterien ausgewählt worden, welche die Langlebigkeit und Anpassbarkeit an eigene Anforderungen begünstigen.
+Es kann angenommen werden, dass ein Werkzeug, das die Kriterien erfüllt, über einen längeren Zeitraum eingesetzt und an zukünftige Änderungen
+des OpenMUC-Frameworks angepasst werden kann.\\
+
+Zur Beantwortung von \textit{Forschungsfrage 4} werden die vier ausgewählten Werkzeuge hinsichtlich der definierten Kriterien untersucht und bewertet.
+Das Ergebnis dieses Prozesses ist eine Entscheidungsmatrix, die in \autoref{tab:rating_matrix} abgebildet ist.
+Die Bewertung der beiden best­plat­zierten Werkzeuge fällt denkbar knapp aus.
+Dadurch stellt sich die Frage, ob die Auswahl von weiteren Kriterien, oder das Weglassen solcher, die Bewertung zu Gunsten von Eclipse hawkBit verändern würde.
+Die prototypische Integration von Apache ACE in \autoref{sec:integration_ace} zeigt allerdings, dass das Werkzeug sehr gut in OpenMUC integriert werden kann.
+Die notwendigen Anpassungen an OpenMUC für eine erste Integration fallen minimal aus.
+Durch den Fokus auf die Softwareverteilung von \ac{OSGi}-Bundles bei der Entwicklung von Apace ACE, ist nur ein minimaler Entwicklungsaufwand nötig, um die Lücke 
+im Softwareverteilungsprozess für OpenMUC zu schließen.
+Da es sich bei Eclipse hawkBit um eine generische Lösung zur Softwareverteilung handelt, ist davon auszugehen, dass der Aufwand zur Integration deutlich höher ausfällt. 
+Zur Anbindung an den bestehenden Softwareverteilungsprozess, müsste ein OpenMUC-Adapter für eine der Geräteschnittstellen
+von Eclipse hawkBit entwickelt werden.
+Eine Implementierung beider Werkzeuge und ein Vergleich dieser würde jedoch den Rahmen dieser Arbeit sprengen.\\
+
+Hinsichtlich \textit{Forschungsfrage 5} können zwei Fälle unterschieden werden. 
+Erstens die notwendigen Anpassungen von OpenMUC, die in \autoref{sec:integration_ace} beschrieben sind.
+Die notwendigen Anpassungen umfassen eine Änderung der Konfiguration der Felix-Plattform und
+die Bereitstellung eines Resource-Processors für nicht standardmäßig durch Apache ACE unterstützte Artefakte.
+Dieser erste Prototyp vervollständigt zwar den Softwareverteilungsprozess, schöpft aber das mögliche Potenzial nicht aus.
+Zweitens werden aus diesem Grund fünf Empfehlungen zur Weiterentwicklung des OpenMUC-Frameworks gegeben.
+Deren Bearbeitung würde jedoch den Rahmen dieser Arbeit übersteigen.
+Hervorzuheben ist hier der Einsatz von Deployment-Paketen und die Nutzung der Apache ACE-Template-Engine.
+Die Umsetzung der Empfehlungen hilft dabei, weitere Teile der \ac{OSGi}-Plattform für OpenMUC zu nutzen
+und die Funktionalität von Apache ACE nutzbringend einzusetzen.
+Das führt zu einer besseren Benutzbarkeit und zu mehr Flexibilität beim Einsatz von Apache ACE.
+Die notwendigen Anpassungen sind identifiziert und \textit{Forschungsfrage 5} damit hin­rei­chend
+beantwortet. 
+Es ist anzunehmen, dass eine gezielte Untersuchung des OpenMUC-Frameworks hinsichtlich des 
+Verbesserungspotenzials, in Bezug auf die \ac{OSGi}-Plattform, weitere Möglichkeiten zur Anpassungen aufdeckt.\\
+
+Anhand von \textit{Forschungsfrage 6} soll untersucht werden, ob das OpenMUC-Framework, das als Energy-Management-Gateway konzipiert wurde,
+durch die Integration eines Softwareverteilungsprozesses mehr Flexibilität erlangt.
+Die Erkenntnisse des Einsatzes von OpenMUC im Smart-Home-Labor der Hochschule Furtwangen fallen positiv aus.
+Der Einsatz von OpenMUC innerhalb des Smart-Home zeigt, dass durch die bestehende Modularität und neu gewonnene Flexibilität 
+auch Einsätze außerhalb des primären Einsatzbereiches möglich sind.
+Im direkten Vergleich von OpenMUC und openHAB wird deutlich, dass beide Frameworks unterschiedliche Stärken und Schwächen haben,
+jedoch beide ihre Aufgaben im Smart-Home erfüllen.
+Natürlich handelt es sich bei der Teststellung nur um eine von vielen \ac{IoT}-Domänen. 
+Sie liefert keine Erkenntnisse für weitere Domänen.
+Die Einsatzfähigkeit von OpenMUC in allen Bereichen des Internets der Dinge kann damit nicht belegt werden.\\
+
+Abschließend kann festgelegt werden, das mit der Integration von Apache ACE in das OpenMUC-Framework eine Lösung für die eingangs beschriebe Problemstellung gefunden wurde.
+Innerhalb dieser Arbeit konnten jedoch nicht alle zutage getretenen Probleme eingehend untersucht werden.
+Aus diesem Grund wird im Folgenden ein Ausblick auf mögliche weitere Forschungsthemen gegeben.
+
+\section{Ausblick}
+
+Im Rahmen dieser Arbeit sind verschiedene Fragen und Probleme zutage getreten, deren vollständige Beantwortung an dieser Stelle zu weitreichend wäre.
+Sie können jedoch als Grundlage für weiterführende Untersuchungen genutzt werden.\\
+
+Die Auswahl eines Werkzeuges zur Softwareverteilung in \autoref{sec:matrix} ging nur knapp zu Gunsten von Apache ACE aus.
+Derzeit überzeugt Apache ACE durch seine Produktreife und seine Spezialisierung auf die \ac{OSGi}-Plattform.
+Bei Eclipse hawkBit handelt es sich um ein recht junges Projekt, dem bisher wenig wissenschaftliche Aufmerksamkeit zuteil wurde.
+Aus diesem Grund wäre in einigen Jahren eine erneute Untersuchung von Eclipse hawkBit in Bezug auf OpenMUC wünschenswert.
+Außerdem könnte zum jetzigen Zeitpunkt eine allgemein verfasste Untersuchung des Werkzeuges zu interessanten Erkenntnissen aus dem Bereich der Softwareverteilung
+im \ac{IoT}-Umfeld führen.\\
+
+Das OpenMUC-Projekt weist einige Schwächen im Bereich seines Softwareentwicklungsprozesses auf.
+Neben dem Problem der Versionierung, wie in \autoref{sec:recommendations} beschrieben, fehlt es dem Prozess 
+an einer kontinuierlichen Integration (\ac{CI}) und einer kontinuierlichen Auslieferung (\ac{CD}) der Bundles.
+Es besteht demnach Bedarf an der Evaluierung geeigneter \ac{CI}- und \ac{CD}-Technologien und
+ihrer anschließenden Integration in das Betriebskonzept von OpenMUC.
+Die Forschung in diesen Bereichen würde zu einer Steigerung der Professionalität in Bezug auf die Softwareentwicklung des Projektes führen.\\
+
+Zu Beginn der Entwicklung von OpenMUC war das \ac{OSGi}-Release 4.2 (R4.2) die aktuellste Veröffentlichung der Spezifikation. 
+In der Zwischenzeit sind drei weitere Versionen der \ac{OSGi}-Spezifikation veröffentlicht worden.
+OpenMUC wurde in diesem Zeitraum ebenfalls stetig weiterentwickelt.
+Das hat dazu geführt, dass die \ac{OSGi}-Plattform mittlerweile deutlich mehr Funktionalität aufweist und diese zum Teil vergleichbar mit der Funktionalität des OpenMUC-Frameworks ist.
+Eine Analyse des OpenMUC-Frameworks im Hinblick auf den Funktionsumfang der aktuellen \ac{OSGi}-Plattform würde helfen, die Übereinstimmungen zu identifizieren
+und die vergleichbaren Komponenten des Frameworks durch die der \ac{OSGi}-Plattform zu ersetzen.
+Dies wiederum würde den zu pflegenden Quellcode von OpenMUC reduzieren und das Framework besser in die \ac{OSGi}-Plattform integrieren.\\
+
+Die Frage nach dem Einsatz von OpenMUC in anderen \ac{IoT}-Domänen konnte im Rahmen dieser Arbeit nur für den Einsatz im 
+Bereich des Smart-Home geklärt werden.
+Eine Untersuchung zum Einsatz von OpenMUC in weiteren \ac{IoT}-Domänen wäre wünschenswert. 
+Die daraus gewonnenen Erkenntnisse zu den Stärken und Schwächen des Frameworks, sowie den Anforderungen der verschiedenen Domänen,
+können zur Verbesserung und zur Planung zukünftiger Features von OpenMUC genutzt werden.
+Die kontinuierliche Verbesserung und Erweiterung von OpenMUC führt zu weiteren Anwendungsmöglichkeiten und einer Verbesserung der Akzeptanz des Frameworks.
+Dies wiederum ist die Voraussetzungen für eine breite Nutzerschaft.

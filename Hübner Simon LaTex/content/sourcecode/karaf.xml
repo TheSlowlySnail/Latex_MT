@@ -1,0 +1,15 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+  <feature name="openmuc-external" version="0.16.0">
+    <bundle>https://slf4j.org/dist/slf4j-1.7.25.jar</bundle>
+    <bundle>mvn:ch.qos.logback/logback-core/1.2.3</bundle>
+  </feature>
+
+  <feature name="openmuc-core" version="0.16.0">
+    <feature version="0.16.0">openmuc-external</feature>
+    <bundle>file:/bundles/openmuc-core-datamanger.jar</bundle>
+    <bundle>file:/bundles/openmuc-core-api.jar</bundle>
+    <configfile finalname="/conf/channels.xml">
+      file://skel/channels.xml
+    </configfile>
+  </feature>
+</features>

@@ -2,13 +2,15 @@
 \babel@toc {ngerman}{}
 \babel@toc {ngerman}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abstract}{i}{chapter*.2}
+\contentsline {chapter}{Vorwort}{i}{chapter*.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Inhaltsverzeichnis}{v}{section*.3}
+\contentsline {chapter}{Abstract}{iii}{chapter*.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abbildungsverzeichnis}{vii}{section*.4}
+\contentsline {chapter}{Inhaltsverzeichnis}{vii}{section*.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{ix}{chapter*.5}
+\contentsline {chapter}{Abbildungsverzeichnis}{ix}{section*.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Abkürzungsverzeichnis}{xi}{chapter*.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -92,44 +94,54 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.4.7}Direktiven}{27}{subsection.4.4.7}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.4.8}Routing}{28}{subsection.4.4.8}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.5}Backend}{28}{section.4.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.5.1}Laravel}{28}{subsection.4.5.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.5.2}Installation von Laravel}{29}{subsection.4.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.3}Artisan}{31}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.3}Artisan}{32}{subsection.4.5.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.5.4}Controller}{32}{subsection.4.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.5}REST}{32}{subsection.4.5.5}
+\contentsline {subsection}{\numberline {4.5.5}REST}{33}{subsection.4.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}Sicherheit}{33}{section.4.6}
+\contentsline {section}{\numberline {4.6}Sicherheit}{34}{section.4.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.6.1}CORS}{34}{subsection.4.6.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.6.2}Token}{34}{subsection.4.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6.3}Salt}{34}{subsection.4.6.3}
+\contentsline {subsection}{\numberline {4.6.3}Salt}{35}{subsection.4.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.7}Deploy}{34}{section.4.7}
+\contentsline {section}{\numberline {4.7}Deploy}{35}{section.4.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.7.1}Deploy in Angular}{34}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.1}Deploy in Angular}{36}{subsection.4.7.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.7.2}Deploy in Laravel}{34}{subsection.4.7.2}
+\contentsline {subsection}{\numberline {4.7.2}Deploy in Laravel}{36}{subsection.4.7.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Anwendung}{35}{chapter.5}
+\contentsline {chapter}{\numberline {5}Anwendung}{37}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Routing Strategie}{35}{section.5.1}
+\contentsline {section}{\numberline {5.1}Anlegen, Aktualisieren, Löschen und Ausgeben von Gegenständen}{37}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}E-Mail Reminder}{35}{section.5.2}
+\contentsline {section}{\numberline {5.2}Ausgabe von allen Gegenständen}{40}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Diskussion der Ergebnisse}{37}{chapter.6}
+\contentsline {section}{\numberline {5.3}Routing Strategie}{41}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Fazit}{37}{section.6.1}
+\contentsline {section}{\numberline {5.4}E-Mail Reminder}{41}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Ausblick}{37}{section.6.2}
+\contentsline {section}{\numberline {5.5}Datenbank import und export}{42}{section.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Literatur}{39}{chapter*.56}
+\contentsline {section}{\numberline {5.6}Gestalten der Navigationsleiste}{45}{section.5.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Eidesstattliche Erkl\IeC {\"a}rung}{41}{chapter*.57}
+\contentsline {chapter}{\numberline {6}Diskussion der Ergebnisse}{47}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Fazit}{47}{section.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Ausblick}{47}{section.6.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Eidesstattliche Erklärung}{49}{chapter*.62}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Anhang}{51}{appendix.A}

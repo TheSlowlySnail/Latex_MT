@@ -102,18 +102,17 @@
 %\renewcommand\chaptermarkformat{\ifnumbered{chapter}{\chapapp\ \thechapter. \ }{}}
 
 
-%\usepackage{fancyhdr}
+\usepackage{fancyhdr}
 
-\pagestyle{headings}
-%\fancyhf{}
-%\fancyhead[EL,OR]{\sffamily\thepage}
-%\fancyhead[ER,OL]{\sffamily\leftmark}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[EL,OR]{\sffamily\thepage}
+\fancyhead[ER,OL]{\sffamily\leftmark}
 %\fancyhead[EL,OR]{\sffamily\bfseries\thepage}
 %\fancyhead[ER,OL]{\sffamily\bfseries\leftmark}
 
-%\fancypagestyle{headings}{}
-
-%\fancypagestyle{plain}{}
+\fancypagestyle{headings}{}
+\fancypagestyle{plain}{}
 
 %\fancypagestyle{empty}{
 %  \fancyhf{}
@@ -123,7 +122,7 @@
 %Kein "Kapitel # NAME" in der Kopfzeile
 %\renewcommand{\chaptermark}[1]{
 %	\markboth{#1}{}
- %  	\markboth{\thechapter.\ #1}{}
+%  	\markboth{\thechapter.\ #1}{}
 %}
 
 % ##################################################

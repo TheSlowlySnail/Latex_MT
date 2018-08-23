@@ -1,0 +1,432 @@
+\chapter{Prototypische Integration von Apache ACE}
+\label{cha:prototype}
+In einem ersten Schritt soll Apache ACE zur Verwaltung der OpenMUC-Installationen im Smart-Energy-Labor des Fraunhofer \ac{ISE} eingesetzt werden.
+Dabei sollen Probleme und Herausforderungen der Integration erkannt und erste Lösungsansätze erarbeitet werden.
+In einem zweiten Schritt wird der Prototyp im Rahmen eines Szenarios des Smart-Home-Labor der Hochschule Furtwangen eingesetzt.
+Dadurch sollen weitere Erkenntnisse in Bezug auf den Prototypen gewonnen werden. 
+Im Weiteren werden die Möglichkeit zur Abbildung von Routinen im Smart-Home sowohl von OpenMUC, als auch von openHAB diskutiert.
+Zum Abschluss dieses Kapitels werden die gewonnenen Erkenntnisse genutzt, um Vorschläge zur weiteren Entwicklung von OpenMUC zu unterbreiten. 
+
+\section{Die Integration von Apache ACE in OpenMUC}
+\label{sec:integration_ace}
+% erkannte Probleme, Empfehlungen, 
+Die Softwareverteilung über Apache ACE erfolgt zunächst in dem in \autoref{sec:openmuc_scenarios} beschriebenen Projekt CheapFlex.
+Das Potential von CheapFlex wird unter anderem an prototypischen Implementierungen von Energie-Magement-Systemen innerhalb des Smart-Energy-Labor des Fraunhofer \ac{ISE} untersucht \cite{cheapflex}.
+Im Rahmen dieses Projektes wird ebenfalls die Softwareverteilung für OpenMUC erprobt. Zu diesem Zweck wird zuerst ein Betriebskonzept für das Zusammenspiel zwischen Apache ACE und OpenMUC
+entwickelt. Im Anschluss werden die Probleme und Herausforderungen, die bei der Integration identifiziert wurden, erläutert und Lösungsansätze präsentiert.
+%Der Einsatz des neuen Betriebskonzeptes im Rahmen des Projektes CheapFlex führte zu weiteren Fragestellungen, welche am Ende dieses Abschnittes beantwortet werden.
+
+\subsection{Das neue Betriebskonzept für OpenMUC}
+\label{subsec:operational_concept}
+
+Die Integration von Apache ACE erfordert ein neues Betriebskonzept für das gesamte OpenMUC-Projekt. 
+Derzeit wird OpenMUC als Archiv bestehend aus dem Quellcode der Bundles, den kompilierten Bundles und dem vorkonfigurierten
+Framework ausgeliefert.
+Im neuen Betriebskonzept sollen die OpenMUC-Installationen des Fraunhofer ISE über einen Apache ACE-Server administriert werden.
+Außerdem sollen andere Firmen und Institutionen die Möglichkeit haben, ihre Installationen über einen ACE-Management-Server zu verwalten.
+Um diesen Anforderungen gerecht zu werden, wurde das in \autoref{fig:operational_concept_openmuc} zu sehende Betriebskonzept entworfen.
+Ein \ac{CI}- und \ac{CD}-Server erzeugt bei einer Veröffentlichung das entsprechende \ac{OSGi}-Bundle und löst zwei weitere Schritte aus.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=\textwidth]{../02.Diagramme/operational_concept.png}
+ \caption{Neues Betriebskonzept des OpenMUC-Projektes}
+ \label{fig:operational_concept_openmuc}
+\end{figure}
+
+Im ersten Schritt wird das Bundle über die REST-Schnittstelle von Apache ACE in das interne OBR des zentralen ACE-Servers aufgenommen. 
+Im zweiten Schritt wird das Bundle in einem frei zugänglichen \ac{OBR} veröffentlicht. 
+Abhängig von der gewählten Konfiguration wird das neue Bundle direkt auf den Targets installiert oder solange zurückgehalten, bis ein 
+Administrator das Update autorisiert.\\
+
+Targets können über das lokale Netzwerk oder über das Internet mit dem ACE-Server am Fraunhofer ISE verbunden werden.
+Bei Projekten mit einer größeren Anzahl an Targets empfiehlt sich der Einsatz eines Relay-Servers. 
+In diesem Fall wird das Bundle an den Relay-Server übermittelt und dieser sorgt im folgenden für die Softwareverteilung.
+Besonders in Fällen, in denen sich der Relay-Server und die Targets in einem gemeinsamen lokalen Netzwerk befinden, ist dieses Vorgehen effizient und empfehlenswert.
+Auf diese Art und Weise muss das Bundle nur einmalig über das Internet übertragen werden und kann anschließend über das lokale Netzwerk ausgerollt werden.\\
+
+Andere Firmen und Institutionen können das öffentliche \ac{OBR} in ihren eigenen ACE-Server integrieren und auf diesem Wege ihre OpenMUC-Installationen verwalten.
+Die Bereitstellung des Frameworks als Archiv-Datei ist jedoch weiterhin notwendig.
+So bleibt die Möglichkeit erhalten, das OpenMUC-Framework ohne die Notwendigkeit einer Apache ACE-Infrastruktur zu betreiben.\\
+
+Nachdem das neue Betriebskonzept definiert ist und die Abläufe deutlich sind, kann die erste Installation ausgerollt werden.
+Dabei wird deutlich, dass weitere Arbeit in Bezug auf die Integration zu leisten ist. 
+Im nächsten Abschnitt werden die beiden Herausforderungen beschrieben und die erarbeiteten Lösungsansätze aufgezeigt.
+
+\subsection{Herausforderungen bei der Integration von Apache ACE}
+
+Das erste Problem besteht in einer Konfigurationsdirektive für die \ac{OSGi}-Plattform. 
+Das OpenMUC-Projekt setzt auf die freie \ac{OSGi}-Implementierung Apache Felix\footnote{\url{http://felix.apache.org/}}.
+Apache Felix kann über eine Konfigurationsdatei an unterschiedliche Anforderungen angepasst werden und unterstützt die von \ac{OSGi} spezifizierten Konfigurationsdirektiven.
+Im Falle von OpenMUC ist die Direktive \textit{org.osgi.framework.storage.clean} auf den Wert \textit{onFirstInit} gesetzt.
+Diese Direktive steuert, ob und wann der Speicherbereich des \ac{OSGi}-Frameworks aufgeräumt wird \cite[S. 99]{osgi_r6}.
+Der Wert \textit{onFirstInit} sorgt dafür, dass der Speicherbereich des Frameworks vor der ersten Initialisierung des Framework-Bundles bereinigt wird \cite[S. 99]{osgi_r6}.\\
+
+Das bedeutet, bei jedem Neustart des Apache Felix-Frameworks werden alle bereits installierten Bundles und ihre Daten aus dem Speicher gelöscht.
+Im Falle von OpenMUC befinden sich die Bundles im \textit{bundle}-Verzeichnis, innerhalb des Arbeitsverzeichnisses.
+Felix unterstützt ein automatisches Deployment von Bundles, die im \textit{bundle}-Verzeichnis abgelegt sind.
+Diese beiden Automatismen sorgen dafür, dass bei einem Neustart alle Bundles gelöscht und neu installiert werden. 
+Dieses Verhalten ist dann sinnvoll, wenn Bundles im \textit{bundle}-Verzeichnis aktualisiert werden und sichergestellt werden soll,
+dass diese auch in der neusten Version installiert werden.\\
+
+Dieses Verhalten führt jedoch zu einem Konflikt beim Einsatz von Apache ACE.
+Die Installation von Bundles fällt in den Aufgabenbereich von Apache ACE, das die Bundles nach einer Installation nicht weiter vorhält.
+Installierte Bundles existieren demnach nur im Speicherbereich des Frameworks. 
+Wird dieser gelöscht, gehen alle Bundles des Targets verloren und müssen neu verteilt und installiert werden.
+Dieses Verhalten sorgt im Zusammenspiel mit Apache ACE für einen unnötigen Einsatz von Ressourcen. 
+Apache ACE sorgt zuverlässig dafür, dass aktualisierte Bundles auf den Targets eingespielt werden. Aus diesem Grund kann die 
+Konfigurationsdirektive \textit{org.osgi.framework.storage.clean} an dieser Stelle auf den Wert \textit{none} geändert werden.
+Das Setzen dieses Wertes sorgt dafür, dass die Konfigurationsdirektive nicht mehr ausgewertet wird \cite[S. 99]{osgi_r6}.\\
+
+Die zweite Herausforderung besteht in der Verteilung von Artefakten, die nicht standardmäßig von Apache ACE unterstützt werden.
+Für die Funktionalität von OpenMUC sind neben den \ac{OSGi}-Bundles weitere Dateien notwendig. 
+Neben verschiedenen Konfigurationsdateien handelt es sich hierbei um Zertifikate zur Verschlüsselung der \linebreak \ac{HTTPS}-Verbindung und um Dateien für das Web-UI.
+Apache ACE ist mit dem Ziel entwickelt worden, beliebige Artefakte zu verwalten und auf den Targets zu verteilen.
+Unterstützt werden derzeit jedoch lediglich \ac{OSGi}-Bundles und XML-Dateien, die der 
+Auto-Configuration-Spezifikation\footnote{OSGi Compendium Release 6, Kapitel 115 Auto Configuration Specification} von \ac{OSGi} genügen.
+Für alle weiteren Artefakte, die mit Apache ACE verwaltet und verteilt werden sollen, muss die entsprechende Funktionalität bereitgestellt werden.\\
+
+Zum einen muss für jeden neuen Artefakt-Typ ein Resource-Processor implementiert werden.
+Der Resource-Processor ist ein Java-Interface, das im \ac{OSGi}-Compendium\footnote{OSGi Compendium Release 6, Kapitel 114, Abschnitt 10 Resource Processors} spezifiziert ist. 
+Eine Implementierung stellt auf dem Target die notwendige Funktionalität zur Verarbeitung der spezifischen Artefakt-Typen bereit.
+Zum anderen müssen zwei Dienste für Apache ACE implementiert werden.
+Diese werden benötigt, um den Typ des Artefaktes und den dazugehörigen Resource-Processor zu ermitteln.
+Um die Artefakte verteilen zu können, müssen zwei Vorrausetzungen erfüllt sein.
+Erstens muss der Dienst, der das ArtifactHelper-Interface und ArtifactRecognizer-Interface implementiert, als Bundle auf dem Apache ACE-Server installiert sein.
+Zweitens muss der Resource-Processor als Bundle im internen \ac{OBR} des Servers verfügbar sein.
+Sind diese Voraussetzungen erfüllt, erfolgt die Verteilung der Artefakte, wie in \autoref{fig:resource_processor} dargestellt.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.23]{../02.Diagramme/resource_processor.png}
+ \caption{Erkennung von Artefakten und deren Verarbeitung}
+ \label{fig:resource_processor}
+\end{figure}
+
+Wird ein Artefakt hochgeladen (1), werden alle verfügbaren Dienste zur Erkennung von Artefakt-Typen (2) befragt. 
+Erkennt ein Dienst das Artefakt, wird es zusammen mit dem korrespondierenden Resource-Processor-Bundle und
+verschiedenen Meta-Daten wie dem Dateinamen und dem MIME-Type an das Target ausgeliefert (3).
+Auf dem Target wird zuerst das Resource-Processor-Bundle installiert (4) und im Anschluss das Artefakt mit Hilfe des Resource-Processors verarbeitet (5).\\
+
+Im Folgenden wird der durch Apache ACE vervollständigte Prozess zur Softwareverteilung vorgestellt.
+
+
+\subsection{Vervollständigung des Softwareverteilungsprozesses}
+
+Mit dem Einsatz von Apache ACE werden die von Arcangeli et al. \cite{sw_dist} definierten Aktivitäten, die in \autoref{prozess_der_softwareverteilung} beschrieben sind, vollständig abgebildet.
+Wie in \autoref{fig:osgi_deploy_process_2} zu sehen, sind die Aktivitäten zwischen dem Apache ACE-Server und dem Apache ACE-Target (Client) aufgeteilt. 
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=11cm]{../02.Diagramme/osgi_deploy_process_2.png}
+ \caption{OpenMUC Softwareverteilung auf Basis des Prozesses von Arcangeli et al. \cite{sw_dist}}
+ \label{fig:osgi_deploy_process_2}
+\end{figure}
+
+Die verfügbaren Artefakte werden auf den Apache ACE-Server hochgeladen.
+Dieser sorgt dafür, dass die benötigten Artefakte zum Target gelangen. 
+Dort werden die Artefakte vom Apache ACE-Target über den Bundle-Context, wie in \autoref{subsec:bundle_lifecycle} beschrieben, installiert und gestartet.
+Deinstallationen und Aktualisierungen werden vom Server initiiert und vom Target durchgeführt.
+Die Reorganisation und Neuverteilung kann ebenfalls anhand von Distributionen abgebildet und durchgeführt werden.
+
+
+\section{Teststellung im Smart-Home-Labor der Hochschule Furtwangen}
+\label{sec:testing_shlab}
+
+Neben der Erprobung im Projekt CheapFlex, kommt OpenMUC im Smart-Home Labor der Hochschule Furtwangen zum Einsatz.
+Der Fokus der Teststellungen liegt dabei nicht nur auf dem Thema der Softwareverteilung.
+Vielmehr geht es darum die, durch die Softwareverteilung neu gewonnene Flexibilität des Frameworks zu untersuchen und damit eine Antwort auf Forschungsfrage 6 
+aus \autoref{sec:ziel} zu finden. Dazu wird eine typische Morgenroutine definiert und im Anschluss im Labor umgesetzt. 
+Die erste Aufgabe besteht darin, OpenMUC in das Gesamtsystem des Labors zu integrieren. 
+In einem weiteren Schritt wird die Morgenroutine spezifiziert und für das OpenMUC-Framework implementiert.
+Zum Abschluss wird ein Vergleich zwischen OpenMUC und dem im Labor zum Einsatz kommenden openHAB durchgeführt.
+Dazu ist es notwendig, die festgelegte Routine ebenfalls in openHAB zu implementieren.
+Den Anfang macht die Integration von OpenMUC in das Smart-Home Labor der Hochschule Furtwangen.
+
+\subsection{Integration von OpenMUC in das Smart-Home Labor}
+
+Die Anbindung und Steuerung der Things im Smart-Home Labor erfolgt derzeit über openHAB.
+Dabei handelt es sich um ein \ac{OSGi}-basiertes Gateway, das gezielt zur Erfüllung der Anforderungen im Smart-Home entwickelt wird.
+Da im Labor die verschiedensten Anwendungsfälle und Routinen erprobt werden sollen, kommt eine Schichtenarchitektur zum Einsatz. 
+Das ist notwendig, um zu verhindern, dass verschiedene Szenarien sich gegenseitig beeinflussen.
+Der Aufbau des Labors, einschließlich der Integration von OpenMUC, ist in \autoref{fig:sh_lab_ex} zu sehen.
+Die verschiedenen Bindings\footnote{Ein Binding verbindet die Things und andere Technologien mit openHAB \url{http://docs.openhab.org/addons/bindings.html}} 
+erfolgen auf einem zentralen openHAB-Server.\\
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.23]{../02.Diagramme/sh_lab_ex.png}
+ \caption{Aufbau des Smart-Home-Labors der Hochschule Furtwangen, einschließlich der Integration von OpenMUC}
+ \label{fig:sh_lab_ex}
+\end{figure}
+
+Der openHAB-Server stellt die verschiedenen Items\footnote{Ein Item stellt eine Eigenschaft und Fähigkeit des Smart-Home dar \url{http://docs.openhab.org/configuration/items.html}}
+über das \ac{MQTT}-Protokoll zur Verfügung.
+Das ermöglicht es, das Smart-Home über die \ac{MQTT}-Schnittstelle, den verschiedensten Anwendungen zur Verfügung zu stellen.
+Die Regeln zur Steuerung werden auf den openHAB-Proxies realisiert. Zum jetzigen Zeitpunkt existiert für jedes Szenario ein eigener RaspberryPi mit einer openHAB Installation,
+der mithilfe des \ac{MQTT}-Protokolls mit dem zentralen openHAB-Server verbunden ist. Dadurch lassen sich die verschiedenen Anwendungsfälle und Zuständigkeiten klar trennen.\\
+
+Die Anbindung von OpenMUC erfolgt ebenfalls über \ac{MQTT}. Die Herausforderung beim Einsatz von
+OpenMUC liegt in der Abstraktion der Things und ihrer Ansteuerung.
+Zunächst wird die Morgenroutine vorgestellt. %, bevor das Thema näher vertieft werden kann.
+
+\subsection{Die Morgenroutine}
+\label{subsec:routine}
+
+Das Smart-Home Labor umfasst vier Räume einer typischen Wohnung.
+Neben dem Badezimmer gibt es eine Küche, ein Arbeitszimmer und einen Multimediaraum. % Sie alle sind mit für den Raum typischen Things ausgestattet.
+Alle Räume sind mit allgemeinen Things, wie smarten Lampen und smarten Bewegungsmeldern ausgestattet. Hinzu kommen für den entsprechenden Raum typische 
+Geräte wie eine smarte Kaffeemaschine in der Küche, oder ein kabelloses Soundsystem im Multimediaraum und dem Badezimmer.\\
+
+Zum jetzigen Zeitpunkt befindet sich das Labor im Aufbau. Aus diesem Grund musste die anfänglich geplante Routine in ihrem Umfang reduziert werden.
+Derzeit sind lediglich die Things im Multimediaraum und dem Badezimmer über \ac{MQTT} ansprechbar.
+Die Routine selbst kombiniert den typischen Ablauf des morgendlichen Aufstehens mit den Möglichkeiten einer smarten Wohnung.
+Dabei erstreckt sich der Ablauf über die beiden verfügbaren Räume.\\
+
+Bevor die Routine startet, muss der Raum entsprechend präpariert werden.
+Dafür werden die Lichter im Multimediaraum ausgeschaltet und die smarten Schiebetüren in den Modus opak versetzt.
+Gestartet wird die Routine per Wecker\footnote{Das Wecker-Event wird momentan noch nicht über \ac{MQTT} publiziert. Deshalb wird das Event über ein Knopfdruck simuliert.},
+der ein Event auf dem \ac{MQTT}-Bus veröffentlicht. Tritt das Event ein, wird das Abspielen einer vorprogrammierten Songliste veranlasst. 
+Kurz nachdem das Wecker-Event eintritt, gehen die Lichter im Multimediaraum langsam an und verbreiten ein angenehmes warmes Licht.
+Daraufhin werden die Lampen im Badezimmer auf ein gedimmtes warmes Licht eingestellt.
+Gleichzeitig wird die Intensität des Lichtes im Multimediaraum erhöht und die Farbtemperatur kälter.
+Betritt der Akteur das Badezimmer, werden die Lichter heller und die Musik wechselt vom Multimediaraum in das Badezimmer.
+Nachdem der Akteur das Badezimmer verlässt, verstummt die Musik und er wird von einer freundlichen Stimme verabschiedet.
+Kurz danach werden alle beteiligen Things in ihren ursprünglichen Zustand überführt und damit die Räume in einen neutralen Zustand versetzt.\\
+
+Neben diesem Ablauf gibt es zwei funktionale Anforderungen an die Routine.
+Zum einen muss die Geschwindigkeit der Ausführung regulierbar sein, um bei Demonstrationen einzelne Passagen zu beschleunigen.
+Zum anderen muss die Routine jederzeit per Knopfdruck zu beenden sein.\\
+
+Für die Umsetzung der Aufgabenstellung müssen zwei Systemkomponenten modelliert und umgesetzt werden.
+Die erste Komponente bildet die Räume und Things als \ac{OSGi}-Dienste ab.
+Der hier verfolgte Ansatz ermöglicht es, die Anforderungen an Modularität und Flexibilität aus dem Bereich des Smart-Home zu erfüllen.
+Bei der zweiten Komponente handelt es sich um die Abbildung der eigentlichen Routine.
+
+\subsection{Die Softwarearchitektur der Things in OpenMUC}
+\label{subsec:sw_things}
+
+Ziel ist es, jeden realen Raum und die dazugehörigen Things über einen wiederverwendbaren \ac{OSGi}-Service abzubilden.
+Dazu wird für jedes Thing ein Interface, entsprechend seiner Funktionalität, definiert. 
+Für die Benachrichtigung der Zustandsänderungen der Schalter und Bewegungsmelder, wird das Beobachter-Entwurfsmuster eingesetzt.
+Dieses Muster definiert eine 1-zu-n-Verbindung zwischen Objekten und informiert abhängige Objekte über die Zustandsänderungen \cite{gof}.
+Realisiert wird dieses Verhalten über zwei Interfaces. Eines für den Beobachter und eines für das zu beobachtende Thing (Subjekt).
+Das vollständige Klassendiagramm ist in \autoref{fig:classes_things} dargestellt.\\
+
+Die Abbildung der Räume erfolgt ebenfalls über ein Interface.
+Um einen konkreten Raum zu repräsentieren, wird dieses Interface durch die Thing-Interfaces erweitert.
+An dieser Stelle kommt das Fassade-Entwurfsmuster zum Einsatz. Dieses führt zu einer Schnittstelle, welche die Nutzung des Subsystems vereinfacht \cite{gof}.
+In diesem Fall wird damit eine lose Kopplung zwischen den Routinen und den Things erreicht.
+Eine Routine muss lediglich eine Referenz pro Raum vorhalten und nicht die Referenzen auf alle Things.
+Außerdem benötigt die Routine somit keine detaillierten Kenntnisse der Things.
+Die Operationen werden auf der Implementierung eines Raumes aufgerufen und an die Thing-Implementierung delegiert.
+Innerhalb eines \ac{OSGi}-Bundles kann anhand des Interfaces und einer Implementierung ein Raum-Service instantiiert und verfügbar gemacht werden.
+Im Folgenden wird ein generisches Softwaremodell entwickelt, anhand dessen verschiedene Routinen umgesetzt werden können.\\
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.23]{../02.Diagramme/classes_things.png}
+ \caption{Klassendiagramm der Things und Room-Services}
+ \label{fig:classes_things}
+\end{figure}
+
+\subsection{Die Morgenroutine als Zustandsautomat}
+
+Das Oxford English Dictionary definiert eine Routine wie folgt:
+\glqq A sequence of actions regularly followed \grqq\ \cite{oed_routine}\\
+
+Eine Routine beschreibt demnach eine Sequenz von Handlungen, die regelmäßig wiederholt wird.
+Bezogen auf die Morgenroutine aus \autoref{subsec:routine} ergibt sich daraus eine Abfolge von Zuständen der Things im Smart-Home Labor.
+Zur technischen Beschreibung und Spezifizierung der oben beschriebenen Routine bietet sich ein Zustandsautomat an. 
+\autoref{fig:morning_routine_statemachine} zeigt die, in einen Zustandsautomaten überführte, Morgenroutine.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=\textwidth]{../02.Diagramme/routines/morning_routine.png}
+ \caption{UML-Zustandsdiagramm der Morgenroutine}
+ \label{fig:morning_routine_statemachine}
+\end{figure}
+
+Die Routine kann wie gefordert jederzeit durch einen Knopfdruck in den \textit{reset}-Zustand überführt und damit beendet werden.
+Nach dem Start befindet sie sich im Zustand \textit{prepared}. Bei Eintritt in diesen Zustand wird der Multimediaraum entsprechend vorbereitet.
+Hier kann die Geschwindigkeit der Routine über einen Schalter festgelegt werden.
+Über einen weiteren Knopfdruck oder das Alarm-Event des Weckers wird ein Zustandsübergang ausgelöst.
+Im Multimediaraum geht ein warmes Licht an und die Routine befindet sich nun im Zustand \textit{awoken}.
+Ein fünfminütiger Timer führt zum nächsten Zustandsübergang.
+Beim Verlassen von \textit{awoken} wird das Licht im Multimediaraum kalt und von höherer Intensität.
+Der Zustand \textit{bathroom prepared} veranlasst das Einschalten eines warmen, gedimmten Lichtes im Badezimmer.
+Sobald der Akteur das Badezimmer betritt, wird in den Zustand \textit{bathroom entered} gewechselt und die Intensität des Lichtes erhöht.
+Außerdem übernimmt das Soundsystem im Badezimmer die Musik aus dem Multimediaraum.
+Verlässt der Akteur das Badezimmer, erfolgt der nächste Zustandsübergang. Nun befindet sich die Routine im Zustand \textit{bathroom left}.
+Dort wird die Musik gestoppt und der Akteur wird von einer freundlichen Stimme verabschiedet.
+Nach einer Minute aktiviert ein Timer den Zustandsübergang in den \textit{reset}-Zustand.
+Dort werden die Räume in ihren ursprünglichen Zustand versetzt und die Routine endet.\\
+
+Umgesetzt wurde die Routine unter Anwendungen des Zustands-Musters.
+Das Klassendiagramm für der Routinen-Klassen ist in \autoref{fig:classes_routines} zu sehen.
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.23]{../02.Diagramme/classes_routines.png}
+ \caption{Klassendiagramm der Routinen}
+ \label{fig:classes_routines}
+\end{figure}
+
+Das Zustands-Muster findet dann Anwendung, wenn sich die Verhaltensweise eines Objektes zur Laufzeit, abhängig von seinem Zustand, ändern muss \cite{gof}.
+In unserem Fall ändert sich das Verhalten der \textit{entry}-, \textit{do}- und \textit{exit}-Methoden in Abhängigkeit zum momentan Zustand der Morgenroutine.
+Für das Muster ist nicht festgelegt, ob die Routine oder der Zustand einen Zustandsübergang durchführt. 
+In diesem Fall sind die Zustände verantwortlich für die Überführung in einen neuen Zustand.
+Das ermöglicht den Einsatz einer generischen Routine-Klasse.
+Diese muss initial mit einem konkreten Startzustand erzeugt werden und benötigt keine Kenntnisse über seine Zustände und Übergänge.
+Die beiden Systemkomponenten zur Interaktion mit den Things und zur Abbildung von Routinen ermöglichen das Erstellen von beliebigen Routinen.
+Abschließend werden die Möglichkeiten zur Implementierung von Routinen in openHAB und OpenMUC verglichen.
+
+\section{openHAB und OpenMUC im Vergleich}
+
+In openHAB werden Routinen über einen Satz von Rules\footnote{Regel zur Steuerung der Items: \url{http://docs.openhab.org/configuration/rules-dsl.html}}
+abgebildet. Diese Rules unterscheiden sich deutlich von dem in OpenMUC verfolgten Ansatz.
+Die Rules folgen dem Schema: Wenn \textit{(when)} Voraussetzung XY erfüllt, dann \textit{(then)} führe Aktion AB aus und beende \textit{(end)}.
+Dabei unterliegt die Prüfung der Voraussetzung und die Ausführung von Aktionen weiteren Einschränkungen.
+Zum Vergleich der beiden Systeme wurde die in \autoref{subsec:routine} beschriebene Routine ebenfalls mithilfe einer Rule in openHAB umgesetzt.
+Im Folgenden werden die Vor- und Nachteile beider Umsetzungen anhand verschiedener Kriterien diskutiert.\\
+
+\textit{Aufwand bei der Erstellung einer Routine}\\
+Der Aufwand mit OpenMUC für code-basierte Routinen ist erwartungsgemäß hoch.
+Für jeden Zustand einer Routine, muss eine eigene Klasse implementiert werden.
+Außerdem muss die Routine als \ac{OSGi}-Bundle zur Verfügung stehen.
+Allerdings sorgen die, bei dem Entwurf der beiden Systemkomponenten, gewählten Entwurfsmuster für eine deutliche Reduzierung des Aufwandes. 
+Bei openHAB liegen die Regeln in Form einer Textdatei vor und müssen nicht kompiliert werden. 
+Sie können durch ein Texteditor einfach erstellt und verändert werden.
+Bei einfachen Abläufen ist der Aufwand dadurch minimal.
+Werden die Routinen jedoch komplexer, steigt aufgrund der vorherrschenden Beschränkungen der Aufwand mit openHAB an.
+Zum Beispiel sind die Voraussetzungen für die Abarbeitung einer Regel nicht frei wählbar. 
+Es kann nur auf die Zustandsänderung eines Items, auf ein zeitliches Ereignis, oder auf ein System-Event reagiert werden.
+Will man die Abarbeitung einer Rule abhängig vom Zustand der Routine machen, muss dafür ein virtuelles Item in openHAB angelegt werden.
+Dieses Item repräsentiert dann den aktuellen Zustand der Routine und kann als Voraussetzung für eine Änderung genutzt werden.
+Es bleibt festzuhalten, dass der Aufwand zur Erstellung von Routinen in openHAB auf Kosten von Flexibilität bei der 
+Regelerstellung geringer ausfällt, als bei OpenMUC.\\
+
+\textit{Einbindung und Ansteuerung von Things}\\
+An dieser Stelle profitiert OpenMUC von der \ac{MQTT}-Schnittstelle.
+Die Items, die über den Bus zur Verfügung gestellt werden können über den Data-Manager in OpenMUC abgebildet werden.
+Sie können von den Implementierungen aus \autoref{subsec:sw_things} genutzt werden.
+Neue Things erfordern, dass neue Interfaces definiert werden und die entsprechenden Räume angepasst werden.
+Im Anschluss muss das \ac{OSGi}-Bundle in einer neuen Version gebaut und verteilt werden.
+Die Verteilung kann zwar durch den Einsatz von Apache ACE automatisiert erfolgen, aber der Aufwand für die Aktualisierung der Softwarekomponente bleibt.
+Die openHAB-Proxies setzen ebenfalls auf die \ac{MQTT}-Schnittstelle. Allerdings werden die verfügbaren Items in einer Textdatei definiert. 
+Diese kann auf dem zentralen openHAB-Server erzeugt und an die Proxies verteilt werden.
+Der Nachteil ist, dass die Verteilung manuell erfolgen muss und nicht über ein Werkzeug wie Apache ACE automatisiert erfolgt. 
+Bei einer großen Anzahl an Proxies besteht die Schwierigkeit darin, alle Proxies zuverlässig auf demselben Stand zu halten.\\
+
+\textit{Nötige (Fach)Kenntnisse}\\
+Die notwendigen Fachkenntnisse sind bei OpenMUC deutlich höher anzusetzen.
+Es werden fortgeschrittene Kenntnisse der Themen objektorientierte Programmierung, Java-Programmierung und OSGi benötigt.
+Das ist eine klare Einschränkungen bei der Nutzung von OpenMUC.
+Die Zielgruppe von openHAB ist eine andere.
+Der einfache Aufbau von Rules erlaubt es Menschen, ohne große Kenntnisse über Programmierung, einfache Steuerungen für das Smart-Home zu entwickeln.
+Allerdings werden mit steigender Komplexität der Routinen auch hier Experten benötigt.
+Zum Beispiel, um nicht im Standard enthaltene Aktionen zu implementieren.\\
+
+\textit{Voraussetzungen und Aktionen}\\
+In diesen beiden Punkten unterliegt openHAB, im Vergleich zu OpenMUC, starken Einschränkungen.
+Die Voraussetzung für den Start einer Regel ist auf die Zustandsänderung von Items, den Eintritt eines Zeitpunktes und den Zustand des Systems beschränkt.
+Zum Beispiel muss das fünfminütige Warten, das den \textit{awoken}-Zustand in den \textit{bathroom prepared}-Zustand überführt,
+über einen Timer\footnote{Ein Timer kann innerhalb eines Aktionsblockes erstellt werden und löst bei Ablauf weitere Aktionen aus.
+Siehe \url{https://github.com/openhab/openhab1-addons/wiki/Actions\#timers}} und ein virtuelles Item abgebildet werden. 
+Auch die Möglichkeiten für Aktionen innerhalb einer Rule sind begrenzt. Es gibt eine Reihe von Aktionen, 
+die immer verfügbar sind und Aktionen, die durch verschiedene Bindings verfügbar werden.
+Es ist möglich eigene Add-ons für Aktionen zu implementieren, das ist allerdings mit entsprechendem Aufwand verbunden.
+Beim Einsatz von OpenMUC gibt es keine Einschränkungen für die Bedingung der Zustandsübergänge, oder Aktionen.
+Es können verschiedene externe Datenquellen wie Wetterprognosen oder DeepLearning-Analysen als Bedingung genutzt werden.
+Zur Realisierung von Aktionen, kann das gesamte Java-Ökosystem genutzt werden.
+OpenMUC bietet an dieser Stelle deutlich mehr Freiheiten, als openHAB.
+Allerdings auf Kosten der Komplexität und der erforderlichen Tiefe der Kenntnisse.\\
+
+\textit{Abschließendes Fazit des Vergleiches}\\
+OpenMUC und openHAB sind für unterschiedliche Zielgruppen und Anforderungen entwickelt.
+Die Stärken von openHAB liegen in der einfachen Integration und Steuerung von Things.
+Des Weiteren können, ohne tiefe Fachkenntnisse, verschiedene Szenarien für das Smart-Home entwickelt werden.
+Die Einschränkungen von openHAB betreffen vermutlich nur einen kleinen Teil der Regeln bei komplexeren Routinen.
+In diesen Fällen kommen die Stärken von OpenMUC zum Tragen. 
+Bei der Abbildung von Szenarien und Routinen gibt es kaum Einschränkungen, allerdings sind diese Freiheiten mit einem erhöhten Aufwand verbunden.
+Diese Freiheit ermöglicht den Einsatz von externen Bibliotheken und Datenquellen und erweitert damit die Funktionalität beträchtlich.
+Dadurch steigt jedoch die erforderliche Fachkenntnis.\\
+Da OpenMUC und openHAB mit unterschiedlichen Zielen entwickelt wurden, lässt sich aus deren Vergleich kein klarer Sieger ausmachen.
+Die beiden Frameworks müssen immer auf den konkreten Anwendungsfall hin betrachtet werden.
+
+Im Falle des Smart-Home-Labors der Hochschule Furtwangen würde ich den Einsatz von OpenMUC zur Umsetzung von Routinen aus folgenden vier Gründen bevorzugen:
+\begin{enumerate}
+ \item Bei den Nutzern des Labores ist die notwendige Fachkenntnis vorhanden.
+ \item Die Kenntnisse der Nutzer im Bereich der objektorientierten Java-Programmie\-rung und der Softwarearchitektur werden weiter vertieft.
+ \item Die Einbindung externer Bibliotheken und Datenquellen ermöglicht die Erstellung und Erprobung von komplexen Routinen.
+ \item Die openHAB-Proxies können durch eine OpenMUC-Installation abgelöst werden. Die Routinen können per Apache ACE je nach Bedarf installiert und deinstalliert werden. 
+\end{enumerate}
+
+Abschließend werden basierend auf den gewonnen Erkenntnissen und Informationen Empfehlungen zur Weiterentwicklung des OpenMUC-Frameworks ausgesprochen.
+
+\section{Empfehlungen zur Weiterentwicklung des OpenMUC-Frameworks}
+\label{sec:recommendations}
+
+Im Rahmen dieser Arbeit konnten einige Aspekte von OpenMUC identifiziert werden,
+die durch Komponenten der \ac{OSGi}-Plattform ersetzt oder optimiert werden können.
+Darüber hinaus verfügt Apache ACE über weitere Funktionalität, die durch das OpenMUC-Framework genutzt werden kann.
+Allerdings sind dafür strukturelle Änderungen des OpenMUC-Frameworks erforderlich.
+Im Folgenden werden die fünf Empfehlungen zur Weiterentwicklung des Frameworks vorgestellt.
+
+\begin{enumerate}
+ \item \textit{Deployment-Pakete:}
+ Ein Deployment-Paket besteht aus einer Gruppe von Ressourcen. Eine solche Gruppe wird als gemeinsame Einheit angesehen \cite[S.391]{osgi_r6_compendium}.
+ Die Ressourcen können  zum Beispiel Bundles, Konfigurationsdateien, oder Zertifikate sein.
+ Das Deployment-Paket wird als normale \ac{JAR}-Datei, die auf den Suffix .dp endet, ausgeliefert \cite[S.393]{osgi_r6_compendium}.
+ Installiert und deinstalliert wird es als atomare Einheit. 
+ Im Falle von OpenMUC lässt sich damit die Verteilung von Artefakten, die nicht standardmäßig von Apache ACE unterstützt werden, vereinfachen.
+ Anstatt die Konfigurationsdateien als Artefakte in Apache ACE vorzuhalten, können die entsprechenden Bundles zusammen mit ihren Ressourcen
+ als Deployment-Paket ausgeliefert werden.
+ 
+ \item \textit{Apache ACE-Template-Engine:}
+ Im Falle von Konfigurationsdateien gibt es eine Alternative zu den Deployment-Paketen.
+ \ac{OSGi} ermöglicht die Konfiguration von Bundles über ein definiertes XML-Format\footnote{OSGi Compendium Release 6, Kaptiel 105 Metatype Service Specification}. 
+ Diese XML-Dateien können im Zusammenspiel mit der Template-Engine von Apache ACE genutzt werden.
+ Über Apache ACE ist es möglich, Tags für Artefakte, Features, Distributionen und Targets festzulegen. Bei einem Tag handelt es sich um ein Schlüssel-Wert-Paar.
+ Liegt zum Beispiel die Konfiguration des Web-UI als entsprechendes Template vor, kann der Port des \ac{HTTP}-Servers
+ durch den Platzhalter \textit{\$\{content.webui\_port\}}\footnote{Jeder Tag im Template muss mit \textit{content.} eingeleitet werden. \url{https://ace.apache.org/docs/user-guide.html}} ersetzt werden.
+ Für ein Target kann der Tag \textit{webui\_port} dann auf den Wert 4711 gesetzt werden. 
+ Apache ACE sorgt bei der Auslieferung des Konfigurations-Templates dafür, dass für das entsprechende Target der Platzhalter ersetzt wird. 
+ Wird das Tag hingegen an einer Distribution angebracht, wird der Platzhalter bei allen Targets, auf denen diese Distribution installiert wird, ersetzt.
+ Mit Templates und Tags können große Gruppen von Targets bis hin zu einzelnen Targets konfiguriert werden.
+  
+ \item \textit{Sicherheit:}
+ Wie in \autoref{sicherheit} dargelegt, geht von schadhaften Bundles ein großes Gefährdungspotenzial aus.
+ Vor allem in Bezug auf die Einsatzszenarien sollte das Gefährdungspotenzial für OpenMUC so gering wie möglich gehalten werden.
+ Die Fraunhofer-Gesellschaft betreibt eine eigene \ac{PKI}\footnote{Das Fraunhofer PKI Competence Center \url{https://www.pki.fraunhofer.de}},
+ die zur digitalen Signatur der \ac{OSGi}-Bundles genutzt werden kann.
+ Zur Erhöhung der Sicherheit sollten zum einen in Zukunft alle OpenMUC-Bundles signiert werden und
+ zum anderen die Installation auf signierte Bundles beschränkt sein.
+ Des Weiteren wird empfohlen, die Kommunikation des Apache ACE-Servers über die 2-Wege-SSL-Authentifizierung abzusichern.
+ Durch diese zwei Maßnahmen kann die Gefährdung, die durch die beiden Angriffsvektoren Kompromittierung von Bundles und \ac{MITM}-Angriffe entsteht, reduziert werden.
+   
+ \item \textit{Nutzung des OBR für Einzelinstallationen:}
+ Nicht in jedem Fall ist der Betrieb einer Apache ACE-Infrastruktur sinnvoll oder wünschenswert. 
+ Für diesen Fall sollte der Prozess zur Installation und Aktualisierung von Bundles optimiert werden.
+ Durch die Einbindung des Felix-OBR-Clients in OpenMUC kann das, im Betriebskonzept (siehe \autoref{subsec:operational_concept}) beschriebene, 
+ öffentliche \ac{OBR} genutzt werden.
+ Die Web-UI kann um die Funktionalität zur Konfiguration der zu befragenden Repositories und zur Installation und Aktualisierung der Bundles erweitert werden.
+ Auf diesem Wege profitieren OpenMUC-Einzelinstallationen von der neuen Infrastruktur.
+ Außerdem erhalten Anwender ein Werkzeug zur Installation und Aktualisierung von Bundles.
+ 
+ \item \textit{Versionierung:}
+ Die Bundles des OpenMUC-Frameworks werden derzeit mit dem Build-Tool Gradle\footnote{Projektwebseite Gradle: \url{https://gradle.org/}} erzeugt.
+ Aufgrund der Abhängigkeiten zwischen den Bundles wird das gesamte Framework als Gradle-Multiproject verwaltet. 
+ Ein Problem dabei ist, dass die einzelnen Unterprojekte nicht über eigenständige Versionsnummern verfügen.
+ Gibt es innerhalb des Frameworks eine Änderung, die veröffentlicht werden soll, wird die Versionsnummer des Projektes hochgezählt.
+ Das hat zur Folge, dass alle Bundles in einer neuen Version vorliegen. 
+ Werden diese Bundles in das \ac{OBR} aufgenommen, werden über Apache ACE alle Bundles der zu verwaltenden Targets aktualisiert.
+ Dieses Verhalten bindet zum einen unnötig Ressourcen und zum anderen kann es für Targets,
+ die über das Mobilfunknetz mit dem Apace ACE-Server verbunden sind, zu hohen Kosten führen.
+ Aus diesen Gründen ist es anzuraten, die momentane Konfiguration des Gradle-Projektes dahingehend zu überarbeiten,
+ dass für jedes Bundle eine individuelle Versionsnummer vergeben wird.
+ 
+\end{enumerate}
+
+Das nächste Kapitel bildet den Abschluss dieser Arbeit. 
+Dort werden die Ergebnisse diskutiert und ein Ausblick auf weiterführende Forschungsfragen gegeben.

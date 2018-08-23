@@ -1,0 +1,100 @@
+\chapter{Einleitung}
+\glqq The OSGi\texttrademark{} Alliance was founded in March 1999. Its mission is to create open specifications for 
+the network delivery of managed services to local networks and devices. The OSGi organization is
+the leading standard for next-generation Internet services to homes, cars, mobile phones, desktops,
+small offices, and other environments.\grqq\ \cite[S. 9]{osgi_r6}\\
+
+Der Begriff \acs{OSGi}\footnote{Webseite der OSGi-Alliance: \url{https://www.osgi.org/}} stand früher für \aclu{OSGi}. Heutzutage ist selbst in der Spezifikation nur noch das Akronym gebräuchlich.
+Bei \ac{OSGi} muss zwischen der Spezifikation und der konkreten Implementierungen unterschieden werden. Die Spezifikation wird durch die \ac{OSGi}-Alliance erstellt und
+beschreibt eine modulare, von der Hardware unabhängige, Softwareplattform. Gegründet wurde die \ac{OSGi}-Alliance von 15 Gründungsmitgliedern im Jahre 1999,
+wobei der Fokus damals auf der Spezifikation eines Java-Komponentensystems für Smart Home Gateways lag \cite{heise_osgi}.
+Mittlerweile hat sich der Fokus geändert. Die aktuellste Version der Spezifikationen ist derzeit das \ac{OSGi}-Release 6 (R6). 
+\glqq Die Spezifikationen umfassen nicht nur den Enterprise-Markt, sondern auch Smart Home, Telematik und Mobile. In Zeiten einer zunehmenden Industrieverflechtung und Anforderungen
+an End-To-End-Lösungen wird die Relevanz der \ac{OSGi}-Spezifikationen - von der standardisierten modularen Ausführungsumgebung und vielfältigen Schnittstellen über
+eine Geräteabstraktion und eine Entwicklungsumgebung für Anwendungen bis hin zu Cloud-Architekturen für PaaS und SaaS - deutlich\grqq\ \cite{osgi_iot_und_mobile}.
+In vielen Bereichen der Informatik, besonders bei kommerziellen Produkten, herrscht eine starke Heterogenität.
+\ac{OSGi} unterstützt die Entwicklung von Anwendungen und Frameworks für End-To-End-Lösungen, in Gebieten, in denen eine hohe Flexibilität und Diversität vorherrscht.
+Durch den hohen Grad an Modularisierung beim Einsatz von \ac{OSGi} können Teile der Software leicht ausgetauscht, beziehungsweise neue Funktionalitäten einfach implementiert werden.
+Dies führt zu einer sehr hohen Anpassungsfähigkeit der \ac{OSGi}-Plattform.\\
+
+Neben der Spezifikation gibt es die konkreten Implementierungen in Form mehrerer \ac{OSGi}-Plattformen. Mehrere kommerzielle Hersteller und verschiedene Open-Source-Projekte bieten
+Implementierungen der Plattform an.
+Das Ziel dieser Arbeit besteht darin, die Herausforderungen und Probleme der Softwareverteilung für \ac{OSGi}-basierte Gateways zu identifizieren und zu lösen.
+Als Grundlage dieser Untersuchung dient das auf \ac{OSGi}-basierende Framework OpenMUC\footnote{Projektwebseite OpenMUC: \url{https://www.openmuc.org/}}. Dabei handelt es sich um ein Gatway zur Überwachung, Protokollierung und Steuerung von vernetzten Systemen.
+Genutzt wird das Framework derzeit schwerpunktmäßig im Bereich der intelligenten Energienetze. Die Modularität der Plattform erlaubt aber einen Einsatz in allen \ac{IoT}-Domänen.
+Im Weiteren werden verschiedene Werkzeuge der Softwareverteilung für \ac{OSGi}-basierte Anwendungen und Frameworks analysiert und ausgewertet. 
+Die vielversprechendste Technologie wird anschließend prototypisch in OpenMUC integriert. 
+Mit Hilfe zweier Teststellungen wird die Arbeit evaluiert und weitere Erkenntnis gewonnen.
+
+
+\section{Problemstellung}
+\label{sec:Problemstellung}
+Auf der Basis von \ac{OSGi} lassen sich modularisierte Anwendungen entwickeln, welche die stark variierenden Anforderungen, die an \ac{IoT}-Gateways gestellt werden, erfüllen können.
+Die Modularisierung erfolgt dabei über sogennante Bundles. Bei einem Bundle handelt es sich um eine erweiterbare und herunterladbare Anwendung \cite{osgi_r6}.
+Auch Drittparteien erhalten die Möglichkeit, Bundles zu erstellen, um neue Funktionen in ein Gateway zu integrieren.
+Ein Problem dabei ist jedoch die Installation und Wartung eines Bundles. Im Fall von OpenMUC wird das Framework als Archiv, bestehend aus mehreren Bundles und Dateien zur Konfiguration,
+bereitgestellt. Änderungen in Teilen z.B. in einem Bundle führen zu einer neuen Version des gesamten Frameworks.
+Es ist momentan nicht ohne Weiteres möglich, Updates einzelner Bundles durchzuführen, oder laufende Installationen mit neuen Bundles und Updates zu versorgen.
+Dies sind jedoch elementare Anforderungen an ein \ac{IoT}-Gateway.
+Vor allem dann, wenn mehr als ein Gateway betrieben wird und die Sensoren und Aktoren von Installation zu Installation stark variieren. 
+Wünschenswert ist es, dass die Konfiguration der Gateways und die für die Aufgabe benötigten Bundles an einer zentralen Stelle verwaltet, automatisch verteilt und aktualisiert werden können. 
+Die Einführung einer zentralen Management- und Software-Deployment-Komponente führt zu weiteren Anforderungen im Bereich Sicherheit und Verfügbarkeit.
+
+\section{Ziel der Arbeit}
+\label{sec:ziel}
+Das Ziel der Arbeit besteht darin, eine Komponente zur Verteilung von Software in das OpenMUC-Framework zu integrieren. 
+Um dieses Ziel zu erreichen und das in \autoref{sec:Problemstellung} skizzierte Problem zu lösen, müssen Antworten auf folgende Fragen gefunden werden:
+
+\begin{description}
+ \item[Forschungsfrage 1:] Welche etablierten Open-Source-Werkzeuge für die Softwareverteilung existieren im Umfeld von \ac{OSGi}?
+ \item[Forschungsfrage 2:] Welche Eigenschaften, Vorteile und Nachteile haben die in \textit{Forschungsfrage 1} gefundenen Lösungen?
+ \item[Forschungsfrage 3:] Was sind typische und zukünftige Einsatzszenarien für OpenMUC und welche Anforderungen in Bezug auf die Softwareverteilung ergeben sich daraus?
+ \item[Forschungsfrage 4:] Welches der in \textit{Forschungsfrage 1 und 2} ermittelten und untersuchten Werkzeuge ist für die Aufgabenstellung von OpenMUC am geeignetsten?
+ \item[Forschungsfrage 5:] Welche Anpassungen am OpenMUC-Framework sind notwendig, um das in den vorangegangenen Forschungsfragen evaluierte Werkzeug zu integrieren?
+ \item[Forschungsfrage 6:] Erweitert die Integration eines Werkzeuges zur Softwareverteilung die Modularität und die Flexibilität des OpenMUC-Frameworks und erleichtert dies
+ den Einsatz in weiteren \ac{IoT}-Domänen?
+\end{description}
+
+Um Antworten auf diese Forschungsfragen zu finden, werden zunächst gängige Werkzeuge zur Softwareverteilung untersucht und bewertet.
+Im Anschluss daran erfolgt anhand der Erkenntnisse aus \textit{Forschungsfrage 4} eine prototypische Implementierung.
+Die erste Implementierung und Integration in OpenMUC erfolgt im Rahmen einer Teststellung aus dem Bereich der intelligenten Energienetze.
+Anhand dieser Teststellung sollen erste Erkenntnisse gewonnen werden, wie das Werkzeug in das Framework integriert werden kann und welche Anpassungen dafür notwendig sind.
+Die zweite Teststellung findet ihre Anwendung innerhalb der \ac{IoT}-Domäne Smart-Home und dient zur Evaluierung von \textit{Forschungsfrage 6}.
+Zu diesem Zweck wird im Rahmen der Teststellung eine typische Routine im Smart-Home-Labor der \ac{HFU} abgebildet und im Vergleich mit dem dort zum Einsatz
+kommenden openHAB\footnote{Projektwebseite openHAB: \url{https://www.openhab.org/}} bewertet.
+Im folgenden Abschnitt wird der Aufbau der Arbeit und das weitere Vorgehen während der Bearbeitung aufgezeigt.
+
+\section{Aufbau und Vorgehen}
+Das Vorgehen zur Beantwortung der Forschungsfragen ist in \autoref{fig:work_composition} zu sehen.
+Im Anschluss an dieses Kapitel folgt, ausgehend von der Recherche, ein Kapitel zu den Grundlagen dieser Arbeit.
+Dort wird zum einen das Ergebnis der Literaturrecherche vorgestellt und zum anderen die Grundlagen 
+der \ac{OSGi}-Plattform, des Softwareverteilungsprozesses und des OpenMUC-Frameworks dargelegt.
+Außerdem werden verschiedene Sicherheitsaspekte in Bezug auf die Softwareverteilung erörtert.\\
+
+In \autoref{cha:evaluation} wird die durchgeführte Evaluation der Werkzeuge eingehend beschrieben.
+Die zu Beginn recherchierten Werkzeuge werden auf ihre Stärken, Schwächen und Eigenschaften hin untersucht.
+Daraufhin wird anhand verschiedener Quellen ein Kriterienkatalog erstellt und die Werkzeuge werden mithilfe dieser Kriterien bewertet.
+Abgeschlossen wird \autoref{cha:evaluation} mit der Auswahl des am besten geeigneten Werkzeuges mittels einer Entscheidungsmatrix.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[scale=0.19]{../02.Diagramme/work_composition_v4.png}%width=\textwidth
+ \caption{Vorgehen zur Beantwortung der Forschungsfragen}
+ \label{fig:work_composition}
+\end{figure}
+
+
+In \autoref{cha:prototype} wird ein Betriebskonzept für die Integration des Werkzeuges erarbeitet und anhand dessen ein erster Prototyp angefertigt.
+Dieser Prototyp wird im Rahmen einer Teststellung im Smart-Home-Labor der Hochschule Furtwangen getestet und mit einem etablierten 
+Gateway aus dem Bereich des Smart-Home verglichen.
+Aufgrund der gewonnen Erkenntnisse bei der Integration und der Anfertigung der Teststellung werden zum Abschluss des Kapitels 
+einige Empfehlungen zur Weiterentwicklung von OpenMUC gegeben.\\
+
+Den Abschluss dieser Arbeit bildet \autoref{cha:discussion}. Innerhalb dieses Kapitels werden die Ergebnisse, hinsichtlich der Forschungsfragen, eingehend diskutiert.
+Beendet wird das letzte Kapitel mit einem Ausblick auf weiterführende Forschungsfragen, deren Beantwortung innerhalb dieser Arbeit zu umfassend ist.\\
+
+Im nächsten Kapitel werden, basierend auf der Recherche, verwandte Arbeiten vorgestellt und die Grundlagen für 
+die weiterführenden Kapitel gelegt.
+
+
+

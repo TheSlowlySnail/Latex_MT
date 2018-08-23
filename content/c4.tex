@@ -188,6 +188,9 @@ Direktiven werden ebenfalls auf den fast gleichen Weg erstellt. Und der Name wä
 \end{figure}
 
 
+\subsection{Routing}
+Das Routing übernimmt die Aufgabe die \ac{URL} einfach darzustellen. Bei Angular handelt es sich um eine Single-Page-Application. Auch wenn hierfür nur eine einzige \ac{HTML} Seite benötigt wird, soll der User nicht alle auf nur einer Seite sehen. Die Anwendung Verteilt sich in Unterseiten. Der Inhalt wird nur durch JavaScript ausgetauscht. Um eine bestimmte seite Aufrufen zu können und sich dabei nicht durch viele Menüs klicken zu müssen, kann das Routing eingesetzt werden. Angular weiß anhand der \ac{URL} welcher Teil angezeigt werden soll.\autocite{Clow.2018} Ein Beispiel für eine solche \ac{URL} ist \textit{www.angularbeispielseite.de/unterseite}.
+
 
 
 \section{Backend}
@@ -328,13 +331,28 @@ In Abbildung \ref{fig:restresult} ist zu sehen, das man über die \ac{URL} \text
 Auch wenn es sich hierbei um nicht sensible Daten hält, ist eine Sicherheit der Daten nicht unwichtig. Dabei unterstützt der Browser, aber vor allem das Backend erfüllt die Aufgaben der Datensicherheit. Aber auch der Betreiber der Anwendung ist durch die Datenschutz-Grundverordnung dazu verpflichtet. \autocite{intersoftconsulting.2018} 
 
 \subsection{CORS}
+\ac{CORS} ist eine Möglichkeit für Browser und Anwendungen interaktiv zu kommunizieren. \autocite{Cors.2018} Warum das nötig ist, wird schnell klar wenn man sich mit der Sicherheit beschäftigt. Schädlicher Code kann mittel JavaScript so eingeschoben werden das der User das nicht mitbekommt. Deswegen greift hier \ac{SOP} ein. \ac{SOP} verbietet eine solche Kommunikation. \autocite{Mozilla.2018} Eine Möglichkeit doch zu kommunizieren bietet \ac{CORS} dabei muss genau angegeben wer Kommunizieren darf und was kommuniziert werden darf. Das geschieht in Header. Hier wird definiert um was für eine Kommunikation es sich handelt. Ein Beispiel sind Authentifizierungen oder das Versenden von \ac{JSON} Daten. Die Kommunikation kann sich auf alle Anwender beschränken, es ist aber auch möglich Kommunikationen nur von einer fest definierten \ac{IP} zuzulassen. 
 
 \subsection{Token}
+Die Möglichkeiten sich unbefugt in ein Konto einzuwählen sind heutzutage scheinbar grenzenlos. Hier werden die Entwickler stark gefordert sichere Lösungen zu konzipieren und umzusetzen, da die Daten der User wichtig und sensibel sind. Sie müssen geschützt werden, denn der User vertraut darauf. Ein Schutz ist ein Token. Der Token ist ein sehr langer String. Dieser wird angelegt, sobald sich der User angemeldet hat. Dieser Token wird in einer Datei Temorär auf dem Endgerät des Users abgelegt. Aber auch der Server und somit die Anwendung kennen diesen Token. \autocite{StiftungWarentest.2015} Warum ist ein Token nun nötig und warum reichen die LogIn Daten nicht aus? Ist der User eingeloggt, kann eine Fremde Person sich als diese ausgeben und benötigt nicht das Passwort. Was sie allerdings benötigt ist den Token. Dieser ist sehr kryptisch und lange. Ein Programm diesen String erraten zu lassen ist fast unmöglich und würde bei den vielen verschieden Kombinationen, mit heutiger Technik, Jahrzehnte benötigen. Ein weiterer Vorteil ist es, das der User die Seite schließen kann und bei einem neuen öffnen wieder in seiner persönlichen Umgebung befindet. Der Token wird nach einer definierten Zeit ungültig und es muss ein neuer Token generiert werden. Auch mit einem LogOut wird der Token gelöscht und ungültig.
 
 \subsection{Salt}
+Regestriert sich ein User in einer Anwendung oder auf einer Website, so werden seine LogIn Daten gespeichert. Damit diese nicht im Klartext einzusehen sind, werden diese gehasht. Bei dem sogenannten Hashing werden Wörter oder Passwörter in eine kryptische Zeichenkette übersetzt. In der Regel wird niemand etwas mit der Zeichenkette anfangen können. Sollte jemand unbefugt zugriff auf die Datenbank zugreifen können oder sollte der Datenbankadministrator diese Daten ungefragt einsehen wollen, so kann festgestellt werden, welche User das selbe Passwort verwenden. Denn der Hash wird bei dem gleichen Wort, auch den gleichen Hashwert haben. Die gängigste Lösung ist der sogenannte Salt (\ac{z. Dt.} Salz). Dabei bekommt der Hashwert eine zufällig generierte Zeichenkette vorangestellt. Damit wird der Hashwert ein weiteres mal Verändert. \autocite{intersoftconsultingservicesAG.2013} Identische Passwörter ähneln sich in keinster weise.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{content/pictures/passwort.png}
+	% bosch_iot_poll.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+	\caption{Alle User nutzen das Passwort "test"}
+	\label{fig:password}
+\end{figure}
 
 
 \section{Deploy}
+Deploy ist das englische Wort für bereitstellen. Und nichts anderes wird bei einem Deploy gemacht. Die Entwickelte Anwendung wird auf dem Server bereitgestellt. Dabei sind bei der Arbeit mit Frameworks Dinge zu beachten, auf diese kurz eingegangen werden soll.
 
 \subsection{Deploy in Angular}
+Ein Deploy in Angular ist ohne viel Aufwand verbunden. Mit dem Befehl \textit{ng build} wird ein dist Ordner erzeugt. Angular wandelt hierbei die TypeScript Dateien in JavaScript Dateien um. In diesem ist eine \ac{HTML} Datei und eine Optimierte JavaScript Datei. Diese Lädt man auf dem Webserver und die Anwendung läuft.
+
 \subsection{Deploy in Laravel}
+Auch wenn der Webserver \ac{PHP} Unterstützt ist ein einfaches Hochladen der Anwendung nicht die Lösung. Zwar muss sie nicht erst, wie bei Angular, die Anwendung gebaut werden, aber der Server muss so konfiguriert werden, das mit REST-Anfragen umgegangen werden kann. Bei der Konfiguration konnte für den Laravelteil trotz ausführlicher Anleitungen kein Erfolg erzielt werden. Im Grunde Funktioniert die Laravelanwendung, kann aber keine PUT, POST und DELETE Befehle entgegen nehmen. \autocite{Stauffer.2017} GET Befehle sind möglich und Methoden können ausgeführt werden. So kann die Datenbank manuell gefüllt werden. Dies ist leider nicht die Lösung für das Problem. Um die Anwendung zum laufen zu bringen ist es nötig das ein Experte sich näher mit dem Deploy beschäftigt. Auch wenn die Daten über ein \ac{FTP} Programm hochgeladen werden, ist es einfacher die Anwendung über Git zu installieren.

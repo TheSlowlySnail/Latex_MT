@@ -1,0 +1,55 @@
+\begin{table}[h!]
+ \centering
+ \caption{Entscheidungsmatrix zur Auswahl eines Werkzeuges}
+ \resizebox{\columnwidth}{!}{
+ \begin{tabular}{l|l||l|l|l|l}
+  \multicolumn{6}{l}{}\\
+  \multicolumn{6}{l}{\textbf{Entscheidungsmatrix}}\\
+  \multicolumn{6}{l}{}\\
+  \multicolumn{2}{l||}{Kriterien} & \multicolumn{4}{l}{Werkzeuge}\\
+  Nr. & Kriterium & Felix OBR & Apache ACE & Apache Karaf & Eclipse hawkBit \\
+  \toprule
+  1 & Sicherheit
+  & 4 & 3 & 1 & 3 \\
+  
+  2 & Zentrales Management
+  & 1 & 4 & 1 & 4\\
+  
+  3 & Distributionen
+  & 1 & 4 & 4 & 4\\
+  
+  4 & Ausfallsicherheit
+  & 1 & 4 & 1 & 4\\
+  
+  5 & Schnittstellen (\ac{API})
+  & 4 & 4 & 4 & 4\\
+  
+  6 &  Zielplattform OSGi
+  & 4 & 4 & 4 & 1\\
+  
+  7 & Existierende Community
+  & 4 & 4 & 4 & 4\\
+  
+  8 & Erkennbare Weiterentwicklung
+  & 1 & 3 & 4 & 2\\
+  
+  9 & Langlebiges Projekt
+  & 4 & 2 & 3 & 1\\
+  
+  10 & Flexible Wartbarkeit
+  & 4 & 3 & 1 & 3\\
+  
+  11 & Anzahl Entwickler
+  & 2 & 1 & 4 & 3\\
+  
+  \midrule
+  \midrule
+  \multicolumn{2}{r||}{$\sum$}
+  & 30 & \textbf{36} & 31 & 33 \\
+  \bottomrule
+ \end{tabular}
+ }
+ \label{tab:rating_matrix}
+\end{table}
+
+%\footnotetext{Erste Version: \url{https://mvnrepository.com/artifact/org.apache.felix/org.osgi.service.obr/1.0.0}}
